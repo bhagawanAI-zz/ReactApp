@@ -4,6 +4,8 @@ import { Dimensions } from 'react-native'
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator, HeaderTitle } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import { FontAwesome5 } from '@expo/vector-icons';
+/* screens path */
 import Login from './src/components/Auth/Login';
 import Profile from './src/components/DrawerScreens/UserDetails/Profile';
 import EditProfile from './src/components/DrawerScreens/UserDetails/EditProfile';
@@ -21,16 +23,24 @@ import PostSession from './src/components/StackScreens/PostSession';
 import Session from './src/components/StackScreens/Session';
 import SessionPlayer from './src/components/StackScreens/SessionPlayer';
 import Use from './src/components/StackScreens/Use';
-import { FontAwesome5 } from '@expo/vector-icons';
 import SideMenu from './src/components/DrawerNav/sideBar';
-
+import Registration from './src/components/Auth/Register';
+import Welcome from './src/components/Auth/Welcome';
 
  const Stackscreens = createStackNavigator({
  
-      Login         : { 
-                      screen : Login,
-                      navigationOptions: { headerShown : false } 
+      Welcome       : { 
+                       screen : Welcome,
+                       navigationOptions: { headerShown : false } 
                       },
+      Login         : { 
+                       screen : Login,
+                       navigationOptions: { headerShown : false } 
+                      },
+      Registration  : {
+                       screen : Registration,
+                       navigationOptions: { headerShown : false }  
+                      },                
       Home          : { 
                       screen : Home,
                       navigationOptions : ({ navigation }) => ({
@@ -55,7 +65,7 @@ import SideMenu from './src/components/DrawerNav/sideBar';
 
     },
     {
-      initialRouteName : "Login"
+      initialRouteName : "Welcome"
     });
 
 
