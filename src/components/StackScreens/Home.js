@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
+
 const Home = ({ navigation }) => {
     return(
         <View style={{ justifyContent:'center',alignItems:'center' }}>
@@ -22,8 +23,11 @@ const Home = ({ navigation }) => {
                             onPress={()=>navigation.navigate("Use")}>
                <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>Use</Text>
           </TouchableOpacity> 
+      
         </View>
     )
 }
 
 export default Home;
+
+
