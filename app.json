@@ -19,6 +19,14 @@
     "ios": {
       "supportsTablet": true
     },
+    "android": {
+      "package": "com.somalife",
+      "config":{
+        "googleMaps":{
+               "apiKey":"AIzaSyCNShIPExPr3J0MYwyNaWZGiqu_-_qHwxI"
+        }
+      }
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     }
