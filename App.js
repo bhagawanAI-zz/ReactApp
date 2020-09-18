@@ -7,6 +7,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import BottomTabBar from "react-navigation-selective-tab-bar";
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 
 /* screens path */
@@ -30,64 +31,68 @@ import Use from './src/components/StackScreens/Use';
 import SideMenu from './src/components/DrawerNav/sideBar';
 import Registration from './src/components/Auth/Register';
 import Welcome from './src/components/Auth/Welcome';
+import Meditation from './src/components/StackScreens/Learn/Meditation';
+import Breathwork from './src/components/StackScreens/Learn/Breathwork';
+import SDMeditation from './src/components/StackScreens/Learn/SDMeditation';
+import SoundHealing from './src/components/StackScreens/Learn/SoundHealing';
 
 
 
-// const HomeScreen = createStackNavigator({
-//   Home :  {
-//     screen : Home,
-//   }   
-// })
+const HomeScreen = createStackNavigator({
+  Home :  {
+    screen : Home,
+  }   
+})
 
-// const DomeScreen = createStackNavigator({
-//   Dome : {
-//     screen : Dome,  
-//  }  
-// })
+const DomeScreen = createStackNavigator({
+  Dome : {
+    screen : Dome,  
+ }  
+})
 
-// const LearnScreen = createStackNavigator({
-//   Learn : {
-//     screen : Learn,
-//   }
-// })
+const LearnScreen = createStackNavigator({
+  Learn : {
+    screen : Learn,
+  }
+})
 
-// const UseScreen = createStackNavigator({
-//   Use : {
-//     screen : Use,
-// } 
-// })
+const UseScreen = createStackNavigator({
+  Use : {
+    screen : Use,
+} 
+})
 
-// const CommunityScreen = createStackNavigator({
-//   Community : {
-//     screen : Community,
-// }, 
-// })
+const CommunityScreen = createStackNavigator({
+  Community : {
+    screen : Community,
+}, 
+})
 
-// const MoreScreen = createStackNavigator({
-//   More : {
-//     screen : SideMenu
-//  }
-// })
+const MoreScreen = createStackNavigator({
+  More : {
+    screen : SideMenu
+ }
+})
 
 
 export const bottomTabs = createBottomTabNavigator({
   Home :  {
-      screen : Home,
+      screen : HomeScreen,
   },
   Dome : {
-     screen : Dome,
+     screen : DomeScreen,
   },
   Learn : {
-    screen : Learn,
+    screen : LearnScreen,
   },
   Use : {
-      screen : Use,
+      screen : UseScreen,
   },
   Community : {
-      screen : Community,
+      screen : CommunityScreen,
   },
   More : {
-     screen : SideMenu
+     screen : MoreScreen
   }
 },{
    initialRouteName : 'Home',
@@ -144,10 +149,26 @@ export const bottomTabs = createBottomTabNavigator({
       })
 
 
+      const LearnTabs = createMaterialTopTabNavigator({
+         Meditation:{
+           Screen : Meditation
+         },
+         Breathwork:{
+           Screen : Breathwork
+         },
+         SomaDomeMeditation:{
+           Screen : SDMeditation
+         },
+         SoundHealing:{
+           Screen : SoundHealing
+         }
+       }) 
+
+
   const Drawerscreens = createDrawerNavigator({
 
       Stackscreens : { screen : Stackscreens },
-   
+      
      },
      {
         contentComponent : props => <SideMenu {...props}/>,
