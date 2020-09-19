@@ -4,10 +4,10 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 
 /* imported js files here */
-import Meditation from './Learn/Meditation';
-import Breathwork from './Learn/Breathwork';
-import SDMeditation from './Learn/SDMeditation';
-import SoundHealing from './Learn/SoundHealing';
+// import Meditation from './Learn/Meditation';
+// import Breathwork from './Learn/Breathwork';
+// import SDMeditation from './Learn/SDMeditation';
+// import SoundHealing from './Learn/SoundHealing';
 
 
 

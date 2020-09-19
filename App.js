@@ -31,10 +31,10 @@ import Use from './src/components/StackScreens/Use';
 import SideMenu from './src/components/DrawerNav/sideBar';
 import Registration from './src/components/Auth/Register';
 import Welcome from './src/components/Auth/Welcome';
-import Meditation from './src/components/StackScreens/Learn/Meditation';
-import Breathwork from './src/components/StackScreens/Learn/Breathwork';
-import SDMeditation from './src/components/StackScreens/Learn/SDMeditation';
-import SoundHealing from './src/components/StackScreens/Learn/SoundHealing';
+// import Meditation from './src/components/StackScreens/Learn/Meditation';
+// import Breathwork from './src/components/StackScreens/Learn/Breathwork';
+// import SDMeditation from './src/components/StackScreens/Learn/SDMeditation';
+// import SoundHealing from './src/components/StackScreens/Learn/SoundHealing';
 
 
 
@@ -149,20 +149,20 @@ export const bottomTabs = createBottomTabNavigator({
       })
 
 
-      const LearnTabs = createMaterialTopTabNavigator({
-         Meditation:{
-           Screen : Meditation
-         },
-         Breathwork:{
-           Screen : Breathwork
-         },
-         SomaDomeMeditation:{
-           Screen : SDMeditation
-         },
-         SoundHealing:{
-           Screen : SoundHealing
-         }
-       }) 
+      // const LearnTabs = createMaterialTopTabNavigator({
+      //    Meditation:{
+      //      Screen : Meditation
+      //    },
+      //    Breathwork:{
+      //      Screen : Breathwork
+      //    },
+      //    SomaDomeMeditation:{
+      //      Screen : SDMeditation
+      //    },
+      //    SoundHealing:{
+      //      Screen : SoundHealing
+      //    }
+      //  }) 
 
 
   const Drawerscreens = createDrawerNavigator({
