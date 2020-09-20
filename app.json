@@ -17,7 +17,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.somalife",
+      "config":{
+        "googleMapsApiKey":"AIzaSyCNLa0ZdqanRbAz-xzZapoS9mOEUyj51b4"
+      }
     },
     "android": {
       "package": "com.somalife",
