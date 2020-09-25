@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
-import { View, Text,TouchableOpacity,TextInput } from 'react-native'
+import { View, Text,TouchableOpacity,TextInput,Image } from 'react-native'
 
 const Login = ({ navigation }) => {
   const [ username, setusername ] = useState('')
   const [ password, setpassword ] = useState('')
   
     return(
+      
         <View style={{ justifyContent:'center',alignItems:'center',marginTop:'30%' }}>
           <Text style={{ fontSize:30,fontWeight:'bold' }}>Login Screen</Text>
           
@@ -25,6 +26,7 @@ const Login = ({ navigation }) => {
                <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>Login</Text>
           </TouchableOpacity>  
         </View>
+      
     )
 }
 
