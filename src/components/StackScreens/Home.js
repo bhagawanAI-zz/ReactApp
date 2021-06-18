@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import {Text, TouchableOpacity ,SafeAreaView} from 'react-native'
 
 
 const Home = ({ navigation }) => {
     return(
-        <View style={{ justifyContent:'center',alignItems:'center' }}>
-          <Text style={{ fontSize:30,fontWeight:'bold' }}>Home Screen</Text>
+        <SafeAreaView style={{ justifyContent:'center',alignItems:'center' }}>
+          <Text adjustsFontSizeToFit numberOfLines={2} style={{ fontSize:30,fontWeight:'bold',marginTop:30 }}>Home Screen</Text>
 
           <TouchableOpacity style={{ height:50,width:150,backgroundColor:'black',marginTop:'10%' }}
                             onPress={()=>navigation.navigate("Dome")}>
@@ -24,7 +24,7 @@ const Home = ({ navigation }) => {
                <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>Use</Text>
           </TouchableOpacity> 
       
-        </View>
+        </SafeAreaView>
     )
 }
 

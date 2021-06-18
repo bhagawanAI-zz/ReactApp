@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
-import { View, Text,TouchableOpacity,TextInput } from 'react-native'
+import { SafeAreaView, Text,TouchableOpacity,TextInput } from 'react-native'
 
 const Login = ({ navigation }) => {
   const [ username, setusername ] = useState('')
   const [ password, setpassword ] = useState('')
   
     return(
-        <View style={{ justifyContent:'center',alignItems:'center',marginTop:'30%' }}>
+        <SafeAreaView style={{ justifyContent:'center',alignItems:'center',marginTop:'30%' }}>
           <Text style={{ fontSize:30,fontWeight:'bold' }}>Login Screen</Text>
           
               <Text style={{ alignSelf:"flex-start",marginLeft:'16%',marginTop:'6%' }}>Username</Text>  
@@ -24,7 +24,7 @@ const Login = ({ navigation }) => {
                             onPress={()=>navigation.navigate("Home")}>
                <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>Login</Text>
           </TouchableOpacity>  
-        </View>
+        </SafeAreaView>
     )
 }
 
