@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView, Alert, Dimensions, StyleSheet,TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView, Alert, Dimensions, StyleSheet,TextInput ,SafeAreaView} from 'react-native'
 
 
 export default class SideBar extends Component {
@@ -67,8 +67,8 @@ export default class SideBar extends Component {
 
   render() {
     return (
-           <View>
-                <View style={{borderBottomColor:'#f2f2f2',borderBottomWidth:1}}/>
+           <SafeAreaView style={{marginTop:10}}>
+                <SafeAreaView style={{borderBottomColor:'#f2f2f2',borderBottomWidth:1}}/>
                 <ScrollView>
                     <TouchableOpacity style={[styles.touchStyle,{ backgroundColor: this.state.bool0 == true ? "#800000" :'white' }]}
                                       onPress={this.renderBool0}>
@@ -106,7 +106,7 @@ export default class SideBar extends Component {
                     </TouchableOpacity>
                     <View style={{borderBottomColor:'#f2f2f2',borderBottomWidth:1}}/>
             </ScrollView>
-        </View>
+        </SafeAreaView>
          
     );
   }
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     },
     textStyles:{
       textAlign:'center',
-      paddingTop:12
+      paddingTop:12,
+      margin:12
     }
   })

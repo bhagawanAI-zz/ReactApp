@@ -1,12 +1,11 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 const About = () => {
     return(
-        <View style={{ justifyContent:'center',alignItems:'center' }}>
+        <SafeAreaView style={{ justifyContent:'center',alignItems:'center' }}>
           <Text style={{ fontSize:30,fontWeight:'bold' }}>About Screen</Text>
-        </View>
+        </SafeAreaView>
     )
 }
-
 export default About;
