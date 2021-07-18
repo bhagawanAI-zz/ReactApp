@@ -1,16 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { Dimensions } from 'react-native'
-import { createAppContainer,createSwitchNavigator } from 'react-navigation';
+import { Dimensions } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator, HeaderTitle } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import BottomTabBar from "react-navigation-selective-tab-bar";
-
+import BottomTabBar from 'react-navigation-selective-tab-bar';
 
 /* screens path */
 import Login from './src/components/Auth/Login';
+import Registration from './src/components/Auth/Register';
 import Profile from './src/components/DrawerScreens/UserDetails/Profile';
 import EditProfile from './src/components/DrawerScreens/UserDetails/EditProfile';
 import About from './src/components/DrawerScreens/About';
@@ -28,21 +28,22 @@ import Session from './src/components/StackScreens/Session';
 import SessionPlayer from './src/components/StackScreens/SessionPlayer';
 import Use from './src/components/StackScreens/Use';
 import SideMenu from './src/components/DrawerNav/sideBar';
-import Registration from './src/components/Auth/Register';
 import Welcome from './src/components/Auth/Welcome';
 
-
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
+import StartupScreen from './src/components/StartupScreen';
 
 // const HomeScreen = createStackNavigator({
 //   Home :  {
 //     screen : Home,
-//   }   
+//   }
 // })
 
 // const DomeScreen = createStackNavigator({
 //   Dome : {
-//     screen : Dome,  
-//  }  
+//     screen : Dome,
+//  }
 // })
 
 // const LearnScreen = createStackNavigator({
@@ -54,13 +55,13 @@ import Welcome from './src/components/Auth/Welcome';
 // const UseScreen = createStackNavigator({
 //   Use : {
 //     screen : Use,
-// } 
+// }
 // })
 
 // const CommunityScreen = createStackNavigator({
 //   Community : {
 //     screen : Community,
-// }, 
+// },
 // })
 
 // const MoreScreen = createStackNavigator({
@@ -69,106 +70,106 @@ import Welcome from './src/components/Auth/Welcome';
 //  }
 // })
 
-
-export const bottomTabs = createBottomTabNavigator({
-  Home :  {
-      screen : Home,
+export const bottomTabs = createBottomTabNavigator(
+  {
+    Home: {
+      screen: Home,
+    },
+    Dome: {
+      screen: Dome,
+    },
+    Learn: {
+      screen: Learn,
+    },
+    Use: {
+      screen: Use,
+    },
+    Community: {
+      screen: Community,
+    },
+    More: {
+      screen: SideMenu,
+    },
   },
-  Dome : {
-     screen : Dome,
-  },
-  Learn : {
-    screen : Learn,
-  },
-  Use : {
-      screen : Use,
-  },
-  Community : {
-      screen : Community,
-  },
-  More : {
-     screen : SideMenu
+  {
+    initialRouteName: 'Home',
+    tabBarComponent: (props) => {
+      return (
+        <BottomTabBar
+          {...props}
+          display={['Dome', 'Learn', 'Use', 'Community', 'More']}
+        />
+      );
+    },
   }
-},{
-   initialRouteName : 'Home',
-   tabBarComponent : props => {
-     return(
-       <BottomTabBar {...props} display={['Dome','Learn','Use','Community','More']}  />
-     )
-   } 
-   
-
-})
+);
 
 // ({ navigation }) => ({
 //   headerLeft : ()=> <FontAwesome5 name="bars" color="black" style={{ paddingLeft:16 }} size={20} onPress={navigation.openDrawer}/>
 // })
 
- const Stackscreens = createStackNavigator({
- 
-                      
-      HomeScreen          : { 
-                        screen : bottomTabs,
-                        navigationOptions : { headerShown : false }
-                      },
-                      
-      Intentions    : { screen : Intentions },
-      PostSession   : { screen : PostSession },
-      Session       : { screen : Session },
-      SessionPlayer : { screen : SessionPlayer },
-      EditProfile   : { screen : EditProfile },
-      Profile       : { screen : Profile },
-      About         : { screen : About },
-      Help          : { screen : Help },
-      PurchaseDome  : { screen : PurchaseDome },
-      Settings      : { screen : Settings  },
-      Subscription  : { screen : Subscription }, 
+const Stackscreens = createStackNavigator({
+  HomeScreen: {
+    screen: bottomTabs,
+    navigationOptions: { headerShown: false },
+  },
 
-    });
+  Intentions: { screen: Intentions },
+  PostSession: { screen: PostSession },
+  Session: { screen: Session },
+  SessionPlayer: { screen: SessionPlayer },
+  EditProfile: { screen: EditProfile },
+  Profile: { screen: Profile },
+  About: { screen: About },
+  Help: { screen: Help },
+  PurchaseDome: { screen: PurchaseDome },
+  Settings: { screen: Settings },
+  Subscription: { screen: Subscription },
+});
 
+const Auth = createStackNavigator({
+  Welcome: {
+    screen: Welcome,
+    navigationOptions: { headerShown: false },
+  },
+  Login: {
+    screen: Login,
+    navigationOptions: { headerShown: false },
+  },
+  Registration: {
+    screen: Registration,
+    navigationOptions: { headerShown: false },
+  },
+});
 
-
-    const Auth = createStackNavigator({
-        Welcome       : { 
-                           screen : Welcome,
-                           navigationOptions: { headerShown : false } 
-                        },
-        Login         : { 
-                           screen : Login,
-                           navigationOptions: { headerShown : false } 
-                        },
-        Registration  : {
-                           screen : Registration,
-                           navigationOptions: { headerShown : false }  
-                        },
-      })
-
-
-  const Drawerscreens = createDrawerNavigator({
-
-      Stackscreens : { screen : Stackscreens },
-   
-     },
-     {
-        contentComponent : props => <SideMenu {...props}/>,
-        drawerBackgroundColor:'white',
-        drawerPosition: "left",
-        drawerWidth: Dimensions.get("window").width * 0.7,
-     });
-
-  const AppContainer = createAppContainer(
-                              createSwitchNavigator({
-                                 AuthStack :  Auth , 
-                                 AppStack  :  Drawerscreens
-                              })
-     );
-
-  class App extends Component{
-      render(){
-        return(
-              <AppContainer/>
-        )
-      }
+const Drawerscreens = createDrawerNavigator(
+  {
+    Stackscreens: { screen: Stackscreens },
+  },
+  {
+    contentComponent: (props) => <SideMenu {...props} />,
+    drawerBackgroundColor: 'white',
+    drawerPosition: 'left',
+    drawerWidth: Dimensions.get('window').width * 0.7,
   }
+);
 
- export default App;
+const AppContainer = createAppContainer(
+  createSwitchNavigator({
+    Startup: StartupScreen,
+    AuthStack: Auth,
+    AppStack: Drawerscreens,
+  })
+);
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    );
+  }
+}
+
+export default App;
