@@ -10,7 +10,6 @@ import BottomTabBar from 'react-navigation-selective-tab-bar';
 
 /* screens path */
 import Login from './src/components/Auth/Login';
-import Registration from './src/components/Auth/Register';
 import Profile from './src/components/DrawerScreens/UserDetails/Profile';
 import EditProfile from './src/components/DrawerScreens/UserDetails/EditProfile';
 import About from './src/components/DrawerScreens/About';
@@ -28,11 +27,16 @@ import Session from './src/components/StackScreens/Session';
 import SessionPlayer from './src/components/StackScreens/SessionPlayer';
 import Use from './src/components/StackScreens/Use';
 import SideMenu from './src/components/DrawerNav/sideBar';
+import Registration from './src/components/Auth/Register';
 import Welcome from './src/components/Auth/Welcome';
-
-import { Provider } from 'react-redux';
-import store from './src/redux/store';
-import StartupScreen from './src/components/StartupScreen';
+import Creative from './src/components/StackScreens/Creative';
+import MusicApp from './src/components/Common/MusicPlayer';
+import Clarity from './src/components/StackScreens/Clarity';
+import PairDome from './src/components/StackScreens/PairDome';
+import Pay from './src/components/StackScreens/Pay';
+import SeassionStart from './src/components/StackScreens/SeassionStart';
+import More from './src/components/StackScreens/More';
+import TermsServices from './src/components/DrawerScreens/TermsServices';
 
 // const HomeScreen = createStackNavigator({
 //   Home :  {
@@ -125,6 +129,14 @@ const Stackscreens = createStackNavigator({
   PurchaseDome: { screen: PurchaseDome },
   Settings: { screen: Settings },
   Subscription: { screen: Subscription },
+  Creative: { screen: Creative },
+  MusicApp: { screen: MusicApp },
+  Clarity: { screen: Clarity },
+  PairDome: { screen: PairDome },
+  Pay: { screen: Pay },
+  SeassionStart: { screen: SeassionStart },
+  More: { screen: More },
+  TermsServices: { screen: TermsServices },
 });
 
 const Auth = createStackNavigator({
