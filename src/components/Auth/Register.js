@@ -38,9 +38,9 @@ const registerSchema = yup.object({
     ),
 });
 
-const Registration = (props) => {
+const Registration = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   const [initialForm, setInitialForm] = useState({
@@ -62,7 +62,7 @@ const Registration = (props) => {
           formState.username
         )
       );
-      props.navigation.navigate(''); // screen name to navigate on success
+      navigation.navigate(''); // screen name to navigate on success
     } catch (err) {
       setError(err.message);
     }
@@ -75,6 +75,11 @@ const Registration = (props) => {
       Alert.alert('An Error Occured!', error, [{ text: 'Okay' }]);
     }
   }, [error]);
+
+  useEffect(() => {
+    setFormState(initialForm);
+    setError();
+  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -191,19 +196,19 @@ const Registration = (props) => {
                             />
                           )}
                         </View>
+                        <View style={styles.buttonContainer}>
+                          <Button
+                            title='SWITCH TO LOGIN'
+                            color={Colors.primary}
+                            onPress={() => {
+                              props.handleReset();
+                              navigation.navigate('Login');
+                            }}
+                          />
+                        </View>
                       </View>
                     )}
                   </Formik>
-                  <View style={styles.buttonContainer}>
-                    <Button
-                      title='SWITCH TO LOGIN'
-                      color={Colors.primary}
-                      onPress={() => {
-                        props.navigation.navigate('Login');
-                        setFormState(initialForm);
-                      }}
-                    />
-                  </View>
                 </View>
               </ScrollView>
             </Card>
@@ -233,9 +238,12 @@ const styles = StyleSheet.create({
     // height: '50%',
     maxHeight: 400,
     padding: 20,
+    // paddingRight: 20,
+    // paddingTop: 20,
+    // paddingBottom: 0,
   },
   buttonContainer: {
-    marginTop: 10,
+    marginTop: 5,
   },
   image: {
     flex: 1,
@@ -250,12 +258,12 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingHorizontal: 2,
-    paddingVertical: 5,
+    paddingVertical: 2,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
   },
   errorContainer: {
-    marginVertical: 5,
+    marginVertical: -2,
   },
   errorText: {
     // fontFamily: 'open-sans',
