@@ -7,6 +7,8 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import BottomTabBar from 'react-navigation-selective-tab-bar';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
 
 /* screens path */
 import Login from './src/components/Auth/Login';
@@ -37,7 +39,7 @@ import Pay from './src/components/StackScreens/Pay';
 import SeassionStart from './src/components/StackScreens/SeassionStart';
 import More from './src/components/StackScreens/More';
 import TermsServices from './src/components/DrawerScreens/TermsServices';
-
+import StartupScreen from './src/components/StartupScreen';
 // const HomeScreen = createStackNavigator({
 //   Home :  {
 //     screen : Home,
