@@ -13,18 +13,18 @@ const StartupScreen = (props) => {
     const tryLogin = async () => {
       const userData = await AsyncStorage.getItem('userData');
       if (!userData) {
-        props.navigation.navigate('Login');
+        props.navigation.navigate('Welcome');
         return;
       }
       const transformedData = JSON.parse(userData);
       const { token, userId } = transformedData;
 
       if (!token || !userId) {
-        props.navigation.navigate('Login');
+        props.navigation.navigate('Welcome');
         return;
       }
 
-      props.navigation.navigate('Welcome'); // navigate to the page you want to open post success
+      props.navigation.navigate('Home'); // navigate to the page you want to open post success
       dispatch(authActions.authenticate(userId, token));
     };
 

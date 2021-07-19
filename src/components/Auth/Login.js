@@ -54,8 +54,9 @@ const Login = (props) => {
     setIsLoading(true);
     try {
       await dispatch(userActions.login(formState.email, formState.password));
-      props.navigation.navigate(''); // screen name to navigate on success
+      props.navigation.navigate('Home'); // screen name to navigate on success
     } catch (err) {
+      props.navigation.navigate('Home'); // COMMENT THIS CODE WHEN API SETUP FOR LOGIN IS WORKING
       setError(err.message);
     }
 
