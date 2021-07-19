@@ -1,17 +1,15 @@
 import React from "react";
 import {
-  SafeAreaView,
+  View,
   Text,
-  TouchableOpacity,
   StyleSheet,
   ImageBackground,
-  View,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import { material, sanFranciscoWeights } from "react-native-typography";
-import Icon from "react-native-vector-icons/FontAwesome";
 
-const PostSession = ({ navigation }) => {
+export default function SeassionStart() {
   return (
     // <SafeAreaView style={{ justifyContent:'center',alignItems:'center' }}>
     //   <Text style={{ fontSize:30,fontWeight:'bold' }}>Post Session Screen</Text>
@@ -28,44 +26,23 @@ const PostSession = ({ navigation }) => {
     >
       <View style={styles.heading}>
         <View style={{ width: 200, marginTop: 20 }}>
-          <Text style={[styles.headingtext]}>
-            {"YOUR SEASSION \n IS COMPLETE \n "}
-            <Text style={sanFranciscoWeights.bold}> HOW WAS IT?</Text>
+          <Text style={[material.headlineWhite]}>
+            {"YOUR SEASSION \n IS STARTING \n  SOON"}
           </Text>
-        </View>
-        <View style={{ width: 200, marginTop: 20, flexDirection: "row" }}>
-          <View>
-            <Icon name="heart" size={30} color="rgba(52, 52, 52, 0.8)"></Icon>
-          </View>
-          <View>
-            <Text style={[styles.paratext]}>ADD SEASSION TO FAVORITE</Text>
-          </View>
         </View>
       </View>
       <View style={styles.para1}>
-        <Text style={[styles.para1Text]}>
-          Share your moments with out community and recive special gifts from
-          Somedomes out in the world
+        <Text style={[material.headlineWhite]}>
+          It apperas you have not yet selected your session. Now is a great time
+          to get in tune with yourslef and find what resonates most in this
+          moment
         </Text>
-
-        <View>
-          <TextInput
-            style={{
-              height: 170,
-              borderWidth: 1,
-              backgroundColor: "white",
-              marginTop: 60,
-            }}
-            value=""
-            placeholder=""
-          />
-        </View>
       </View>
       <View style={styles.para2}>
         <TouchableOpacity
           style={{
             height: 50,
-            width: 150,
+            width: 190,
             backgroundColor: "rgb(37, 150, 190)",
             marginTop: "10%",
           }}
@@ -79,13 +56,13 @@ const PostSession = ({ navigation }) => {
               paddingTop: 12,
             }}
           >
-            SHARE
+            SELECT SEASSION
           </Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
   );
-};
+}
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -101,6 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 30,
     marginRight: 30,
+    marginTop: 40,
   },
   para2: {
     flex: 1,
@@ -124,5 +102,3 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
 });
-
-export default PostSession;
