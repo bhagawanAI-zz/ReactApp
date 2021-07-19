@@ -20,7 +20,7 @@ import TimeContainer from '../Common/TimeContainer';
                 
             </View>
             <View style={style.create}>
-                <Musicgrid text="Create" imagePath={imagePath}/>
+                <Musicgrid navigation={navigation} text="Create" imagePath={imagePath}/>
                 
             </View>
             <View style={style.manifest}>

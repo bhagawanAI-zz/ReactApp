@@ -18,5 +18,4 @@ const Community = ({ navigation }) => {
         </SafeAreaView>
     )
 }
-
 export default Community;
