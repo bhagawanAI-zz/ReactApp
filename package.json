@@ -20,6 +20,7 @@
     "react-native-audio-recorder-player": "^3.1.0",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-maps": "^0.28.0",
+    "react-native-paper": "^4.9.2",
     "react-native-push-notification": "^7.4.0",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "3.2.0",
