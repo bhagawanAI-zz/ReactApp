@@ -1,6 +1,7 @@
 import {
   AUTHENTICATE,
   //  LOGIN, SIGNUP
+  LOGOUT,
 } from './userActions';
 
 const initialState = {
@@ -15,6 +16,9 @@ export default (state = initialState, action) => {
         token: action.token,
         userId: action.userId,
       };
+
+    case LOGOUT:
+      return initialState;
 
     // case SIGNUP:
     //   return {

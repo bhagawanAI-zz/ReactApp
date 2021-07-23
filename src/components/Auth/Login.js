@@ -177,6 +177,12 @@ const Login = (props) => {
                         setFormState(initialForm);
                       }}
                     />
+                    <Button
+                      title='demo button'
+                      onPress={() => {
+                        props.navigation.navigate('Home');
+                      }}
+                    />
                   </View>
                 </View>
               </ScrollView>

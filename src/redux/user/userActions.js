@@ -1,6 +1,7 @@
 // export const SIGNUP = 'SIGN_UP';
 // export const LOGIN = 'LOGIN';
 export const AUTHENTICATE = 'AUTHENTICATE'; // currently this line handles both register & login
+export const LOGOUT = 'LOGOUT';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -63,6 +64,11 @@ export const login = (email, password) => {
     // here we can add token expiration logic if required by the backend
     saveDataToStorage(resData.idToken, resData.localId);
   };
+};
+
+export const Logout = () => {
+  AsyncStorage.removeItem('userData');
+  return { type: LOGOUT };
 };
 
 const saveDataToStorage = (token, userId) => {
