@@ -24,11 +24,11 @@ import TimeContainer from '../Common/TimeContainer';
                 
             </View>
             <View style={style.manifest}>
-            <Musicgrid text="Manifest" imagePath={imagePath}/>
+            <Musicgrid navigation={navigation} text="Manifest" imagePath={imagePath}/>
             </View>
         
             <View style={style.love}>
-            <Musicgrid text="Love" imagePath={imagePath}/>
+            <Musicgrid navigation={navigation} text="Love" imagePath={imagePath}/>
             
             </View>
         </View>

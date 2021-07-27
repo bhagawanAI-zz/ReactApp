@@ -1,10 +1,63 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { material } from "react-native-typography";
+import MoreCommon from "../Common/MoreCommon";
+const moreTitles = [
+  //contains Title in first index and navigate screen name in second index
+  ["PROFILE", "Profile"],
+  ["SOMADOME BOOKING", "Book"],
+  ["SUBSCRIPTION & PAYMENT", "Pay"],
+  ["PERFORMANCE", "DomePerformance"],
+  ["DOME PAIR", "PairDome"],
+  ["HELP & SUPPORT", "Help"],
+  ["TERMS & CONDITIONS", "TermsServices"],
+  ["LOGOUT", "Login"],
+];
 
-export default function More() {
+export default function More({ navigation }) {
+  console.log(navigation);
+  const NavigateHandler = (title) => {
+    navigation.navigate(title);
+  };
   return (
-    <View>
-      <Text>this is more screen </Text>
-    </View>
+    <SafeAreaView style={style.contianer}>
+      <View style={style.heading}>
+        <Text style={material.headlineWhite}>More</Text>
+      </View>
+      <View style={style.mainContent}>
+        {moreTitles.map((val, index) => {
+          return (
+            <MoreCommon
+              key={index}
+              heading={val}
+              NavigateHandler={NavigateHandler}
+            />
+          );
+        })}
+
+        {/* <MoreCommon heading={moreTitles[0]} />
+        <MoreCommon heading={moreTitles[0]} />
+        <MoreCommon heading={moreTitles[0]} />
+        <MoreCommon heading={moreTitles[0]} />
+        <MoreCommon heading={moreTitles[0]} />
+        <MoreCommon heading={moreTitles[0]} /> */}
+      </View>
+    </SafeAreaView>
   );
 }
+
+const style = StyleSheet.create({
+  contianer: { flex: 1 },
+  heading: {
+    flex: 0.2,
+    backgroundColor: "grey",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  mainContent: {
+    flex: 1,
+    marginLeft: 30,
+    marginRight: 90,
+    marginTop: 20,
+  },
+});
