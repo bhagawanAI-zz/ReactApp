@@ -13,4 +13,5 @@ const Session = ({ navigation }) => {
         </SafeAreaView>
     )
 }
+
 export default Session;
