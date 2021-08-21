@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -10,6 +10,14 @@ import Heading from "../Common/Heading";
 import { material } from "react-native-typography";
 
 export default function Pay() {
+
+  const [billingAddress,setBillingAddress]=useState({
+    street:'',
+    city:'',
+    state:'',
+    zip:''
+  })
+
   return (
     <View style={style.container}>
       {/* <View style={style.heading}>
@@ -26,49 +34,64 @@ export default function Pay() {
         <Text style={material.subheading}>
           CC 3: ****2098 Exp Date: 01/21 cvv: 373{" "}
         </Text>
+      </View>
         <View style={style.millingContainer}>
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View>
-              <Text style={material.subheading}>Street:   </Text>
-            </View>
-            <TextInput
-              style={{ height: 30, margin: 2, borderWidth: 1, width: 150 }}
-            />
-          </View>
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View>
-              <Text style={material.subheading}>City:       </Text>
-            </View>
-            <TextInput
-              style={{ height: 30, margin: 2, borderWidth: 1, width: 150 }}
-            />
-          </View>
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View>
-              <Text style={material.subheading}>State:     </Text>
-            </View>
-            <TextInput
-              style={{ height: 30, margin: 2, borderWidth: 1, width: 150 }}
-            />
-          </View>
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View>
-              <Text style={material.subheading}>Zip:         </Text>
-            </View>
-            <View>
+        <Text style={material.subheading,style.fontColor}>BILLING ADDRESS  </Text>
+          <View style={{ flexDirection: "row" }}>
+              <Text style={material.subheading,style.fontColor}>Street:   </Text>
               <TextInput
-                underlineColorAndroid="transparent"
-                style={{
-                  height: 30,
-                  margin: 2,
-                  borderWidth: 1,
-                  width: 150,
-                }}
+                          style={style.textInput}
+                          // value={formState.username}
+                          value={billingAddress.street}
+                          onChangeText={(text)=>setBillingAddress({...billingAddress,street:text})}
+                          // placeholder='Enter username'
+                          // onBlur={props.handleBlur('username')}
               />
-            </View>
+           
+          </View>
+          <View style={{flexDirection: "row" }}>
+          
+              <Text style={material.subheading,style.fontColor}>City:       </Text>
+              <TextInput
+                          style={style.textInput}
+                          // value={formState.username}
+                          value={billingAddress.city}
+                          onChangeText={(text)=>setBillingAddress({...billingAddress,city:text})}
+                          // placeholder='Enter username'
+                          // onBlur={props.handleBlur('username')}
+              />
+           
+            {/* <TextInput
+              style={{ height: 30, margin: 2, borderWidth: 1, width: 150 }}
+            /> */}
+          </View>
+          <View style={{  flexDirection: "row" }}>
+          
+              <Text style={material.subheading,style.fontColor}>State:     </Text>
+              <TextInput
+                           style={style.textInput}
+                          // value={formState.username}
+                          value={billingAddress.state}
+                          onChangeText={(text)=>setBillingAddress({...billingAddress,state:text})}
+                          // placeholder='Enter username'
+                          // onBlur={props.handleBlur('username')}
+              />
+           
+          </View>
+          <View style={{ flexDirection: "row" }}>          
+              <Text style={material.subheading,style.fontColor}>Zip:         </Text>
+              <TextInput
+                          style={style.textInput}
+                          // value={formState.username}
+                          value={billingAddress.zip}
+                          onChangeText={(text)=>setBillingAddress({...billingAddress,zip:text})}
+                          // placeholder='Enter username'
+                          // onBlur={props.handleBlur('username')}
+              />
+           
           </View>
         </View>
-      </View>
+      
       <View style={style.para3}>
         <Text style={[material.display1, { color: "rgb(37, 150, 190)" }]}>
           TOTAL: $30{" "}
@@ -115,17 +138,30 @@ const style = StyleSheet.create({
     borderBottomWidth: 1,
   },
   para2: {
-    flex: 1.5,
-    marginLeft: 40,
-    marginTop: 20,
+    flex: 1,
+    marginLeft: 50,
+    // marginTop: 5,
     justifyContent: "center",
   },
   para3: {
     flex: 1,
     alignItems: "center",
+    marginTop:40
   },
   millingContainer: {
-    marginTop: 30,
-    flex: 1,
+    // marginTop: 10,
+    marginLeft:50,
+    // flex: 1,
   },
+  fontColor:{
+    color:'#7E7E7E',
+    marginVertical:10
+  },
+  textInput:{
+    width: '60%',color:'#7E7E7E', 
+    paddingHorizontal: 2,
+    paddingVertical: 5,
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1
+  }
 });
