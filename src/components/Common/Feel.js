@@ -15,6 +15,8 @@ const Feel = ({navigation,feeling,imagePath}) => {
           <ImageBackground source={images[imagePath]} style={styles.image}>
           <TouchableOpacity  onPress={()=>navigation.navigate("Creative",{"path":imagePath})}><Text style={styles.text}>{feeling.toUpperCase()}</Text></TouchableOpacity>
           </ImageBackground>
+        
+        
         </View>
       );
 }

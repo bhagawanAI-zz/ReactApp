@@ -97,7 +97,6 @@ export const bottomTabs = createBottomTabNavigator(
     Dome: {
       screen: Dome,
       navigationOptions: {
-        tabBarLabel: "Home",
         inactiveTintColor: "white",
         activeTintColor: "#81B247",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="dome" />,
@@ -106,7 +105,6 @@ export const bottomTabs = createBottomTabNavigator(
     Learn: {
       screen: Learn,
       navigationOptions: {
-        tabBarLabel: "Home",
         activeTintColor: "white",
         inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="learn" />,
@@ -115,7 +113,6 @@ export const bottomTabs = createBottomTabNavigator(
     Use: {
       screen: Use,
       navigationOptions: {
-        tabBarLabel: "Home",
         inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="use" />,
       },
@@ -123,7 +120,6 @@ export const bottomTabs = createBottomTabNavigator(
     Community: {
       screen: Community,
       navigationOptions: {
-        tabBarLabel: "Home",
         inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="connect" />,
       },
@@ -132,7 +128,6 @@ export const bottomTabs = createBottomTabNavigator(
       // screen: SideMenu,
       screen: More,
       navigationOptions: {
-        tabBarLabel: "Home",
         inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="more" />,
       },

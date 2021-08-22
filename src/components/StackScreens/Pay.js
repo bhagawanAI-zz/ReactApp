@@ -103,7 +103,7 @@ export default function Pay() {
             backgroundColor: "rgb(37, 150, 190)",
             marginTop: "10%",
           }}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => alert("This is demo")}
         >
           <Text
             style={{
