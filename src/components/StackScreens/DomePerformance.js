@@ -8,7 +8,6 @@ const timeline = ["TODAY", "THIS WEEK", "THIS MONTH", "ALL"];
 export default function DomePerformance() {
   const [currentSelected, setCurrentSetected] = useState("clear");
   const [currentSelectedIndex, setCurrentSetectedIndex] = useState(0);
-
   return (
     <View style={style.container}>
       <View style={style.upperParth}>

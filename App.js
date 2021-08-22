@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { Dimensions } from "react-native";
+import { Dimensions, Image } from "react-native";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator, HeaderTitle } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import BottomTabBar from "react-navigation-selective-tab-bar";
 import { Provider } from "react-redux";
 import store from "./src/redux/store";
-
+import { Icon } from "react-native-elements";
 /* screens path */
 import Login from "./src/components/Auth/Login";
 import Profile from "./src/components/DrawerScreens/UserDetails/Profile";
@@ -78,6 +78,17 @@ import DomePerformance from "./src/components/StackScreens/DomePerformance";
 //  }
 // })
 
+const RenderIcon = ({ iconName }) => {
+  const images = {
+    dome: require("./assets/images/bottom/somadome.png"),
+    learn: require("./assets/images/bottom/book.png"),
+    use: require("./assets/images/bottom/Meditate.png"),
+    connect: require("./assets/images/bottom/Community.png"),
+    more: require("./assets/images/bottom/menu.png"),
+  };
+  return <Image style={{ width: 25, height: 20}} source={images[iconName]} />;
+};
+
 export const bottomTabs = createBottomTabNavigator(
   {
     Home: {
@@ -85,19 +96,39 @@ export const bottomTabs = createBottomTabNavigator(
     },
     Dome: {
       screen: Dome,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="dome" />,
+      },
     },
     Learn: {
       screen: Learn,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="learn" />,
+      },
     },
     Use: {
       screen: Use,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="use" />,
+      },
     },
     Community: {
       screen: Community,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="connect" />,
+      },
     },
     More: {
       // screen: SideMenu,
       screen: More,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="menu" />,
+      },
     },
   },
   {
