@@ -86,7 +86,7 @@ const RenderIcon = ({ iconName }) => {
     connect: require("./assets/images/bottom/Community.png"),
     more: require("./assets/images/bottom/menu.png"),
   };
-  return <Image style={{ width: 25, height: 20}} source={images[iconName]} />;
+  return <Image style={{ width: 25, height: 20 }} source={images[iconName]} />;
 };
 
 export const bottomTabs = createBottomTabNavigator(
@@ -98,6 +98,8 @@ export const bottomTabs = createBottomTabNavigator(
       screen: Dome,
       navigationOptions: {
         tabBarLabel: "Home",
+        inactiveTintColor: "white",
+        activeTintColor: "#81B247",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="dome" />,
       },
     },
@@ -105,6 +107,8 @@ export const bottomTabs = createBottomTabNavigator(
       screen: Learn,
       navigationOptions: {
         tabBarLabel: "Home",
+        activeTintColor: "white",
+        inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="learn" />,
       },
     },
@@ -112,6 +116,7 @@ export const bottomTabs = createBottomTabNavigator(
       screen: Use,
       navigationOptions: {
         tabBarLabel: "Home",
+        inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="use" />,
       },
     },
@@ -119,6 +124,7 @@ export const bottomTabs = createBottomTabNavigator(
       screen: Community,
       navigationOptions: {
         tabBarLabel: "Home",
+        inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="connect" />,
       },
     },
@@ -127,9 +133,11 @@ export const bottomTabs = createBottomTabNavigator(
       screen: More,
       navigationOptions: {
         tabBarLabel: "Home",
-        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="menu" />,
+        inactiveTintColor: "white",
+        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="more" />,
       },
     },
+    
   },
   {
     initialRouteName: "Home",
@@ -138,10 +146,16 @@ export const bottomTabs = createBottomTabNavigator(
         <BottomTabBar
           {...props}
           display={["Dome", "Learn", "Use", "Community", "More"]}
+          background="grey"
         />
       );
     },
-  }
+    tabBarOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: '#fff',
+    },
+  },
+  
 );
 
 // ({ navigation }) => ({
