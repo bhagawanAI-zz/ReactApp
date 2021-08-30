@@ -7,132 +7,64 @@ import {
   View,
   Image,
   ImageBackground,
+  PixelRatio,
+  Dimensions,
 } from "react-native";
+import { color } from "react-native-elements/dist/helpers";
 import { material } from "react-native-typography";
+
+var FONT_BACK_LABEL = 10;
+var FONT_HEADING = 15;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 8;
+  FONT_HEADING = 10;
+}
+
+const SCREEN_HEIGHT = Dimensions.get("window").height;
+const SCREEN_WIDTH = Dimensions.get("window").width;
+
+const Userdata = [
+  {
+    image: require("../../../assets/images/community/tashaFrame.png"),
+    review: `Tasha in Houston, TX just completed the, "Deep Relaxation" sound healing and says, "Magical. I can't imagine a better way to start my day. I felt like I was floating."`,
+  },
+  {
+    image: require("../../../assets/images/community/tashaFrame.png"),
+    review: `Joan in New York, NY just completed the, "Increase Energy" breathwork session.`,
+  },
+  {
+    image: require("../../../assets/images/community/markFrame.png"),
+    review: `Mark in Los Angeles, CA just completed the, "Attract Intentions" meditation and says, “I swear this works! Been doing this every day this week."`,
+  },
+];
 
 const Community = ({ navigation }) => {
   return (
-    // <SafeAreaView
-    //   style={{ justifyContent: "center", alignItems: "center", flex: 1 }}
-    // >
-    //   <Text style={{ fontSize: 30, fontWeight: "bold" }}>Community Screen</Text>
-
-    //   <TouchableOpacity
-    //     style={{
-    //       height: 50,
-    //       width: 150,
-    //       backgroundColor: "black",
-    //       marginTop: "10%",
-    //     }}
-    //     onPress={() => navigation.navigate("Intentions")}
-    //   >
-    //     <Text
-    //       style={{
-    //         fontSize: 18,
-    //         color: "white",
-    //         textAlign: "center",
-    //         paddingTop: 12,
-    //       }}
-    //     >
-    //       Go to Intentions
-    //     </Text>
-    //   </TouchableOpacity>
-
-    //   <TouchableOpacity
-    //     style={{
-    //       height: 50,
-    //       width: 150,
-    //       backgroundColor: "black",
-    //       marginTop: "10%",
-    //     }}
-    //     onPress={() => navigation.navigate("Home")}
-    //   >
-    //     <Text
-    //       style={{
-    //         fontSize: 18,
-    //         color: "white",
-    //         textAlign: "center",
-    //         paddingTop: 12,
-    //       }}
-    //     >
-    //       Go to Home
-    //     </Text>
-    //   </TouchableOpacity>
-    // </SafeAreaView>
-    <SafeAreaView style={style.contianer}>
+    <View style={style.contianer}>
       <View style={style.heading}>
-        <Text style={material.headlineWhite}>COMMUNITY</Text>
+        <Text style={[material.headlineWhite, style.text]}>COMMUNITY</Text>
       </View>
       <View style={style.ActivitySection}>
-        <Text style={[material.body2, { marginTop: 20 }]}>ACTIVITY</Text>
-        <View style={{ flex: 1, flexDirection: "row", marginTop: 10 }}>
-          <View style={{ flex: 0.3 }}>
-            <Image
-              style={style.image}
-              source={require("../../../assets/images/community/tashaFrame.png")}
-            ></Image>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              marginLeft: 20,
-              borderBottomColor: "grey",
-              borderBottomWidth: 1,
-            }}
-          >
-            <Text>
-              Tasha in Houston, TX just completed the, "Deep Relaxation" sound
-              healing and says, "Magical. I can't imagine a better way to start
-              my day. I felt like I was floating."
-            </Text>
-          </View>
-        </View>
-        <View style={{ flex: 1, flexDirection: "row" }}>
-          <View style={{ flex: 0.3 }}>
-            <Image
-              style={style.image}
-              source={require("../../../assets/images/community/sarahFrame.png")}
-            ></Image>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              marginLeft: 20,
-              borderBottomColor: "grey",
-              borderBottomWidth: 1,
-            }}
-          >
-            <Text>
-              Joan in New York, NY just completed the, "Increase Energy"
-              breathwork session.
-            </Text>
-          </View>
-        </View>
-        <View style={{ flex: 1, flexDirection: "row" }}>
-          <View style={{ flex: 0.3 }}>
-            <Image
-              style={style.image}
-              source={require("../../../assets/images/community/markFrame.png")}
-            ></Image>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              marginLeft: 20,
-              borderBottomColor: "grey",
-              borderBottomWidth: 1,
-            }}
-          >
-            <Text>
-              Mark in Los Angeles, CA just completed the, "Attract Intentions
-              meditation and says, "I swear this works! Been doing this every
-              day this week."
-            </Text>
-          </View>
-        </View>
+        <Text style={[material.body2, { marginTop: 20 }, style.text]}>
+          ACTIVITY
+        </Text>
+        {Userdata.map((item, index) => {
+          let isBorder = true;
+          if (index === Userdata.length - 1) {
+            isBorder = false;
+          }
+          return (
+            <Activity
+              key={index}
+              text={item.review}
+              imageType={item.image}
+              isBorder={isBorder}
+            />
+          );
+        })}
       </View>
       <View style={style.TopRatedSecion}>
-        <Text style={[material.subheading, { marginTop: 20 }]}>
+        <Text style={[material.subheading, { marginTop: 20,marginBottom:3 }, style.text]}>
           TOP RATED SEASSIONS THIS WEEK
         </Text>
         <View style={{ flex: 1, flexDirection: "row" }}>
@@ -142,30 +74,36 @@ const Community = ({ navigation }) => {
                 style={style.imageRound}
                 source={require("../../../assets/images/community/Layer1.png")}
               >
-                <Text style={material.captionWhite}>{"175 \nPlays"}</Text>
+                <Text style={[material.captionWhite,style.Playtext]}>{"175"}</Text>
+                <Text style={[material.captionWhite,style.Playtext]}>{"PLAYS"}</Text>
               </ImageBackground>
             </View>
-            <View style={style.flex1}>
+            <View style={[style.flex1]}>
               <View style={{ alignItems: "center" }}>
-                <Text style={material.display1}>2.</Text>
+                <Text style={[material.display1, { color: "grey" }]}>2.</Text>
               </View>
-              <Text>`DEEP RELAXATION SOUND HEALING`</Text>
+              <Text style={style.activitytext}>
+                `DEEP RELAXATION SOUND HEALING`
+              </Text>
             </View>
           </View>
           <View style={{ flex: 1, flexDirection: "column" }}>
             <View style={style.flex1}>
               <ImageBackground
-                style={style.imageRound}
+                style={style.imageRoundBig}
                 source={require("../../../assets/images/community/perform-1.png")}
               >
-                <Text style={material.captionWhite}>{"250 \nPlays"}</Text>
+                <Text style={[material.captionWhite,style.Playtext]}>{"250"}</Text>
+                <Text style={[material.captionWhite,style.Playtext]}>{"PLAYS"}</Text>
               </ImageBackground>
             </View>
-            <View style={style.flex1}>
+            <View style={[style.flex1, { marginBottom: "30%" }]}>
               <View style={{ alignItems: "center" }}>
-                <Text style={material.display1}>1.</Text>
+                <Text style={[material.display1, { color: "grey" }]}>1.</Text>
               </View>
-              <Text>`INCREASE ENERGY BREATHWORK`</Text>
+              <Text style={style.activitytext}>
+                `INCREASE ENERGY BREATHWORK`
+              </Text>
             </View>
           </View>
           <View style={{ flex: 1, flexDirection: "column" }}>
@@ -174,25 +112,54 @@ const Community = ({ navigation }) => {
                 style={style.imageRound}
                 source={require("../../../assets/images/community/perform.png")}
               >
-                <Text style={material.captionWhite}>{"123 \nPlays"}</Text>
+                <Text style={[material.captionWhite,style.Playtext]}>{"123"}</Text>
+                <Text style={[material.captionWhite,style.Playtext]}>{"PLAYS"}</Text>
               </ImageBackground>
             </View>
             <View style={style.flex1}>
               <View style={{ alignItems: "center" }}>
-                <Text style={material.display1}>3.</Text>
+                <Text style={[material.display1, { color: "grey" }]}>3.</Text>
               </View>
-              <Text>ATTRACT INTENTIONS MEDIATATION</Text>
+              <Text style={style.activitytext}>
+                ATTRACT INTENTIONS MEDIATATION
+              </Text>
             </View>
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
+
+function Activity({ text, imageType, isBorder }) {
+  let borderWidth = 1;
+  if (!isBorder) {
+    borderWidth = 0;
+  }
+
+  return (
+    <View style={{ flex: 1, flexDirection: "row", marginTop: 10 }}>
+      <View style={{ flex: 0.3 }}>
+        <Image style={style.image} source={imageType}></Image>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          marginLeft: 20,
+          borderBottomColor: "grey",
+          borderBottomWidth: borderWidth,
+        }}
+      >
+        <Text style={style.activitytext}>{text}</Text>
+      </View>
+    </View>
+  );
+}
+
 const style = StyleSheet.create({
   contianer: { flex: 1 },
   heading: {
-    flex: 0.5,
+    flex: 0.4,
     backgroundColor: "grey",
     justifyContent: "center",
     alignItems: "center",
@@ -220,11 +187,35 @@ const style = StyleSheet.create({
     resizeMode: "stretch",
   },
   imageRound: {
-    width: 90,
-    height: 90,
-    resizeMode: "stretch",
+    width: SCREEN_WIDTH * 0.20,
+    height: SCREEN_WIDTH* 0.20,
+    borderRadius:  (SCREEN_HEIGHT * 0.15)/2,
+    overflow: "hidden",
+    borderWidth: 0,
     alignItems: "center",
     justifyContent: "center",
   },
+  imageRoundBig: {
+    width: SCREEN_WIDTH * 0.25,
+    height: SCREEN_WIDTH* 0.25,
+    borderRadius: (SCREEN_HEIGHT * 0.25)/2,
+    overflow: "hidden",
+    borderWidth: 0,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    letterSpacing: 2,
+    fontSize: FONT_HEADING,
+  },
+  activitytext: {
+    fontSize: FONT_BACK_LABEL,
+    color: "grey",
+  },
+  Playtext:{
+    fontSize: FONT_HEADING,
+    letterSpacing: 2,
+    fontWeight:"bold"
+  }
 });
 export default Community;

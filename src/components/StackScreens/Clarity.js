@@ -6,9 +6,15 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  PixelRatio,
 } from "react-native";
-import { color } from "react-native-reanimated";
-import { material } from "react-native-typography";
+
+var FONT_BACK_LABEL = 20;
+var FONT_HEADING = 15;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 15;
+  FONT_HEADING = 10;
+}
 
 export default function Clarity({ navigation }) {
   return (
@@ -19,7 +25,7 @@ export default function Clarity({ navigation }) {
       <View style={[style.para1, style.center]}>
         <View style={style.circle}>
           <Image
-            source={require("../../../assets/images/somadome.png")}
+            source={require("../../../assets/images/somadomewhite.png")}
           ></Image>
           <View>
             <Text style={style.durationText}>20 MINS</Text>
@@ -34,13 +40,20 @@ export default function Clarity({ navigation }) {
             <Image source={require("../../../assets/images/play.png")}></Image>
           </TouchableOpacity>
 
-          <Text style={{ color: "#77bec7", marginTop: 20, marginLeft: 10 }}>
+          <Text
+            style={{
+              color: "#77bec7",
+              marginTop: 20,
+              marginLeft: 10,
+              fontSize: 24,
+            }}
+          >
             BEGIN SESSION{" "}
           </Text>
         </View>
       </View>
       <View style={[style.para3, style.paragraph]}>
-        <Text style={[material.title]}>
+        <Text style={[style.paratext]}>
           This guided meditation uses Theta and spoken meditation to encourage
           you to look into your heart to discover the purest, deepest intentions
           for your life. Theta waves erase thoughts of lack or limitation.
@@ -79,12 +92,13 @@ const style = StyleSheet.create({
       ) / 2,
     width: Dimensions.get("window").width * 0.5,
     height: Dimensions.get("window").width * 0.5,
-    backgroundColor: "#D3D3D3",
+    backgroundColor: "#e2e6e7",
     justifyContent: "center",
     alignItems: "center",
   },
   durationText: {
     marginTop: 10,
+    letterSpacing: 2,
   },
   text: {
     fontSize: 30,
@@ -93,5 +107,10 @@ const style = StyleSheet.create({
   paragraph: {
     paddingLeft: 30,
     paddingRight: 30,
+  },
+  paratext: {
+    fontSize: FONT_BACK_LABEL,
+    color: "grey",
+    lineHeight: 30,
   },
 });
