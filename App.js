@@ -31,7 +31,7 @@ import Use from "./src/components/StackScreens/Use";
 import SideMenu from "./src/components/DrawerNav/sideBar";
 import Registration from "./src/components/Auth/Register";
 import Welcome from "./src/components/Auth/Welcome";
-import Creative from "./src/components/StackScreens/Creative";
+//import Creative from "./src/components/StackScreens/Creative";
 import MusicApp from "./src/components/Common/MusicPlayer";
 import Clarity from "./src/components/StackScreens/Clarity";
 import PairDome from "./src/components/StackScreens/PairDome";
@@ -42,6 +42,7 @@ import TermsServices from "./src/components/DrawerScreens/TermsServices";
 import StartupScreen from "./src/components/StartupScreen";
 import Book from "./src/components/StackScreens/Book";
 import DomePerformance from "./src/components/StackScreens/DomePerformance";
+import Unlock from "./src/components/StackScreens/Unlock";
 // const HomeScreen = createStackNavigator({
 //   Home :  {
 //     screen : Home,
@@ -115,6 +116,7 @@ export const bottomTabs = createBottomTabNavigator(
       navigationOptions: {
         inactiveTintColor: "white",
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="use" />,
+        headerVisible: true,
       },
     },
     Community: {
@@ -132,7 +134,6 @@ export const bottomTabs = createBottomTabNavigator(
         tabBarIcon: ({ tintColor }) => <RenderIcon iconName="more" />,
       },
     },
-    
   },
   {
     initialRouteName: "Home",
@@ -146,11 +147,10 @@ export const bottomTabs = createBottomTabNavigator(
       );
     },
     tabBarOptions: {
-      activeTintColor: 'white',
-      inactiveTintColor: '#fff',
+      activeTintColor: "white",
+      inactiveTintColor: "#fff",
     },
-  },
-  
+  }
 );
 
 // ({ navigation }) => ({
@@ -174,7 +174,7 @@ const Stackscreens = createStackNavigator({
   PurchaseDome: { screen: PurchaseDome },
   Settings: { screen: Settings },
   Subscription: { screen: Subscription },
-  Creative: { screen: Creative },
+  // Creative: { screen: Creative },
   MusicApp: { screen: MusicApp },
   Clarity: { screen: Clarity },
   PairDome: { screen: PairDome },
@@ -184,6 +184,7 @@ const Stackscreens = createStackNavigator({
   TermsServices: { screen: TermsServices },
   Book: { screen: Book },
   DomePerformance: { screen: DomePerformance },
+  Unlock: { screen: Unlock },
 });
 
 const Auth = createStackNavigator({

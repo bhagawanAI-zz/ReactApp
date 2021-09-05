@@ -10,6 +10,14 @@ import {
 import { color } from "react-native-reanimated";
 
 const Home = ({ navigation }) => {
+  let isPaired = false;
+  let screen = "Use"; // change screen if not paired
+  if (isPaired) {
+    screen = "Use";
+  }
+
+  const imagePath = require("../../../assets/images/creative.png");
+
   return (
     <View style={styles.center}>
       <View style={styles.heading}>
@@ -20,7 +28,7 @@ const Home = ({ navigation }) => {
       <View style={styles.mainContent}>
         <TouchableOpacity
           style={styles.roundButton}
-          onPress={() => navigation.navigate("Use")}
+          onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
           {/* <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>DOMING AT HOME</Text> */}
           <Image
@@ -28,19 +36,19 @@ const Home = ({ navigation }) => {
             source={require("../../../assets/images/ATHOME.png")}
           ></Image>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.roundButton}
           onPress={() => navigation.navigate("Dome")}
         >
-          {/* <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>DOOMING OUT AND ABOUT</Text> */}
+         
           <Image
             style={styles.images}
             source={require("../../../assets/images/DOMINGOUT.png")}
           ></Image>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity
           style={styles.roundButton}
-          onPress={() => navigation.navigate("Use")}
+          onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
           {/* <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>APP ONLY</Text> */}
           <Image
@@ -62,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
   },
   roundButton: {
-    marginTop: '3%',
+    marginTop: "3%",
     width: "30%",
     height: "30%",
     justifyContent: "center",

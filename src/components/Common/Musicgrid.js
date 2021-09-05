@@ -31,7 +31,10 @@ export default function Musicgrid({ navigation, text, imagePath }) {
       <View style={style.container}>
         <View style={style.box}>
           <TouchableOpacity onPress={() => navigation.navigate("Music")}>
-            <Image source={require("../../../assets/images/play.png")}></Image>
+            <Image
+              style={style.IconImage}
+              source={require("../../../assets/images/play.png")}
+            ></Image>
           </TouchableOpacity>
         </View>
 
@@ -45,6 +48,7 @@ export default function Musicgrid({ navigation, text, imagePath }) {
             }
           >
             <Image
+              style={style.IconImage}
               source={require("../../../assets/images/somadomewhite.png")}
             ></Image>
           </TouchableOpacity>
@@ -77,9 +81,14 @@ const style = StyleSheet.create({
   },
   text: {
     color: "white",
+    letterSpacing: 1,
   },
   backgroundImage: {
     flex: 1,
     resizeMode: "cover", // or 'stretch'
+  },
+  IconImage: {
+    width: 50,
+    height: 50,
   },
 });

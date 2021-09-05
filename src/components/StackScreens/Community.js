@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Text,
-  TouchableOpacity,
   SafeAreaView,
   StyleSheet,
   View,
@@ -64,7 +63,13 @@ const Community = ({ navigation }) => {
         })}
       </View>
       <View style={style.TopRatedSecion}>
-        <Text style={[material.subheading, { marginTop: 20,marginBottom:3 }, style.text]}>
+        <Text
+          style={[
+            material.subheading,
+            { marginTop: 20, marginBottom: 3 },
+            style.text,
+          ]}
+        >
           TOP RATED SEASSIONS THIS WEEK
         </Text>
         <View style={{ flex: 1, flexDirection: "row" }}>
@@ -74,8 +79,12 @@ const Community = ({ navigation }) => {
                 style={style.imageRound}
                 source={require("../../../assets/images/community/Layer1.png")}
               >
-                <Text style={[material.captionWhite,style.Playtext]}>{"175"}</Text>
-                <Text style={[material.captionWhite,style.Playtext]}>{"PLAYS"}</Text>
+                <Text style={[material.captionWhite, style.Playtext]}>
+                  {"175"}
+                </Text>
+                <Text style={[material.captionWhite, style.Playtext]}>
+                  {"PLAYS"}
+                </Text>
               </ImageBackground>
             </View>
             <View style={[style.flex1]}>
@@ -93,8 +102,12 @@ const Community = ({ navigation }) => {
                 style={style.imageRoundBig}
                 source={require("../../../assets/images/community/perform-1.png")}
               >
-                <Text style={[material.captionWhite,style.Playtext]}>{"250"}</Text>
-                <Text style={[material.captionWhite,style.Playtext]}>{"PLAYS"}</Text>
+                <Text style={[material.captionWhite, style.Playtext]}>
+                  {"250"}
+                </Text>
+                <Text style={[material.captionWhite, style.Playtext]}>
+                  {"PLAYS"}
+                </Text>
               </ImageBackground>
             </View>
             <View style={[style.flex1, { marginBottom: "30%" }]}>
@@ -112,8 +125,12 @@ const Community = ({ navigation }) => {
                 style={style.imageRound}
                 source={require("../../../assets/images/community/perform.png")}
               >
-                <Text style={[material.captionWhite,style.Playtext]}>{"123"}</Text>
-                <Text style={[material.captionWhite,style.Playtext]}>{"PLAYS"}</Text>
+                <Text style={[material.captionWhite, style.Playtext]}>
+                  {"123"}
+                </Text>
+                <Text style={[material.captionWhite, style.Playtext]}>
+                  {"PLAYS"}
+                </Text>
               </ImageBackground>
             </View>
             <View style={style.flex1}>
@@ -187,9 +204,9 @@ const style = StyleSheet.create({
     resizeMode: "stretch",
   },
   imageRound: {
-    width: SCREEN_WIDTH * 0.20,
-    height: SCREEN_WIDTH* 0.20,
-    borderRadius:  (SCREEN_HEIGHT * 0.15)/2,
+    width: SCREEN_WIDTH * 0.2,
+    height: SCREEN_WIDTH * 0.2,
+    borderRadius: (SCREEN_HEIGHT * 0.15) / 2,
     overflow: "hidden",
     borderWidth: 0,
     alignItems: "center",
@@ -197,8 +214,8 @@ const style = StyleSheet.create({
   },
   imageRoundBig: {
     width: SCREEN_WIDTH * 0.25,
-    height: SCREEN_WIDTH* 0.25,
-    borderRadius: (SCREEN_HEIGHT * 0.25)/2,
+    height: SCREEN_WIDTH * 0.25,
+    borderRadius: (SCREEN_HEIGHT * 0.25) / 2,
     overflow: "hidden",
     borderWidth: 0,
     alignItems: "center",
@@ -212,10 +229,10 @@ const style = StyleSheet.create({
     fontSize: FONT_BACK_LABEL,
     color: "grey",
   },
-  Playtext:{
+  Playtext: {
     fontSize: FONT_HEADING,
     letterSpacing: 2,
-    fontWeight:"bold"
-  }
+    fontWeight: "bold",
+  },
 });
 export default Community;

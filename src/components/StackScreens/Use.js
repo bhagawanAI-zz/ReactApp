@@ -1,60 +1,142 @@
 import React from "react";
-import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
-import Feel from "../Common/Feel";
+import { View, SafeAreaView, StyleSheet, Text, PixelRatio } from "react-native";
+import Feeltype from "../Common/Feeltype";
+import FeelTypes from "../Common/FeelTypes";
+import Musicgrid from "../Common/Musicgrid";
+// import TimeContainer from "../Common/TimeContainer";
+
+import { material } from "react-native-typography";
+
+var FONT_BACK_LABEL = 10;
+var FONT_HEADING = 15;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 8;
+  FONT_HEADING = 10;
+}
 
 const Use = ({ navigation }) => {
+  //   const imagePath = require("../../../assets/images/creative.png");
+
+  //   console.log("okok", navigation);
+  //   let imagePath = "";
+  //   if (navigation != undefined) {
+  //     imagePath = require("../../../assets/images/creative.png");
+  //   } else {
+  //     imagePath = navigation.state.params.path;
+  //   }
+  //   const musicTypeNameArray = navigation.state.params.musicnames;
   return (
-    <View style={{ flex: 1, flexDirection: "column" }}>
-      <View style={{ flex: 2, flexDirection: "row" }}>
-        <Feel
-          navigation={navigation}
-          feeling="Relaxed"
-          imagePath="relaxed"
-        ></Feel>
-        <Feel
-          navigation={navigation}
-          feeling="Energized"
-          imagePath="energized"
-        ></Feel>
+    <View style={style.container}>
+      <View style={style.heading}>
+        <Text style={[material.headlineWhite, style.text]}>USE</Text>
       </View>
-      <View style={{ flex: 2, flexDirection: "row" }}>
-        <Feel
+      <View style={style.typeContainer}>
+        <View style={style.TypeLeft}>
+          <View style={style.TypeLeft__Text}>
+            <Text style={style.TypeText}>WHAT NEEDS YOUR ATTENTION ? </Text>
+          </View>
+          <View style={style.TypeLeft__icons}>
+            <Feeltype imageType="mind" text={"mind"} />
+            <Feeltype imageType="body" text={"SOUND\nHEALING"} />
+            <Feeltype imageType="spirit" text={"SOMADOME\nSESSION"} />
+          </View>
+        </View>
+        <View style={style.TypeRight}>
+          <Feeltype
+            imageType="lock"
+            text={"BREATHWORK"}
+            navigation={navigation}
+          />
+        </View>
+      </View>
+      {/* <View style={style.time}>
+                <TimeContainer />
+                
+            </View> */}
+
+      <View style={style.create}>
+        <Musicgrid navigation={navigation} text="Clarity" imagePath="relaxed" />
+      </View>
+      <View style={style.create}>
+        <Musicgrid navigation={navigation} text="Create" imagePath="creative" />
+      </View>
+      <View style={style.manifest}>
+        <Musicgrid
           navigation={navigation}
-          feeling="Recovered"
+          text="Perform"
           imagePath="recovered"
-        ></Feel>
-        <Feel
-          navigation={navigation}
-          feeling="Creative"
-          imagePath="creative"
-        ></Feel>
+        />
       </View>
-      <View style={{ flex: 2, flexDirection: "row" }}>
-        <Feel
+
+      <View style={style.love}>
+        <Musicgrid
           navigation={navigation}
-          feeling="Rested"
-          imagePath="relaxed"
-        ></Feel>
-        <Feel
+          text="manifest"
+          imagePath="creative"
+        />
+      </View>
+      <View style={style.love}>
+        <Musicgrid
           navigation={navigation}
-          feeling="Focused"
+          text="recharge"
           imagePath="energized"
-        ></Feel>
-      </View>
-      <View style={{ flex: 2, flexDirection: "row" }}>
-        <Feel
-          navigation={navigation}
-          feeling="Grateful"
-          imagePath="creative"
-        ></Feel>
-        <Feel
-          navigation={navigation}
-          feeling="Vital"
-          imagePath="recovered"
-        ></Feel>
+        />
       </View>
     </View>
   );
 };
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+  },
+  typeContainer: {
+    flex: 1.2,
+    backgroundColor: "white",
+    flexDirection: "row",
+    // alignItems:"center",
+    justifyContent: "space-around",
+  },
+  TypeRight: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: "7%",
+  },
+  TypeLeft: {
+    flex: 4,
+    flexDirection: "column",
+    borderRightWidth: 1,
+    borderRightColor: "grey",
+  },
+  TypeLeft__icons: {
+    flex: 3,
+    flexDirection: "row",
+  },
+  TypeLeft__Text: { flex: 1, justifyContent: "center", alignItems: "center" },
+  TypeText: { color: "grey", letterSpacing: 1 },
+  time: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  create: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  manifest: {
+    flex: 1,
+    backgroundColor: "grey",
+  },
+  love: {
+    flex: 1,
+    backgroundColor: "pink",
+  },
+  textContainer: {},
+  heading: {
+    flex: 1,
+    backgroundColor: "grey",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 export default Use;

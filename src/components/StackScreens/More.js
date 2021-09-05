@@ -5,9 +5,9 @@ import MoreCommon from "../Common/MoreCommon";
 const moreTitles = [
   //contains Title in first index and navigate screen name in second index
   ["PROFILE", "Profile"],
-  ["SOMADOME BOOKING", "Book"],
-  ["SUBSCRIPTION & PAYMENT", "Pay"],
-  ["PERFORMANCE", "DomePerformance"],
+  // ["SOMADOME BOOKING", "Book"],
+  // ["SUBSCRIPTION & PAYMENT", "Pay"],
+  // ["PERFORMANCE", "DomePerformance"],
   ["DOME PAIR", "PairDome"],
   ["HELP & SUPPORT", "Help"],
   ["TERMS & CONDITIONS", "TermsServices"],

@@ -29,6 +29,7 @@ const style = StyleSheet.create({
   image: {
     flex: 1,
     marginTop: 20,
+    
   },
   textContainer: {
     flex: 1,
