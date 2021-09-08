@@ -55,15 +55,15 @@ const Use = ({ navigation }) => {
             </View> */}
 
       <View style={style.create}>
-        <Musicgrid navigation={navigation} text="Clarity" imagePath="relaxed" />
+        <Musicgrid navigation={navigation} text="clarity" imagePath="relaxed" />
       </View>
       <View style={style.create}>
-        <Musicgrid navigation={navigation} text="Create" imagePath="creative" />
+        <Musicgrid navigation={navigation} text="create" imagePath="creative" />
       </View>
       <View style={style.manifest}>
         <Musicgrid
           navigation={navigation}
-          text="Perform"
+          text="perform"
           imagePath="recovered"
         />
       </View>

@@ -20,6 +20,14 @@ export default function Musicgrid({ navigation, text, imagePath }) {
     recovered: require("../../../assets/images/RECOVERED-1.png"),
   };
 
+  const icons = {
+    clarity: require("../../../assets/images/MIND.png"),
+    create: require("../../../assets/images/MIND.png"),
+    perform: require("../../../assets/images/MIND.png"),
+    manifest: require("../../../assets/images/Dove.png"),
+    recharge: require("../../../assets/images/BODY.png"),
+  };
+
   let innerText = "";
 
   if (text) {
@@ -47,10 +55,7 @@ export default function Musicgrid({ navigation, text, imagePath }) {
               navigation.navigate("Clarity", { navigation: navigation })
             }
           >
-            <Image
-              style={style.IconImage}
-              source={require("../../../assets/images/somadomewhite.png")}
-            ></Image>
+            <Image style={style.IconImage} source={icons[text]}></Image>
           </TouchableOpacity>
         </View>
       </View>
@@ -88,7 +93,7 @@ const style = StyleSheet.create({
     resizeMode: "cover", // or 'stretch'
   },
   IconImage: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
   },
 });
