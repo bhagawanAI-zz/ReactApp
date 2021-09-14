@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+
+const { width } = Dimensions.get("window");
 
 export default function FeelTypes({ imageType, text }) {
   const images = {
@@ -11,7 +13,13 @@ export default function FeelTypes({ imageType, text }) {
 
   return (
     <View style={style.container}>
-      <Image style={style.image} source={images[imageType]}></Image>
+      <View style={{flex:3}}>
+        <Image
+          resizeMode="cover"
+          style={style.image}
+          source={images[imageType]}
+        ></Image>
+      </View>
       <View style={style.textContainer}>
         <Text style={style.text}>{text}</Text>
       </View>
@@ -27,16 +35,14 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    flex: 1,
     marginTop: 20,
-    
   },
   textContainer: {
     flex: 1,
     paddingTop: 15,
   },
   text: {
-    color: "grey",
+    color: "white",
     fontSize: 10,
   },
 });

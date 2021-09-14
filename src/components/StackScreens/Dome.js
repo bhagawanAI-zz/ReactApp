@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   StyleSheet,
+  Linking
 } from "react-native";
 import { material } from "react-native-typography";
 import MapView from "react-native-maps";
@@ -19,7 +20,7 @@ const FindDome = ({ navigation }) => {
     //   </TouchableOpacity>
     // </SafeAreaView>
 
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.heading}>
         <Text style={[material.display1, styles.headingText]}>
           FIND A DOME{" "}
@@ -27,14 +28,14 @@ const FindDome = ({ navigation }) => {
       </View>
 
       <View style={styles.mapContainer}>
-        <MapView
+        {/* <MapView
           initialRegion={{
             latitude: 37.78825,
             longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-        />
+        /> */}
       </View>
 
       <View style={styles.addressContainer}>
@@ -42,9 +43,13 @@ const FindDome = ({ navigation }) => {
           MODRN SANCTUARY{" "}
         </Text>
         <Text style={[material.subheading, styles.addressText]}>
-          {
+          {/* {
             "12 W 27th St 9th floor,\n New York ,NT 1000 \n www.modernsanctury.com \n(212) 675-9355"
-          }
+          } */}
+          <Text style={styles.addressInfoText}>12 W 27th St 9th floor,{"\n"} </Text>
+          <Text style={styles.addressInfoText}>New York ,NT 1000 {"\n"}</Text>
+          <Text style={styles.addressInfoText}>www.modernsanctury.com {"\n"}</Text>
+          <Text style={styles.addressInfoText}>(212) 675-9355 {"\n"}</Text>
         </Text>
       </View>
 
@@ -59,7 +64,7 @@ const FindDome = ({ navigation }) => {
             backgroundColor: "rgb(37, 150, 190)",
             marginTop: "10%",
           }}
-          onPress={() => navigation.navigate("Book")}
+          onPress={() => Linking.openURL("https://google.com")}
         >
           <Text
             style={{
@@ -73,7 +78,7 @@ const FindDome = ({ navigation }) => {
           </Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 const styles = StyleSheet.create({
@@ -88,7 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(37, 150, 190)",
   },
   mapContainer: {
-    flex: 2,
+    flex: 1.5,
   },
   addressContainer: {
     flex: 1,
@@ -108,6 +113,10 @@ const styles = StyleSheet.create({
   },
   addressText: {
     color: "grey",
+  },
+  addressInfoText: {
+    marginLeft: 30,
+    marginRight: 30,
   },
 });
 

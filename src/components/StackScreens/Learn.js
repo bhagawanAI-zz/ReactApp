@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { material } from "react-native-typography";
 import Feel from "../Common/Feel";
 import FeelTypes from "../Common/FeelTypes";
@@ -20,24 +14,32 @@ const Learn = ({ navigation }) => {
     //   </TouchableOpacity>
     // </SafeAreaView>
 
-    <SafeAreaView style={style.container}>
+    <View style={style.container}>
       <View style={style.heading}>
-        <Text style={material.headlineWhite}>LEARN</Text>
-        <Text style={material.subheadingWhite}>
-          {
-            " A RESOURCE CENTER FOR MEDIATATION,\n BREATHWORK,AND SOUND HEALING."
-          }
-        </Text>
+        <View>
+          <Text style={material.headlineWhite}>LEARN</Text>
+        </View>
+
+        <View>
+          <Text style={material.subheadingWhite}>
+            A RESOURCE CENTER FOR MEDIATATION,
+          </Text>
+          <View style={{justifyContent:"center",alignItems:"center"}}>
+            <Text style={material.subheadingWhite}>
+              BREATHWORK,AND SOUND HEALING.{" "}
+            </Text>
+          </View>
+        </View>
       </View>
       <View style={style.subheading}>
         <View style={style.box}>
-          <FeelTypes imageType="image1" text={"CLASSIC\nMEDITATION"} />
+          <FeelTypes imageType="image1" text={"  CLASSIC\nMEDITATION"} />
         </View>
         <View style={style.box}>
-          <FeelTypes imageType="image2" text={"SOUND\nHEALING"} />
+          <FeelTypes imageType="image2" text={" SOUND\nHEALING"} />
         </View>
         <View style={style.box}>
-          <FeelTypes imageType="image3" text={"SOMADOME\nSESSION"} />
+          <FeelTypes imageType="image3" text={"SOMADOME\n   SESSION"} />
         </View>
         <View style={style.box}>
           <FeelTypes imageType="image4" text={"BREATHWORK"} />
@@ -61,7 +63,7 @@ const Learn = ({ navigation }) => {
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

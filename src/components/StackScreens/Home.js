@@ -22,7 +22,7 @@ const Home = ({ navigation }) => {
     <View style={styles.center}>
       <View style={styles.heading}>
         <Text adjustsFontSizeToFit numberOfLines={1} style={styles.text}>
-          USE
+        CHOOSE YOUR DOME
         </Text>
       </View>
       <View style={styles.mainContent}>
@@ -36,21 +36,10 @@ const Home = ({ navigation }) => {
             source={require("../../../assets/images/ATHOME.png")}
           ></Image>
         </TouchableOpacity>
-        {/* <TouchableOpacity
-          style={styles.roundButton}
-          onPress={() => navigation.navigate("Dome")}
-        >
-         
-          <Image
-            style={styles.images}
-            source={require("../../../assets/images/DOMINGOUT.png")}
-          ></Image>
-        </TouchableOpacity> */}
         <TouchableOpacity
           style={styles.roundButton}
           onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
-          {/* <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>APP ONLY</Text> */}
           <Image
             style={styles.images}
             source={require("../../../assets/images/ATHOME.png")}
@@ -70,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
   },
   roundButton: {
-    marginTop: "3%",
+    marginTop: "4%",
     width: "30%",
     height: "30%",
     justifyContent: "center",
