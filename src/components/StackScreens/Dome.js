@@ -64,7 +64,7 @@ const FindDome = ({ navigation }) => {
             backgroundColor: "rgb(37, 150, 190)",
             marginTop: "10%",
           }}
-          onPress={() => Linking.openURL("https://google.com")}
+          onPress={() => Linking.openURL("https://somadome.com/")}
         >
           <Text
             style={{

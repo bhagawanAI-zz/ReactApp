@@ -7,10 +7,10 @@ import Musicgrid from "../Common/Musicgrid";
 
 import { material } from "react-native-typography";
 
-var FONT_BACK_LABEL = 10;
+var FONT_BACK_LABEL = 12;
 var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
-  FONT_BACK_LABEL = 8;
+  FONT_BACK_LABEL = 10;
   FONT_HEADING = 10;
 }
 
@@ -113,7 +113,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   TypeLeft__Text: { flex: 1, justifyContent: "center", alignItems: "center" },
-  TypeText: { color: "grey", letterSpacing: 1 },
+  TypeText: { color: "grey", letterSpacing: 1,fontSize:FONT_BACK_LABEL },
   time: {
     flex: 1,
     backgroundColor: "white",

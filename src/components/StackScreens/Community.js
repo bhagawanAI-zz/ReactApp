@@ -16,7 +16,7 @@ var FONT_BACK_LABEL = 10;
 var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
   FONT_BACK_LABEL = 8;
-  FONT_HEADING = 10;
+  FONT_HEADING = 9;
 }
 
 const SCREEN_HEIGHT = Dimensions.get("window").height;
@@ -70,7 +70,7 @@ const Community = ({ navigation }) => {
             style.text,
           ]}
         >
-          TOP RATED SEASSIONS THIS WEEK
+          TOP RATED SESSIONS THIS WEEK
         </Text>
         <View style={{ flex: 1, flexDirection: "row" }}>
           <View style={{ flex: 1, flexDirection: "column" }}>

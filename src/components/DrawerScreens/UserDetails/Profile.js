@@ -59,12 +59,12 @@ const Profile = ({ navigation }) => {
         </View>
         <View style={style.sessionStartContainer}>
           <SessionCount
-            text="CONSICUTIVE DAYS"
+            text="CONSECUTIVE DAYS"
             count="3"
             customeStyle={{ flex: 1, backgroundColor: "#49ab9d" }}
           />
           <SessionCount
-            text="CONSICUTIVE DAYS"
+            text="CONSECUTIVE DAYS"
             count="18"
             customeStyle={{ flex: 1, backgroundColor: "#80ddd3" }}
           />
