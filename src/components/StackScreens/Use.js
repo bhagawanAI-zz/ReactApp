@@ -14,6 +14,12 @@ if (PixelRatio.get() <= 2) {
   FONT_HEADING = 10;
 }
 
+const TRACKS = {
+  mind: [],
+  body: [],
+  spirit: [],
+};
+
 const Use = ({ navigation }) => {
   //   const imagePath = require("../../../assets/images/creative.png");
 
@@ -113,7 +119,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   TypeLeft__Text: { flex: 1, justifyContent: "center", alignItems: "center" },
-  TypeText: { color: "grey", letterSpacing: 1,fontSize:FONT_BACK_LABEL },
+  TypeText: { color: "grey", letterSpacing: 1, fontSize: FONT_BACK_LABEL },
   time: {
     flex: 1,
     backgroundColor: "white",

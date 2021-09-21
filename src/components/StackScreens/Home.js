@@ -6,6 +6,7 @@ import {
   View,
   StyleSheet,
   Image,
+  Dimensions,
 } from "react-native";
 import { color } from "react-native-reanimated";
 
@@ -22,7 +23,7 @@ const Home = ({ navigation }) => {
     <View style={styles.center}>
       <View style={styles.heading}>
         <Text adjustsFontSizeToFit numberOfLines={1} style={styles.text}>
-        CHOOSE YOUR DOME
+          CHOOSE YOUR DOME
         </Text>
       </View>
       <View style={styles.mainContent}>
@@ -31,19 +32,31 @@ const Home = ({ navigation }) => {
           onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
           {/* <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>DOMING AT HOME</Text> */}
-          <Image
-            style={styles.images}
-            source={require("../../../assets/images/ATHOME.png")}
-          ></Image>
+          <View style={styles.circle}>
+            <Image
+              style={styles.images}
+              source={require("../../../assets/images/home/HOME.png")}
+            ></Image>
+            <View style={{ alignItems: "center" }}>
+              <Text style={styles.durationText}>MY</Text>
+              <Text style={styles.durationText}>DOME</Text>
+            </View>
+          </View>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.roundButton}
           onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
-          <Image
-            style={styles.images}
-            source={require("../../../assets/images/ATHOME.png")}
-          ></Image>
+          <View style={styles.circle}>
+            <Image
+              style={styles.images}
+              source={require("../../../assets/images/home/DOME.png")}
+            ></Image>
+            <View style={{ alignItems: "center" }}>
+              <Text style={styles.durationText}>MARKET</Text>
+              <Text style={styles.durationText}>DOME</Text>
+            </View>
+          </View>
         </TouchableOpacity>
       </View>
     </View>
@@ -68,8 +81,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   images: {
-    width: 170,
-    height: 170,
+    width: 70,
+    height: 70,
   },
   center: {
     justifyContent: "center",
@@ -86,6 +99,22 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
     letterSpacing: 3,
+  },
+  circle: {
+    borderRadius:
+      Math.round(
+        Dimensions.get("window").width + Dimensions.get("window").height
+      ) / 2,
+    width: Dimensions.get("window").width * 0.45,
+    height: Dimensions.get("window").width * 0.45,
+    backgroundColor: "#87d5e1",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  durationText: {
+    marginTop: 1,
+    fontWeight: "bold",
+    color: "white",
   },
 });
 

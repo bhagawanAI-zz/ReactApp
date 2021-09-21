@@ -9,7 +9,6 @@ export default function Feeltype({ imageType, text, navigation }) {
     spirit: require("../../../assets/images/use/sprit.png"),
     lock: require("../../../assets/images/use/lock.png"),
   };
-
   if (imageType == "lock") {
     return (
       <TouchableOpacity
@@ -20,11 +19,17 @@ export default function Feeltype({ imageType, text, navigation }) {
       </TouchableOpacity>
     );
   }
-
   return (
-    <View style={style.container}>
-      <Image style={style.image} source={images[imageType]}></Image>
-    </View>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      onPress={() => {
+        console.log("pressed");
+      }}
+    >
+      <View style={style.container}>
+        <Image style={style.image} source={images[imageType]}></Image>
+      </View>
+    </TouchableOpacity>
   );
 }
 const style = StyleSheet.create({
@@ -38,6 +43,7 @@ const style = StyleSheet.create({
     height: 80,
     borderRadius: 80 / 2,
   },
+
   textContainer: {
     flex: 1,
     paddingTop: 15,
@@ -45,5 +51,14 @@ const style = StyleSheet.create({
   text: {
     color: "grey",
     fontSize: 15,
+  },
+
+  overlay: {
+    backgroundColor: "rgba(0,0,0,0.5)",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
 });
