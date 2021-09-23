@@ -1,5 +1,12 @@
-import React from "react";
-import { View, SafeAreaView, StyleSheet, Text, PixelRatio } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  PixelRatio,
+  ScrollView,
+} from "react-native";
 import Feeltype from "../Common/Feeltype";
 import FeelTypes from "../Common/FeelTypes";
 import Musicgrid from "../Common/Musicgrid";
@@ -14,23 +21,55 @@ if (PixelRatio.get() <= 2) {
   FONT_HEADING = 10;
 }
 
+const feelTypes = [
+  { imageType: "mind", text: "mind" },
+  { imageType: "body", text: "SOUND\nHEALING" },
+  { imageType: "spirit", text: "SOMADOME\nSESSION" },
+  // { imageType: "lock", text: "BREATHWORK" },
+];
+
+const MindGrids = [
+  { text: "clarity", imagePath: "relaxed" },
+  { text: "create", imagePath: "creative" },
+  { text: "focus", imagePath: "focused" },
+  { text: "succeed", imagePath: "focused" },
+  { text: "relaxed", imagePath: "relaxed" },
+  { text: "motivate", imagePath: "focused" },
+  { text: "perform", imagePath: "recovered" },
+  { text: "confidence", imagePath: "focused" },
+];
+
+const BodyGrids = [
+  { text: "perform", imagePath: "recovered" },
+  { text: "recharge", imagePath: "relaxed" },
+  { text: "relax", imagePath: "relaxed" },
+  { text: "snooze", imagePath: "relaxed" },
+  { text: "heal", imagePath: "recovered" },
+  { text: "overcome", imagePath: "recovered" },
+  { text: "fit", imagePath: "recovered" },
+  { text: "confidence", imagePath: "focused" },
+];
+
+const SpiritGrids = [
+  { text: "ascend", imagePath: "creative" },
+  { text: "aspire", imagePath: "focused" },
+  { text: "bliss", imagePath: "creative" },
+  { text: "manifest", imagePath: "creative" },
+  { text: "love", imagePath: "creative" },
+  { text: "reclaim", imagePath: "creative" },
+  { text: "prosper", imagePath: "recovered" },
+  { text: "overcome", imagePath: "recovered" },
+];
+
 const TRACKS = {
-  mind: [],
-  body: [],
-  spirit: [],
+  mind: MindGrids,
+  body: BodyGrids,
+  spirit: SpiritGrids,
 };
 
 const Use = ({ navigation }) => {
-  //   const imagePath = require("../../../assets/images/creative.png");
-
-  //   console.log("okok", navigation);
-  //   let imagePath = "";
-  //   if (navigation != undefined) {
-  //     imagePath = require("../../../assets/images/creative.png");
-  //   } else {
-  //     imagePath = navigation.state.params.path;
-  //   }
-  //   const musicTypeNameArray = navigation.state.params.musicnames;
+  const [iconName, seticonName] = useState("mind");
+  const [grid,setGrid] = useState('mind');
   return (
     <View style={style.container}>
       <View style={style.heading}>
@@ -42,9 +81,17 @@ const Use = ({ navigation }) => {
             <Text style={style.TypeText}>WHAT NEEDS YOUR ATTENTION ? </Text>
           </View>
           <View style={style.TypeLeft__icons}>
-            <Feeltype imageType="mind" text={"mind"} />
-            <Feeltype imageType="body" text={"SOUND\nHEALING"} />
-            <Feeltype imageType="spirit" text={"SOMADOME\nSESSION"} />
+            {feelTypes.map((item, index) => {
+              return (
+                <Feeltype
+                  key={index}
+                  imageType={item.imageType}
+                  text={item.text}
+                  seticonName={seticonName}
+                  setGrid = {setGrid}
+                />
+              );
+            })}
           </View>
         </View>
         <View style={style.TypeRight}>
@@ -55,38 +102,20 @@ const Use = ({ navigation }) => {
           />
         </View>
       </View>
-      {/* <View style={style.time}>
-                <TimeContainer />
-                
-            </View> */}
-
-      <View style={style.create}>
-        <Musicgrid navigation={navigation} text="clarity" imagePath="relaxed" />
-      </View>
-      <View style={style.create}>
-        <Musicgrid navigation={navigation} text="create" imagePath="creative" />
-      </View>
-      <View style={style.manifest}>
-        <Musicgrid
-          navigation={navigation}
-          text="perform"
-          imagePath="recovered"
-        />
-      </View>
-
-      <View style={style.love}>
-        <Musicgrid
-          navigation={navigation}
-          text="manifest"
-          imagePath="creative"
-        />
-      </View>
-      <View style={style.love}>
-        <Musicgrid
-          navigation={navigation}
-          text="recharge"
-          imagePath="energized"
-        />
+      <View style={{ flex: 4 }}>
+        {TRACKS[grid].map((item, index) => {
+          return (
+            <View style={style.create}>
+              <Musicgrid
+                key={index}
+                navigation={navigation}
+                text={item.text}
+                imagePath={item.imagePath}
+                iconName={iconName}
+              />
+            </View>
+          );
+        })}
       </View>
     </View>
   );

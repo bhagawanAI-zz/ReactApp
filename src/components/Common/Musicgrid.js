@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function Musicgrid({ navigation, text, imagePath }) {
+export default function Musicgrid({ navigation, text, imagePath, iconName }) {
   const images = {
     creative: require("../../../assets/images/creative.png"),
     relaxed: require("../../../assets/images/relaxed-1.png"),
@@ -21,11 +21,9 @@ export default function Musicgrid({ navigation, text, imagePath }) {
   };
 
   const icons = {
-    clarity: require("../../../assets/images/MIND.png"),
-    create: require("../../../assets/images/MIND.png"),
-    perform: require("../../../assets/images/MIND.png"),
-    manifest: require("../../../assets/images/Dove.png"),
-    recharge: require("../../../assets/images/BODY.png"),
+    mind: require("../../../assets/images/MIND.png"),
+    spirit: require("../../../assets/images/Dove.png"),
+    body: require("../../../assets/images/BODY.png"),
   };
 
   let innerText = "";
@@ -55,7 +53,7 @@ export default function Musicgrid({ navigation, text, imagePath }) {
               navigation.navigate("Clarity", { navigation: navigation })
             }
           >
-            <Image style={style.IconImage} source={icons[text]}></Image>
+            <Image style={style.IconImage} source={icons[iconName]}></Image>
           </TouchableOpacity>
         </View>
       </View>

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function Feeltype({ imageType, text, navigation }) {
+export default function Feeltype({ imageType, text, seticonName,setGrid, navigation }) {
   console.log("this is navigation", navigation);
   const images = {
     mind: require("../../../assets/images/use/mind.png"),
@@ -23,7 +23,8 @@ export default function Feeltype({ imageType, text, navigation }) {
     <TouchableOpacity
       activeOpacity={0.7}
       onPress={() => {
-        console.log("pressed");
+        seticonName(imageType);
+        setGrid(imageType)
       }}
     >
       <View style={style.container}>
