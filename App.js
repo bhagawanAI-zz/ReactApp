@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import React, { Component } from "react";
-import { Dimensions, Image } from "react-native";
+import React, { Component, ImageBackground } from "react";
+import { Dimensions, Image,View } from "react-native";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator, HeaderTitle } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
@@ -79,7 +79,7 @@ import Unlock from "./src/components/StackScreens/Unlock";
 //  }
 // })
 
-const RenderIcon = ({ iconName }) => {
+const RenderIcon = ({ iconName, width, height }) => {
   const images = {
     dome: require("./assets/images/bottom/somadome.png"),
     learn: require("./assets/images/bottom/book.png"),
@@ -87,7 +87,29 @@ const RenderIcon = ({ iconName }) => {
     connect: require("./assets/images/bottom/Community.png"),
     more: require("./assets/images/bottom/menu.png"),
   };
-  return <Image style={{ width: 25, height: 20 }} source={images[iconName]} />;
+
+  if (width == 35) {
+    return (
+      <View>
+        <View
+          style={{ position: "absolute", top: 0, bottom: 0, left: 0, right: 0 }}
+        >
+          <Image
+            source={require("./assets/images/elipse.png")}
+            style={{ bottom:20,right:10,width:55,height:55}}
+          />
+        </View>
+        <View style={{ opacity: 1}}>
+          <Image
+            style={{ width, height, bottom: 10 }}
+            source={images[iconName]}
+          />
+        </View>
+      </View>
+    );
+  } else {
+    return <Image style={{ width, height }} source={images[iconName]} />;
+  }
 };
 
 export const bottomTabs = createBottomTabNavigator(
@@ -100,7 +122,13 @@ export const bottomTabs = createBottomTabNavigator(
       navigationOptions: {
         inactiveTintColor: "white",
         activeTintColor: "#81B247",
-        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="dome" />,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <RenderIcon
+            iconName="dome"
+            width={focused ? 35 : 25}
+            height={focused ? 30 : 20}
+          />
+        ),
       },
     },
     Learn: {
@@ -108,14 +136,26 @@ export const bottomTabs = createBottomTabNavigator(
       navigationOptions: {
         activeTintColor: "white",
         inactiveTintColor: "white",
-        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="learn" />,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <RenderIcon
+            iconName="learn"
+            width={focused ? 35 : 25}
+            height={focused ? 30 : 20}
+          />
+        ),
       },
     },
     Use: {
       screen: Use,
       navigationOptions: {
         inactiveTintColor: "white",
-        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="use" />,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <RenderIcon
+            iconName="use"
+            width={focused ? 35 : 25}
+            height={focused ? 30 : 20}
+          />
+        ),
         headerVisible: true,
       },
     },
@@ -123,7 +163,13 @@ export const bottomTabs = createBottomTabNavigator(
       screen: Community,
       navigationOptions: {
         inactiveTintColor: "white",
-        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="connect" />,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <RenderIcon
+            iconName="connect"
+            width={focused ? 35 : 25}
+            height={focused ? 30 : 20}
+          />
+        ),
       },
     },
     More: {
@@ -131,7 +177,13 @@ export const bottomTabs = createBottomTabNavigator(
       screen: More,
       navigationOptions: {
         inactiveTintColor: "white",
-        tabBarIcon: ({ tintColor }) => <RenderIcon iconName="more" />,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <RenderIcon
+            iconName="more"
+            width={focused ? 35 : 25}
+            height={focused ? 30 : 20}
+          />
+        ),
       },
     },
   },
