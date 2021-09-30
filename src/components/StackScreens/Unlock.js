@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import { material } from "react-native-typography";
+import ColorPicker from "react-native-wheel-color-picker";
 
 export default function Unlock() {
   return (
@@ -16,6 +17,8 @@ export default function Unlock() {
         <Image
           source={require("../../../assets/images/unlock/slide.png")}
         ></Image>
+
+        {/* <ColorPicker thumbSize={40} sliderSize={40} noSnap={true} row={false} /> */}
       </View>
       <View style={style.BottomContainer}>
         <Image

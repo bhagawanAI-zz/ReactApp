@@ -119,7 +119,7 @@ export const bottomTabs = createBottomTabNavigator(
         headerVisible: true,
       },
     },
-    Community: {
+    Connect: {
       screen: Community,
       navigationOptions: {
         inactiveTintColor: "white",
@@ -141,7 +141,7 @@ export const bottomTabs = createBottomTabNavigator(
       return (
         <BottomTabBar
           {...props}
-          display={["Dome", "Learn", "Use", "Community", "More"]}
+          display={["Dome", "Learn", "Use", "Connect", "More"]}
           background="grey"
         />
       );

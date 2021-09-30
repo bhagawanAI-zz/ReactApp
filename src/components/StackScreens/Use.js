@@ -69,7 +69,7 @@ const TRACKS = {
 
 const Use = ({ navigation }) => {
   const [iconName, seticonName] = useState("mind");
-  const [grid,setGrid] = useState('mind');
+  const [grid, setGrid] = useState("mind");
   return (
     <View style={style.container}>
       <View style={style.heading}>
@@ -88,7 +88,7 @@ const Use = ({ navigation }) => {
                   imageType={item.imageType}
                   text={item.text}
                   seticonName={seticonName}
-                  setGrid = {setGrid}
+                  setGrid={setGrid}
                 />
               );
             })}
@@ -102,7 +102,7 @@ const Use = ({ navigation }) => {
           />
         </View>
       </View>
-      <View style={{ flex: 4 }}>
+      <ScrollView style={{ flex: 4, flexGrow: 4 }}>
         {TRACKS[grid].map((item, index) => {
           return (
             <View style={style.create}>
@@ -116,7 +116,7 @@ const Use = ({ navigation }) => {
             </View>
           );
         })}
-      </View>
+      </ScrollView>
     </View>
   );
 };

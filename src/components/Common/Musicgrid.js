@@ -49,6 +49,7 @@ export default function Musicgrid({ navigation, text, imagePath, iconName }) {
         </View>
         <View style={style.box2}>
           <TouchableOpacity
+            style={{ backgroundColor: "rgba(52, 52, 52, 0.0)" }}
             onPress={() =>
               navigation.navigate("Clarity", { navigation: navigation })
             }
@@ -87,11 +88,14 @@ const style = StyleSheet.create({
     letterSpacing: 1,
   },
   backgroundImage: {
-    flex: 1,
+    flex: 2,
     resizeMode: "cover", // or 'stretch'
+    height: 80,
   },
   IconImage: {
+    flex: 1,
     width: 40,
-    height: 40,
+    height: "100%",
+    resizeMode: "contain",
   },
 });
