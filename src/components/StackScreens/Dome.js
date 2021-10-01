@@ -5,10 +5,18 @@ import {
   TouchableOpacity,
   View,
   StyleSheet,
-  Linking
+  Linking,
+  PixelRatio,
 } from "react-native";
 import { material } from "react-native-typography";
 import MapView from "react-native-maps";
+
+var FONT_BACK_LABEL = 20;
+var FONT_HEADING = 25;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 15;
+  FONT_HEADING = 20;
+}
 
 const FindDome = ({ navigation }) => {
   return (
@@ -39,16 +47,20 @@ const FindDome = ({ navigation }) => {
       </View>
 
       <View style={styles.addressContainer}>
-        <Text style={[material.headline, styles.addressText]}>
+        <Text style={[material.headline, styles.addressHeadingText]}>
           MODRN SANCTUARY{" "}
         </Text>
         <Text style={[material.subheading, styles.addressText]}>
           {/* {
             "12 W 27th St 9th floor,\n New York ,NT 1000 \n www.modernsanctury.com \n(212) 675-9355"
           } */}
-          <Text style={styles.addressInfoText}>12 W 27th St 9th floor,{"\n"} </Text>
+          <Text style={styles.addressInfoText}>
+            12 W 27th St 9th floor,{"\n"}{" "}
+          </Text>
           <Text style={styles.addressInfoText}>New York ,NT 1000 {"\n"}</Text>
-          <Text style={styles.addressInfoText}>www.modernsanctury.com {"\n"}</Text>
+          <Text style={styles.addressInfoText}>
+            www.modernsanctury.com {"\n"}
+          </Text>
           <Text style={styles.addressInfoText}>(212) 675-9355 {"\n"}</Text>
         </Text>
       </View>
@@ -68,7 +80,7 @@ const FindDome = ({ navigation }) => {
         >
           <Text
             style={{
-              fontSize: 18,
+              fontSize: FONT_BACK_LABEL,
               color: "white",
               textAlign: "center",
               paddingTop: 12,
@@ -110,10 +122,13 @@ const styles = StyleSheet.create({
   },
   headingText: {
     color: "white",
+    fontSize: FONT_HEADING,
   },
   addressText: {
     color: "grey",
+    fontSize: FONT_BACK_LABEL,
   },
+  addressHeadingText: { color: "grey", fontSize: FONT_HEADING },
   addressInfoText: {
     marginLeft: 30,
     marginRight: 30,
