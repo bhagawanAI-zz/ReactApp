@@ -87,7 +87,7 @@ const Community = ({ navigation }) => {
                 </Text>
               </ImageBackground>
             </View>
-            <View style={[style.flex1]}>
+            <View style={[style.flex1,{marginTop:"13%"}]}>
               <View style={{ alignItems: "center" }}>
                 <Text style={[material.display1, { color: "grey" }]}>2.</Text>
               </View>
@@ -110,7 +110,7 @@ const Community = ({ navigation }) => {
                 </Text>
               </ImageBackground>
             </View>
-            <View style={[style.flex1, { marginBottom: "30%" }]}>
+            <View style={[style.flex1, { marginBottom: "5%" }]}>
               <View style={{ alignItems: "center" }}>
                 <Text style={[material.display1, { color: "grey" }]}>1.</Text>
               </View>
@@ -133,7 +133,7 @@ const Community = ({ navigation }) => {
                 </Text>
               </ImageBackground>
             </View>
-            <View style={style.flex1}>
+            <View style={[style.flex1,{marginTop:"13%"}]}>
               <View style={{ alignItems: "center" }}>
                 <Text style={[material.display1, { color: "grey" }]}>3.</Text>
               </View>

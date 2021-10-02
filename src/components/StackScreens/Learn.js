@@ -1,8 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View,PixelRatio } from "react-native";
 import { material } from "react-native-typography";
 import Feel from "../Common/Feel";
 import FeelTypes from "../Common/FeelTypes";
+
+
+var FONT_BACK_LABEL = 15;
+var FONT_HEADING = 17;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 13;
+  FONT_HEADING = 25;
+}
+
 
 const Learn = ({ navigation }) => {
   return (
@@ -17,15 +26,15 @@ const Learn = ({ navigation }) => {
     <View style={style.container}>
       <View style={style.heading}>
         <View>
-          <Text style={material.headlineWhite}>LEARN</Text>
+          <Text style={[material.headlineWhite,style.mainHeadingText]}>LEARN</Text>
         </View>
 
         <View>
-          <Text style={material.subheadingWhite}>
+          <Text style={[material.subheadingWhite,style.subHeadingText]}>
             A RESOURCE CENTER FOR MEDIATATION,
           </Text>
           <View style={{justifyContent:"center",alignItems:"center"}}>
-            <Text style={material.subheadingWhite}>
+          <Text style={[material.subheadingWhite,style.subHeadingText]}>
               BREATHWORK,AND SOUND HEALING.{" "}
             </Text>
           </View>
@@ -99,6 +108,8 @@ const style = StyleSheet.create({
     marginTop: 30,
   },
   content__auther_text: { color: "grey" },
+  mainHeadingText:{fontSize:FONT_HEADING,fontWeight:"400"},
+  subHeadingText:{fontSize:FONT_BACK_LABEL,fontWeight:"400",letterSpacing:1}
 });
 
 export default Learn;

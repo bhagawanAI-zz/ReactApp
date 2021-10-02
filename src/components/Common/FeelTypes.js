@@ -5,10 +5,10 @@ const { width } = Dimensions.get("window");
 
 export default function FeelTypes({ imageType, text }) {
   const images = {
-    image1: require("../../../assets/images/types/BREATHWORK.png"),
+    image4: require("../../../assets/images/types/BREATHWORK.png"),
     image2: require("../../../assets/images/types/sound.png"),
     image3: require("../../../assets/images/types/somadome.png"),
-    image4: require("../../../assets/images/types/MEDITATION.png"),
+    image1: require("../../../assets/images/types/MEDITATION.png"),
   };
 
   return (
@@ -35,11 +35,15 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    marginTop: 20,
+    marginTop: 10,
+    flex: 1,
+    width: 40,
+    height: "100%",
+    resizeMode: "contain",
   },
   textContainer: {
     flex: 1,
-    paddingTop: 15,
+    marginBottom:10
   },
   text: {
     color: "white",
