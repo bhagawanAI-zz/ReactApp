@@ -101,14 +101,20 @@ const RenderIcon = ({ iconName, width, height }) => {
         </View>
         <View style={{ opacity: 1}}>
           <Image
-            style={{ width, height, bottom: 10 }}
+            style={{ width, height, bottom: 10,flex: 1,
+              width: 35,
+              height: "95%",
+              resizeMode: "contain"}}
             source={images[iconName]}
           />
         </View>
       </View>
     );
   } else {
-    return <Image style={{ width, height }} source={images[iconName]} />;
+    return <Image style={{ width, height ,flex: 1,
+      width: 30,
+      height: "90%",
+      resizeMode: "contain",}} source={images[iconName]} />;
   }
 };
 
