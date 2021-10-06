@@ -38,10 +38,14 @@ const Profile = ({ navigation }) => {
           />
         </View>
         <View>
-          <Text style={material.headline}>Nick Freshno</Text>
+          <Text style={[material.subheading, style.headingText]}>
+            Nick Freshno
+          </Text>
         </View>
         <View>
-          <Text style={material.subheading}>Live, laugh, love.</Text>
+          <Text style={[material.subheading, { color: "grey" }]}>
+            Live, laugh, love.
+          </Text>
         </View>
       </View>
       <View style={style.sessionsContent}>
@@ -71,11 +75,15 @@ const Profile = ({ navigation }) => {
         </View>
       </View>
       <View style={style.sessionsHistoryContent}>
-        <Text style={material.display1}>SESSION HISTORY</Text>
+        <Text
+          style={[material.display1, {fontWeight: "bold",fontSize:20}]}
+        >
+          SESSION HISTORY
+        </Text>
       </View>
       <View style={style.bottom}>
-        <Text>YOU COMPLETED MANIFEST ON MARCH 30 </Text>
-        <Text>YOU COMPLETED FOCUS ON MARCH 30 </Text>
+        <Text style={style.bottomText}>YOU COMPLETED <Text style={{fontSize:20}}>MANIFEST</Text> ON MARCH 30 </Text> 
+        <Text style={style.bottomText}>YOU COMPLETED <Text style={{fontSize:20}}>FOCUS</Text> ON MARCH 30 </Text>
       </View>
     </SafeAreaView>
   );
@@ -94,6 +102,7 @@ const style = StyleSheet.create({
     flex: 0.5,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor:"#ececec"
   },
   bottom: { flex: 0.5, justifyContent: "center", alignItems: "center" },
   sessionStartContainer: {
@@ -101,6 +110,8 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   flex1: { flex: 1, justifyContent: "center", alignItems: "center" },
+  headingText: { color: "black", letterSpacing: 2 },
+  bottomText:{color:"grey",letterSpacing:1}
 });
 
 export default Profile;
