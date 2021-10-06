@@ -226,7 +226,7 @@ const Stackscreens = createStackNavigator({
   Session: { screen: Session },
   SessionPlayer: { screen: SessionPlayer },
   EditProfile: { screen: EditProfile },
-  Profile: { screen: Profile },
+  PROFILE: { screen: Profile },
   About: { screen: About },
   Help: { screen: Help },
   PurchaseDome: { screen: PurchaseDome },

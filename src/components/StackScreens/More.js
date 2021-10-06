@@ -4,7 +4,7 @@ import { material } from "react-native-typography";
 import MoreCommon from "../Common/MoreCommon";
 const moreTitles = [
   //contains Title in first index and navigate screen name in second index
-  ["PROFILE", "Profile"],
+  ["PROFILE", "PROFILE"],
   // ["SOMADOME BOOKING", "Book"],
   // ["SUBSCRIPTION & PAYMENT", "Pay"],
   // ["PERFORMANCE", "DomePerformance"],
