@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component, ImageBackground } from "react";
-import { Dimensions, Image,View } from "react-native";
+import { Dimensions, Image, View ,Text} from "react-native";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator, HeaderTitle } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
@@ -96,25 +96,39 @@ const RenderIcon = ({ iconName, width, height }) => {
         >
           <Image
             source={require("./assets/images/elipse.png")}
-            style={{ bottom:20,right:10,width:55,height:55}}
+            style={{ bottom: 20, right: 10, width: 55, height: 55 }}
           />
         </View>
-        <View style={{ opacity: 1}}>
+        <View style={{ opacity: 1 }}>
           <Image
-            style={{ width, height, bottom: 10,flex: 1,
+            style={{
+              width,
+              height,
+              bottom: 10,
+              flex: 1,
               width: 35,
               height: "95%",
-              resizeMode: "contain"}}
+              resizeMode: "contain",
+            }}
             source={images[iconName]}
           />
         </View>
       </View>
     );
   } else {
-    return <Image style={{ width, height ,flex: 1,
-      width: 30,
-      height: "90%",
-      resizeMode: "contain",}} source={images[iconName]} />;
+    return (
+      <Image
+        style={{
+          width,
+          height,
+          flex: 1,
+          width: 30,
+          height: "90%",
+          resizeMode: "contain",
+        }}
+        source={images[iconName]}
+      />
+    );
   }
 };
 
@@ -221,25 +235,35 @@ const Stackscreens = createStackNavigator({
     navigationOptions: { headerShown: false },
   },
 
-  Intentions: { screen: Intentions },
+  Intentions: { screen: Intentions, },
   PostSession: { screen: PostSession },
   Session: { screen: Session },
   SessionPlayer: { screen: SessionPlayer },
   EditProfile: { screen: EditProfile },
-  PROFILE: { screen: Profile },
+  PROFILE: { screen: Profile , navigationOptions: ({ navigation }) => ({
+    title: (<Text>PROFILE</Text>)
+})},
   About: { screen: About },
-  Help: { screen: Help },
-  PurchaseDome: { screen: PurchaseDome },
+  HELP: { screen: Help ,navigationOptions: ({ navigation }) => ({
+    title: (<Text>HELP & SUPPORT</Text>)
+}) },
+  PurchaseDome: { screen: PurchaseDome, navigationOptions: ({ navigation }) => ({
+    title: (<Text>PAIR YOUR DOME</Text>)
+}) },
   Settings: { screen: Settings },
   Subscription: { screen: Subscription },
   // Creative: { screen: Creative },
   MusicApp: { screen: MusicApp },
   Clarity: { screen: Clarity },
-  PairDome: { screen: PairDome },
+  PAIRDOME: { screen: PairDome ,navigationOptions: ({ navigation }) => ({
+    title: (<Text>PAIR YOUR DOME</Text>)
+})},
   Pay: { screen: Pay },
   SeassionStart: { screen: SeassionStart },
   More: { screen: More },
-  TermsServices: { screen: TermsServices },
+  TermsServices: { screen: TermsServices ,navigationOptions: ({ navigation }) => ({
+    title: (<Text>TERM OF SERVICE</Text>),
+})},
   Book: { screen: Book },
   DomePerformance: { screen: DomePerformance },
   Unlock: { screen: Unlock },

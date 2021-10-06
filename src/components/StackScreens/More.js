@@ -8,8 +8,8 @@ const moreTitles = [
   // ["SOMADOME BOOKING", "Book"],
   // ["SUBSCRIPTION & PAYMENT", "Pay"],
   // ["PERFORMANCE", "DomePerformance"],
-  ["DOME PAIR", "PairDome"],
-  ["HELP & SUPPORT", "Help"],
+  ["DOME PAIR", "PAIRDOME"],
+  ["HELP & SUPPORT", "HELP"],
   ["TERMS & CONDITIONS", "TermsServices"],
   ["LOGOUT", "Login"],
 ];
