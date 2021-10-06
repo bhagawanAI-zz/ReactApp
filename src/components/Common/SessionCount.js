@@ -1,5 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet,PixelRatio } from "react-native";
+
+
+var FONT_BACK_LABEL = 25;
+var FONT_HEADING = 15;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 20;
+  FONT_HEADING = 10;
+}
+
 export default function SessionCount({ text, count, customeStyle }) {
   return (
     <View style={[style.flex1, customeStyle]}>
@@ -12,5 +21,5 @@ export default function SessionCount({ text, count, customeStyle }) {
 const style = StyleSheet.create({
   flex1: { flex: 1, justifyContent: "center", alignItems: "center" },
   heading:{color:"white",letterSpacing:0.5},
-  count:{color:"white",paddingTop:20,fontSize:25}
+  count:{color:"white",paddingTop:20,fontSize:FONT_BACK_LABEL}
 });

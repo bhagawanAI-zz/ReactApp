@@ -6,10 +6,19 @@ import {
   StyleSheet,
   View,
   Image,
+  PixelRatio
 } from "react-native";
 import { Avatar } from "react-native-paper";
 import { material } from "react-native-typography";
 import SessionCount from "../../Common/SessionCount";
+
+
+var FONT_BACK_LABEL = 20;
+var FONT_HEADING = 15;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 15;
+  FONT_HEADING = 10;
+}
 
 const Profile = ({ navigation }) => {
   return (
@@ -76,7 +85,7 @@ const Profile = ({ navigation }) => {
       </View>
       <View style={style.sessionsHistoryContent}>
         <Text
-          style={[material.display1, {fontWeight: "bold",fontSize:20}]}
+          style={[material.display1, {fontWeight: "bold",fontSize:FONT_BACK_LABEL}]}
         >
           SESSION HISTORY
         </Text>
@@ -111,7 +120,7 @@ const style = StyleSheet.create({
   },
   flex1: { flex: 1, justifyContent: "center", alignItems: "center" },
   headingText: { color: "black", letterSpacing: 2 },
-  bottomText:{color:"grey",letterSpacing:1}
+  bottomText:{color:"grey",letterSpacing:1,fontSize:FONT_HEADING}
 });
 
 export default Profile;
