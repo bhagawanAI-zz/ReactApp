@@ -1,13 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions,PixelRatio } from "react-native";
 import { material } from "react-native-typography";
 import ColorPicker from "react-native-wheel-color-picker";
+
+
+
+var FONT_BACK_LABEL = 15;
+var FONT_HEADING = 17;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 10;
+  FONT_HEADING = 25;
+}
 
 export default function Unlock() {
   return (
     <View style={style.container}>
       <View style={style.heading}>
-        <Text style={[material.headlineWhite, style.text]}>UNLOCK MODE</Text>
+        <Text style={[material.headlineWhite, style.text]}></Text>
         <Text style={[material.captionWhite, style.text]}>
           {" "}
           SET YOUR COLOR CLOSE THE APP LISTEN TO ANYTHING
@@ -45,5 +54,6 @@ const style = StyleSheet.create({
   BottomContainer: { flex: 2, justifyContent: "center", alignItems: "center" },
   text: {
     letterSpacing: 1,
+    fontSize:FONT_BACK_LABEL
   },
 });

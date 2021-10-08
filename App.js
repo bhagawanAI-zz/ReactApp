@@ -1,6 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component, ImageBackground } from "react";
-import { Dimensions, Image, View ,Text} from "react-native";
+import {
+  Dimensions,
+  Image,
+  View,
+  Text,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator, HeaderTitle } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
@@ -235,38 +242,134 @@ const Stackscreens = createStackNavigator({
     navigationOptions: { headerShown: false },
   },
 
-  Intentions: { screen: Intentions, },
+  Intentions: { screen: Intentions },
   PostSession: { screen: PostSession },
   Session: { screen: Session },
   SessionPlayer: { screen: SessionPlayer },
   EditProfile: { screen: EditProfile },
-  PROFILE: { screen: Profile , navigationOptions: ({ navigation }) => ({
-    title: (<Text>PROFILE</Text>)
-})},
+  PROFILE: {
+    screen: Profile,
+    navigationOptions: ({ navigation }) => ({
+      title: <Text>PROFILE</Text>,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={{ width: 20, height: 20, marginLeft: 20 }}
+            source={require("./assets/images/back.png")}
+          />
+        </TouchableOpacity>
+      ),
+      headerStyle: { backgroundColor: "grey" },
+      headerTintColor: "white",
+    }),
+  },
   About: { screen: About },
-  HELP: { screen: Help ,navigationOptions: ({ navigation }) => ({
-    title: (<Text>HELP & SUPPORT</Text>)
-}) },
-  PurchaseDome: { screen: PurchaseDome, navigationOptions: ({ navigation }) => ({
-    title: (<Text>PAIR YOUR DOME</Text>)
-}) },
+  HELP: {
+    screen: Help,
+    navigationOptions: ({ navigation }) => ({
+      title: <Text>HELP & SUPPORT</Text>,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={{ width: 20, height: 20, marginLeft: 20 }}
+            source={require("./assets/images/back.png")}
+          />
+        </TouchableOpacity>
+      ),
+      headerStyle: { backgroundColor: "grey" },
+      headerTintColor: "white",
+    }),
+  },
+  PurchaseDome: {
+    screen: PurchaseDome,
+    navigationOptions: ({ navigation }) => ({
+      title: <Text>PAIR YOUR DOME</Text>,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={{ width: 20, height: 20, marginLeft: 20 }}
+            source={require("./assets/images/back.png")}
+          />
+        </TouchableOpacity>
+      ),
+      headerStyle: { backgroundColor: "grey" },
+      headerTintColor: "white",
+    }),
+
+    headerStyle: { backgroundColor: "grey" },
+    headerTintColor: "white",
+  },
   Settings: { screen: Settings },
   Subscription: { screen: Subscription },
   // Creative: { screen: Creative },
   MusicApp: { screen: MusicApp },
-  Clarity: { screen: Clarity },
-  PAIRDOME: { screen: PairDome ,navigationOptions: ({ navigation }) => ({
-    title: (<Text>PAIR YOUR DOME</Text>)
-})},
+  Clarity: {
+    screen: Clarity,
+    navigationOptions: ({ navigation }) => ({
+      title: <Text>CLARITY</Text>,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={{ width: 20, height: 20, marginLeft: 20 }}
+            source={require("./assets/images/back.png")}
+          />
+        </TouchableOpacity>
+      ),
+      headerStyle: { backgroundColor: "grey" },
+      headerTintColor: "white",
+    }),
+  },
+  PAIRDOME: {
+    screen: PairDome,
+    navigationOptions: ({ navigation }) => ({
+      title: <Text>PAIR YOUR DOME</Text>,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={{ width: 20, height: 20, marginLeft: 20 }}
+            source={require("./assets/images/back.png")}
+          />
+        </TouchableOpacity>
+      ),
+      headerStyle: { backgroundColor: "grey" },
+      headerTintColor: "white",
+    }),
+  },
   Pay: { screen: Pay },
   SeassionStart: { screen: SeassionStart },
   More: { screen: More },
-  TermsServices: { screen: TermsServices ,navigationOptions: ({ navigation }) => ({
-    title: (<Text>TERM OF SERVICE</Text>),
-})},
+  TermsServices: {
+    screen: TermsServices,
+    navigationOptions: ({ navigation }) => ({
+      title: <Text>TERM OF SERVICE</Text>,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={{ width: 20, height: 20, marginLeft: 20 }}
+            source={require("./assets/images/back.png")}
+          />
+        </TouchableOpacity>
+      ),
+      headerStyle: { backgroundColor: "grey" },
+      headerTintColor: "white",
+    }),
+  },
   Book: { screen: Book },
   DomePerformance: { screen: DomePerformance },
-  Unlock: { screen: Unlock },
+  Unlock: { screen: Unlock ,
+    navigationOptions: ({ navigation }) => ({
+      title: <Text>UNLOCK MODE:</Text>,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={{ width: 20, height: 20, marginLeft: 20 }}
+            source={require("./assets/images/back.png")}
+          />
+        </TouchableOpacity>
+      ),
+      headerStyle: { backgroundColor: "grey" },
+      headerTintColor: "white",
+    }),},
 });
 
 const Auth = createStackNavigator({
