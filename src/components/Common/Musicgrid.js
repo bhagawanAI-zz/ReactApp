@@ -25,9 +25,7 @@ export default function Musicgrid({ navigation, text, imagePath, iconName }) {
     spirit: require("../../../assets/images/Dove.png"),
     body: require("../../../assets/images/BODY.png"),
   };
-
   let innerText = "";
-
   if (text) {
     innerText = text.toUpperCase();
   }
@@ -51,7 +49,10 @@ export default function Musicgrid({ navigation, text, imagePath, iconName }) {
           <TouchableOpacity
             style={{ backgroundColor: "rgba(52, 52, 52, 0.0)" }}
             onPress={() =>
-              navigation.navigate("Clarity", { navigation: navigation })
+              navigation.navigate("Clarity", {
+                navigation: navigation,
+                title: innerText,
+              })
             }
           >
             <Image style={style.IconImage} source={icons[iconName]}></Image>

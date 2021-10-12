@@ -323,7 +323,7 @@ const Stackscreens = createStackNavigator({
     screen: Clarity,
     navigationOptions: ({ navigation }) => ({
       title: (
-        <Text style={[material.display1, styles.headerText]}>CLARITY</Text>
+        <Text style={[material.display1, styles.headerText]}>BACK TO LIBRARY</Text>
       ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>

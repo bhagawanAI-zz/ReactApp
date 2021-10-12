@@ -17,10 +17,11 @@ if (PixelRatio.get() <= 2) {
 }
 
 export default function Clarity({ navigation }) {
+  const title = navigation.state.params.title || "CLRITY";
   return (
     <View style={style.container}>
       <View style={[style.heading, style.center]}>
-        <Text style={style.text}>CLARITY</Text>
+        <Text style={style.text}>{title}</Text>
       </View>
       <View style={[style.para1, style.center]}>
         <View style={style.circle}>
