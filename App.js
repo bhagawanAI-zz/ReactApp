@@ -7,7 +7,9 @@ import {
   Text,
   Button,
   TouchableOpacity,
+  StyleSheet,
 } from "react-native";
+import { material } from "react-native-typography";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator, HeaderTitle } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
@@ -50,6 +52,7 @@ import StartupScreen from "./src/components/StartupScreen";
 import Book from "./src/components/StackScreens/Book";
 import DomePerformance from "./src/components/StackScreens/DomePerformance";
 import Unlock from "./src/components/StackScreens/Unlock";
+import { GetFontSize } from "./src/Utills/commonUtills";
 // const HomeScreen = createStackNavigator({
 //   Home :  {
 //     screen : Home,
@@ -236,6 +239,9 @@ export const bottomTabs = createBottomTabNavigator(
 //   headerLeft : ()=> <FontAwesome5 name="bars" color="black" style={{ paddingLeft:16 }} size={20} onPress={navigation.openDrawer}/>
 // })
 
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
+
 const Stackscreens = createStackNavigator({
   HomeScreen: {
     screen: bottomTabs,
@@ -250,7 +256,9 @@ const Stackscreens = createStackNavigator({
   PROFILE: {
     screen: Profile,
     navigationOptions: ({ navigation }) => ({
-      title: <Text>PROFILE</Text>,
+      title: (
+        <Text style={[material.display1, styles.headerText]}>PROFILE</Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -259,7 +267,7 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey" },
+      headerStyle: { backgroundColor: "grey", height: 100 },
       headerTintColor: "white",
     }),
   },
@@ -267,7 +275,11 @@ const Stackscreens = createStackNavigator({
   HELP: {
     screen: Help,
     navigationOptions: ({ navigation }) => ({
-      title: <Text>HELP & SUPPORT</Text>,
+      title: (
+        <Text style={[material.display1, styles.headerText]}>
+          HELP & SUPPORT
+        </Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -276,14 +288,18 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey" },
+      headerStyle: { backgroundColor: "grey", height: 100 },
       headerTintColor: "white",
     }),
   },
   PurchaseDome: {
     screen: PurchaseDome,
     navigationOptions: ({ navigation }) => ({
-      title: <Text>PAIR YOUR DOME</Text>,
+      title: (
+        <Text style={[material.display1, styles.headerText]}>
+          PAIR YOUR DOME
+        </Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -296,7 +312,7 @@ const Stackscreens = createStackNavigator({
       headerTintColor: "white",
     }),
 
-    headerStyle: { backgroundColor: "grey" },
+    headerStyle: { backgroundColor: "grey", height: 100 },
     headerTintColor: "white",
   },
   Settings: { screen: Settings },
@@ -306,7 +322,9 @@ const Stackscreens = createStackNavigator({
   Clarity: {
     screen: Clarity,
     navigationOptions: ({ navigation }) => ({
-      title: <Text>CLARITY</Text>,
+      title: (
+        <Text style={[material.display1, styles.headerText]}>CLARITY</Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -315,14 +333,18 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey" },
+      headerStyle: { backgroundColor: "grey", height: 100 },
       headerTintColor: "white",
     }),
   },
   PAIRDOME: {
     screen: PairDome,
     navigationOptions: ({ navigation }) => ({
-      title: <Text>PAIR YOUR DOME</Text>,
+      title: (
+        <Text style={[material.display1, styles.headerText]}>
+          PAIR YOUR DOME
+        </Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -331,7 +353,7 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey" },
+      headerStyle: { backgroundColor: "grey", height: 100 },
       headerTintColor: "white",
     }),
   },
@@ -341,7 +363,11 @@ const Stackscreens = createStackNavigator({
   TermsServices: {
     screen: TermsServices,
     navigationOptions: ({ navigation }) => ({
-      title: <Text>TERM OF SERVICE</Text>,
+      title: (
+        <Text style={[material.display1, styles.headerText]}>
+          TERMS OF SERVICE
+        </Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -350,15 +376,18 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey" },
+      headerStyle: { backgroundColor: "grey", height: 100 },
       headerTintColor: "white",
     }),
   },
   Book: { screen: Book },
   DomePerformance: { screen: DomePerformance },
-  Unlock: { screen: Unlock ,
+  Unlock: {
+    screen: Unlock,
     navigationOptions: ({ navigation }) => ({
-      title: <Text>UNLOCK MODE:</Text>,
+      title: (
+        <Text style={[material.display1, styles.headerText]}>UNLOCK MODE:</Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -367,9 +396,10 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey" },
+      headerStyle: { backgroundColor: "grey", height: 100 },
       headerTintColor: "white",
-    }),},
+    }),
+  },
 });
 
 const Auth = createStackNavigator({
@@ -398,6 +428,14 @@ const Drawerscreens = createDrawerNavigator(
     drawerWidth: Dimensions.get("window").width * 0.7,
   }
 );
+
+const styles = StyleSheet.create({
+  headerText: {
+    letterSpacing: 1,
+    fontSize: GetFontSize(),
+    color: "white",
+  },
+});
 
 const AppContainer = createAppContainer(
   createSwitchNavigator({

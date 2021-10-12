@@ -14,7 +14,7 @@ import MapView from "react-native-maps";
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 25;
 if (PixelRatio.get() <= 2) {
-  FONT_BACK_LABEL = 15;
+  FONT_BACK_LABEL = 13;
   FONT_HEADING = 20;
 }
 

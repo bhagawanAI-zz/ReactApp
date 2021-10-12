@@ -105,9 +105,8 @@ const Use = ({ navigation }) => {
       <ScrollView style={{ flex: 4, flexGrow: 4 }}>
         {TRACKS[grid].map((item, index) => {
           return (
-            <View style={style.create}>
+            <View style={style.create} key={index}>
               <Musicgrid
-                key={index}
                 navigation={navigation}
                 text={item.text}
                 imagePath={item.imagePath}

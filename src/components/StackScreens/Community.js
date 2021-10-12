@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { color } from "react-native-elements/dist/helpers";
 import { material } from "react-native-typography";
-
+import { GetFontSize } from "../../Utills/commonUtills";
 var FONT_BACK_LABEL = 10;
 var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
@@ -41,7 +41,9 @@ const Community = ({ navigation }) => {
   return (
     <View style={style.contianer}>
       <View style={style.heading}>
-        <Text style={[material.headlineWhite, style.text]}>COMMUNITY</Text>
+        <Text style={[material.headlineWhite, style.headingText]}>
+          COMMUNITY
+        </Text>
       </View>
       <View style={style.ActivitySection}>
         <Text style={[material.body2, { marginTop: 20 }, style.text]}>
@@ -87,7 +89,7 @@ const Community = ({ navigation }) => {
                 </Text>
               </ImageBackground>
             </View>
-            <View style={[style.flex1,{marginTop:"13%"}]}>
+            <View style={[style.flex1, { marginTop: "13%" }]}>
               <View style={{ alignItems: "center" }}>
                 <Text style={[material.display1, { color: "grey" }]}>2.</Text>
               </View>
@@ -133,7 +135,7 @@ const Community = ({ navigation }) => {
                 </Text>
               </ImageBackground>
             </View>
-            <View style={[style.flex1,{marginTop:"13%"}]}>
+            <View style={[style.flex1, { marginTop: "13%" }]}>
               <View style={{ alignItems: "center" }}>
                 <Text style={[material.display1, { color: "grey" }]}>3.</Text>
               </View>
@@ -233,6 +235,9 @@ const style = StyleSheet.create({
     fontSize: FONT_HEADING,
     letterSpacing: 2,
     fontWeight: "bold",
+  },
+  headingText: {
+    fontSize: GetFontSize(),
   },
 });
 export default Community;

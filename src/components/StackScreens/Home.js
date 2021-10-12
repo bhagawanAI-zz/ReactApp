@@ -2,13 +2,11 @@ import React from "react";
 import {
   Text,
   TouchableOpacity,
-  SafeAreaView,
   View,
   StyleSheet,
   Image,
   Dimensions,
 } from "react-native";
-import { color } from "react-native-reanimated";
 
 const Home = ({ navigation }) => {
   let isPaired = false;
@@ -16,7 +14,6 @@ const Home = ({ navigation }) => {
   if (isPaired) {
     screen = "Use";
   }
-
   const imagePath = require("../../../assets/images/creative.png");
 
   return (
@@ -28,7 +25,7 @@ const Home = ({ navigation }) => {
       </View>
       <View style={styles.mainContent}>
         <TouchableOpacity
-          style={styles.roundButton}
+          style={[styles.roundButton,styles.roundTop]}
           onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
           {/* <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>DOMING AT HOME</Text> */}
@@ -44,7 +41,7 @@ const Home = ({ navigation }) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.roundButton}
+          style={[styles.roundButton,styles.roundBottom]}
           onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
           <View style={styles.circle}>
@@ -66,32 +63,25 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   heading: {
     backgroundColor: "grey",
-    width: "100%",
     justifyContent: "center",
     alignItems: "center",
     flex: 0.5,
   },
   roundButton: {
-    marginTop: "4%",
-    width: "30%",
-    height: "30%",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
+    flexDirection: "column",
     alignItems: "center",
-    padding: 10,
-    borderRadius: 100,
+    flex: 1,
   },
   images: {
     width: 70,
     height: 70,
   },
   center: {
-    justifyContent: "center",
-    alignItems: "center",
     flex: 1,
   },
   mainContent: {
     flex: 3,
-    justifyContent: "center",
   },
   text: {
     color: "white",
@@ -116,6 +106,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
   },
+
+  roundTop: {paddingTop:"10%"},
+  roundBottom: {paddingBottom:"10%"},
 });
 
 export default Home;

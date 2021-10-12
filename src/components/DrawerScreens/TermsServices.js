@@ -11,7 +11,7 @@ export default function TermsServices() {
     <View style={style.container}>
       <View>
         <Text style={[material.headline, { marginTop: 30 }]}>
-          TERM OF SERVICE
+          TERMS OF SERVICE
         </Text>
       </View>
       <CommonHeadingText headingText="" SubheadingText={termString} />

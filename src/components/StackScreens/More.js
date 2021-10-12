@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { material } from "react-native-typography";
+import { GetFontSize } from "../../Utills/commonUtills";
 import MoreCommon from "../Common/MoreCommon";
 const moreTitles = [
   //contains Title in first index and navigate screen name in second index
@@ -22,7 +23,7 @@ export default function More({ navigation }) {
   return (
     <SafeAreaView style={style.contianer}>
       <View style={style.heading}>
-        <Text style={material.headlineWhite}>More</Text>
+        <Text style={[material.headlineWhite, style.headingText]}>More</Text>
       </View>
       <View style={style.mainContent}>
         {moreTitles.map((val, index) => {
@@ -59,5 +60,8 @@ const style = StyleSheet.create({
     marginLeft: 30,
     marginRight: 90,
     marginTop: 20,
+  },
+  headingText: {
+    fontSize: GetFontSize(),
   },
 });
