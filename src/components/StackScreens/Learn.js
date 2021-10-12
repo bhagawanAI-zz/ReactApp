@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, PixelRatio } from "react-native";
+import { StyleSheet, Text, View, PixelRatio, ScrollView } from "react-native";
 import { material } from "react-native-typography";
 import Feel from "../Common/Feel";
 import FeelTypes from "../Common/FeelTypes";
@@ -44,17 +44,18 @@ const Learn = ({ navigation }) => {
         <View style={style.box}>
           <FeelTypes imageType="image1" text={"  CLASSIC\nMEDITATION"} />
         </View>
-        <View style={[style.box,style.boxBorder]}>
+        <View style={[style.box, style.boxBorder]}>
           <FeelTypes imageType="image2" text={" SOUND\nHEALING"} />
         </View>
-        <View style={[style.box,style.boxBorder]}>
+        <View style={[style.box, style.boxBorder]}>
           <FeelTypes imageType="image3" text={"SOMADOME\n   SESSION"} />
         </View>
-        <View style={[style.box,style.boxBorder]}>
+        <View style={[style.box, style.boxBorder]}>
           <FeelTypes imageType="image4" text={"BREATHWORK"} />
         </View>
       </View>
-      <View style={style.content}>
+      <ScrollView style={style.content}>
+        {/* { need to use map here later } */}
         <View style={style.content__box}>
           <Text> WHAT IS MEDITATION?</Text>
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
@@ -68,10 +69,14 @@ const Learn = ({ navigation }) => {
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
         <View style={style.content__box}>
-          <Text> WHAT IS MEDITATION?</Text>
+          <Text> THE HEALING POWER OF SOUND</Text>
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
-      </View>
+        <View style={style.content__box}>
+          <Text> THE HISTORY OF BREATHWORK</Text>
+          <Text style={style.content__auther_text}> BY: SOMADOME</Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -90,7 +95,7 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
   },
-  content: { flex: 3, flexDirection: "column" },
+  content: { flex: 3, flexDirection: "column", flexGrow: 3 },
   heading__content: {},
   box: {
     flex: 1,
@@ -106,7 +111,8 @@ const style = StyleSheet.create({
     flex: 1,
     marginLeft: 30,
     marginRight: 90,
-    marginTop: 30,
+    marginTop: 50,
+    paddingBottom: 20,
   },
   content__auther_text: { color: "grey" },
   mainHeadingText: { fontSize: FONT_HEADING, fontWeight: "400" },

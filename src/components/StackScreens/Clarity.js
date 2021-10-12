@@ -7,6 +7,7 @@ import {
   Dimensions,
   TouchableOpacity,
   PixelRatio,
+  ScrollView,
 } from "react-native";
 
 var FONT_BACK_LABEL = 20;
@@ -53,13 +54,16 @@ export default function Clarity({ navigation }) {
           </Text>
         </View>
       </View>
-      <View style={[style.para3, style.paragraph]}>
+      <ScrollView style={[style.para3, style.paragraph]}>
         <Text style={[style.paratext]}>
           This guided meditation uses Theta and spoken meditation to encourage
           you to look into your heart to discover the purest, deepest intentions
           for your life. Theta waves erase thoughts of lack or limitation.
+          This guided meditation uses Theta and spoken meditation to encourage
+          you to look into your heart to discover the purest, deepest intentions
+          for your life. Theta waves erase thoughts of lack or limitation.
         </Text>
-      </View>
+      </ScrollView>
     </View>
   );
 }

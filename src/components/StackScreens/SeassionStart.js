@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { material, sanFranciscoWeights } from "react-native-typography";
 
-export default function SeassionStart() {
+export default function SeassionStart({ navigation }) {
   return (
     // <SafeAreaView style={{ justifyContent:'center',alignItems:'center' }}>
     //   <Text style={{ fontSize:30,fontWeight:'bold' }}>Post Session Screen</Text>
