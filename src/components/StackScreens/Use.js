@@ -32,9 +32,9 @@ const MindGrids = [
   { text: "focus", imagePath: "focused", colorCode: "#1283ba" },
   { text: "succeed", imagePath: "focused", colorCode: "#1283ba" },
   { text: "relaxed", imagePath: "relaxed", colorCode: "#82e6f2" },
-  { text: "motivate", imagePath: "focused", colorCode: "black" },
+  { text: "motivate", imagePath: "focused", colorCode: "#1283ba" },
   { text: "perform", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "confidence", imagePath: "focused", colorCode: "black" },
+  { text: "confidence", imagePath: "focused", colorCode: "#1283ba" },
 ];
 
 const BodyGrids = [
@@ -45,7 +45,7 @@ const BodyGrids = [
   { text: "heal", imagePath: "recovered", colorCode: "#70a65d" },
   { text: "overcome", imagePath: "recovered", colorCode: "#70a65d" },
   { text: "fit", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "confidence", imagePath: "focused", colorCode: "" },
+  { text: "confidence", imagePath: "focused", colorCode: "#1283ba" },
 ];
 
 const SpiritGrids = [
