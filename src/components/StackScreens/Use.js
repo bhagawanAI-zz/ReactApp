@@ -11,6 +11,11 @@ import Feeltype from "../Common/Feeltype";
 import FeelTypes from "../Common/FeelTypes";
 import Musicgrid from "../Common/Musicgrid";
 // import TimeContainer from "../Common/TimeContainer";
+import {
+  feelTypesBody,
+  feelTypesMind,
+  feelTypesSpirit,
+} from "../Common/Constants";
 
 import { material } from "react-native-typography";
 
@@ -21,55 +26,52 @@ if (PixelRatio.get() <= 2) {
   FONT_HEADING = 10;
 }
 
-const feelTypes = [
-  { imageType: "mind", text: "mind" },
-  { imageType: "body", text: "SOUND\nHEALING" },
-  { imageType: "spirit", text: "SOMADOME\nSESSION" },
-  // { imageType: "lock", text: "BREATHWORK" },
-];
-
 const MindGrids = [
-  { text: "clarity", imagePath: "relaxed" },
-  { text: "create", imagePath: "creative" },
-  { text: "focus", imagePath: "focused" },
-  { text: "succeed", imagePath: "focused" },
-  { text: "relaxed", imagePath: "relaxed" },
-  { text: "motivate", imagePath: "focused" },
-  { text: "perform", imagePath: "recovered" },
-  { text: "confidence", imagePath: "focused" },
+  { text: "clarity", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "create", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "focus", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "succeed", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "relaxed", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "motivate", imagePath: "focused", colorCode: "black" },
+  { text: "perform", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "confidence", imagePath: "focused", colorCode: "black" },
 ];
 
 const BodyGrids = [
-  { text: "perform", imagePath: "recovered" },
-  { text: "recharge", imagePath: "relaxed" },
-  { text: "relax", imagePath: "relaxed" },
-  { text: "snooze", imagePath: "relaxed" },
-  { text: "heal", imagePath: "recovered" },
-  { text: "overcome", imagePath: "recovered" },
-  { text: "fit", imagePath: "recovered" },
-  { text: "confidence", imagePath: "focused" },
+  { text: "perform", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "recharge", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "relax", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "snooze", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "heal", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "overcome", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "fit", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "confidence", imagePath: "focused", colorCode: "" },
 ];
 
 const SpiritGrids = [
-  { text: "ascend", imagePath: "creative" },
-  { text: "aspire", imagePath: "focused" },
-  { text: "bliss", imagePath: "creative" },
-  { text: "manifest", imagePath: "creative" },
-  { text: "love", imagePath: "creative" },
-  { text: "reclaim", imagePath: "creative" },
-  { text: "prosper", imagePath: "recovered" },
-  { text: "overcome", imagePath: "recovered" },
+  { text: "ascend", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "aspire", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "bliss", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "manifest", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "love", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "reclaim", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "prosper", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "overcome", imagePath: "recovered", colorCode: "#70a65d" },
 ];
 
 const TRACKS = {
   mind: MindGrids,
   body: BodyGrids,
   spirit: SpiritGrids,
+  mindActive: MindGrids,
+  bodyActive: BodyGrids,
+  spiritActive: SpiritGrids,
 };
 
 const Use = ({ navigation }) => {
   const [iconName, seticonName] = useState("mind");
   const [grid, setGrid] = useState("mind");
+  const [feelTypesArray, setFeeltypesArray] = useState(feelTypesMind);
   return (
     <View style={style.container}>
       <View style={style.heading}>
@@ -81,7 +83,7 @@ const Use = ({ navigation }) => {
             <Text style={style.TypeText}>WHAT NEEDS YOUR ATTENTION ? </Text>
           </View>
           <View style={style.TypeLeft__icons}>
-            {feelTypes.map((item, index) => {
+            {feelTypesArray.map((item, index) => {
               return (
                 <Feeltype
                   key={index}
@@ -89,6 +91,7 @@ const Use = ({ navigation }) => {
                   text={item.text}
                   seticonName={seticonName}
                   setGrid={setGrid}
+                  setFeelTypeArray={setFeeltypesArray}
                 />
               );
             })}
@@ -111,6 +114,7 @@ const Use = ({ navigation }) => {
                 text={item.text}
                 imagePath={item.imagePath}
                 iconName={iconName}
+                textColor={item.colorCode}
               />
             </View>
           );

@@ -1,12 +1,35 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { feelTypesBody, feelTypesMind, feelTypesSpirit } from "./Constants";
 
-export default function Feeltype({ imageType, text, seticonName,setGrid, navigation }) {
-  console.log("this is navigation", navigation);
+export default function Feeltype({
+  imageType,
+  text,
+  seticonName,
+  setGrid,
+  navigation,
+  setFeelTypeArray,
+}) {
+  function onTypeHandler() {
+    if (imageType === "body") {
+      setFeelTypeArray(feelTypesBody);
+    } else if (imageType == "spirit") {
+      setFeelTypeArray(feelTypesSpirit);
+    } else if (imageType == "mind") {
+      setFeelTypeArray(feelTypesMind);
+    }
+    // setFeelTypeArray([])
+    seticonName(imageType);
+    setGrid(imageType);
+  }
+
   const images = {
-    mind: require("../../../assets/images/use/mind.png"),
+    mind: require("../../../assets/images/use/mind_button.png"),
+    mindActive: require("../../../assets/images/use/mindActive.png"),
     body: require("../../../assets/images/use/body.png"),
+    bodyActive: require("../../../assets/images/use/BODY_ON_ICON.png"),
     spirit: require("../../../assets/images/use/sprit.png"),
+    spiritActive: require("../../../assets/images/use/SPIRIT_ON_ICON.png"),
     lock: require("../../../assets/images/use/lock.png"),
   };
   if (imageType == "lock") {
@@ -23,8 +46,7 @@ export default function Feeltype({ imageType, text, seticonName,setGrid, navigat
     <TouchableOpacity
       activeOpacity={0.7}
       onPress={() => {
-        seticonName(imageType);
-        setGrid(imageType)
+        onTypeHandler();
       }}
     >
       <View style={style.container}>
