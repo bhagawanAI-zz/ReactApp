@@ -134,9 +134,9 @@ export default function Musicgrid({
       <ImageBackground style={style.backgroundImage}>
         <View style={style.container}>
           <View style={style.box}>
-            <TouchableOpacity onPress={() => navigation.navigate("Music")}>
+            <View>
               <Image style={style.IconImage} source={images[imagePath]}></Image>
-            </TouchableOpacity>
+            </View>
           </View>
           <View style={style.box1}>
             <Text style={[style.text, { color: textColor }]}>{innerText} </Text>
@@ -167,7 +167,6 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    
   },
   box: {
     flex: 1,
@@ -193,14 +192,13 @@ const style = StyleSheet.create({
     height: 80,
     borderWidth: 3,
     borderRadius: 2,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
     borderBottomWidth: 0,
-    shadowColor: '#ddd',
-    shadowOffset: { width: 0, height: 4},
+    shadowColor: "#ddd",
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 2,
     elevation: 1,
- 
   },
   IconImage: {
     flex: 1,
