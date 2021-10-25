@@ -134,16 +134,26 @@ export default function Musicgrid({
       <ImageBackground style={style.backgroundImage}>
         <View style={style.container}>
           <View style={style.box}>
-            <View>
-              <Image style={style.IconImage} source={images[imagePath]}></Image>
+            <View style={{ height: 50 }}>
+              <Image
+                style={style.IconImageMusic}
+                source={images[imagePath]}
+              ></Image>
+              <View style={{ marginBottom: 30 }}>
+                <Text style={{ color: textColor, fontSize: 10 }}>20 min</Text>
+              </View>
             </View>
           </View>
           <View style={style.box1}>
             <Text style={[style.text, { color: textColor }]}>{innerText} </Text>
           </View>
-          <View style={style.box2}>
-            <TouchableOpacity
-              style={{ backgroundColor: "rgba(52, 52, 52, 0.0)" }}
+          {innerText.toLowerCase()==="perform" && iconName=="mind"  && <View style={style.box2}>
+            <View
+              style={{
+                backgroundColor: "rgba(52, 52, 52, 0.0)",
+                flexDirection: "row",
+                flex: 1,
+              }}
               onPress={() =>
                 navigation.navigate("Clarity", {
                   navigation: navigation,
@@ -155,8 +165,31 @@ export default function Musicgrid({
                 style={style.IconImage}
                 source={icons[iconName][imagePath]}
               ></Image>
-            </TouchableOpacity>
-          </View>
+              <Image
+                style={style.IconImage}
+                source={icons["body"][imagePath]}
+              ></Image>
+            </View>
+          </View> ||  <View style={style.box2}>
+            <View
+              style={{
+                backgroundColor: "rgba(52, 52, 52, 0.0)",
+                flexDirection: "row",
+                flex: 1,
+              }}
+              onPress={() =>
+                navigation.navigate("Clarity", {
+                  navigation: navigation,
+                  title: innerText,
+                })
+              }
+            >
+              <Image
+                style={style.IconImage}
+                source={icons[iconName][imagePath]}
+              ></Image>
+            </View>
+          </View>}
         </View>
       </ImageBackground>
     </TouchableOpacity>
@@ -201,9 +234,9 @@ const style = StyleSheet.create({
     elevation: 1,
   },
   IconImage: {
-    flex: 1,
-    width: 40,
+    width: 30,
     height: "100%",
     resizeMode: "contain",
   },
+  IconImageMusic: { width: 30, resizeMode: "contain", height: "100%" },
 });
