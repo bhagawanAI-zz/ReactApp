@@ -116,8 +116,10 @@ export default function Musicgrid({
   };
 
   let innerText = "";
+  let icon_name = "";
   if (text) {
-    innerText = text.toUpperCase();
+    innerText = text.toUpperCase() + " (GUIDED)";
+    icon_name = text;
   }
 
   console.log("icon name is ", iconName, " image path is ,", imagePath);
@@ -147,49 +149,53 @@ export default function Musicgrid({
           <View style={style.box1}>
             <Text style={[style.text, { color: textColor }]}>{innerText} </Text>
           </View>
-          {innerText.toLowerCase()==="perform" && iconName=="mind"  && <View style={style.box2}>
-            <View
-              style={{
-                backgroundColor: "rgba(52, 52, 52, 0.0)",
-                flexDirection: "row",
-                flex: 1,
-              }}
-              onPress={() =>
-                navigation.navigate("Clarity", {
-                  navigation: navigation,
-                  title: innerText,
-                })
-              }
-            >
-              <Image
-                style={style.IconImage}
-                source={icons[iconName][imagePath]}
-              ></Image>
-              <Image
-                style={style.IconImage}
-                source={icons["body"][imagePath]}
-              ></Image>
+          {(icon_name === "perform" && iconName == "mind" && (
+            <View style={style.box2}>
+              <View
+                style={{
+                  backgroundColor: "rgba(52, 52, 52, 0.0)",
+                  flexDirection: "row",
+                  flex: 1,
+                }}
+                onPress={() =>
+                  navigation.navigate("Clarity", {
+                    navigation: navigation,
+                    title: innerText,
+                  })
+                }
+              >
+                <Image
+                  style={style.IconImageParaller}
+                  source={icons[iconName][imagePath]}
+                ></Image>
+                <Image
+                  style={style.IconImageParaller}
+                  source={icons["body"][imagePath]}
+                ></Image>
+              </View>
             </View>
-          </View> ||  <View style={style.box2}>
-            <View
-              style={{
-                backgroundColor: "rgba(52, 52, 52, 0.0)",
-                flexDirection: "row",
-                flex: 1,
-              }}
-              onPress={() =>
-                navigation.navigate("Clarity", {
-                  navigation: navigation,
-                  title: innerText,
-                })
-              }
-            >
-              <Image
-                style={style.IconImage}
-                source={icons[iconName][imagePath]}
-              ></Image>
+          )) || (
+            <View style={style.box2}>
+              <View
+                style={{
+                  backgroundColor: "rgba(52, 52, 52, 0.0)",
+                  flexDirection: "row",
+                  flex: 1,
+                }}
+                onPress={() =>
+                  navigation.navigate("Clarity", {
+                    navigation: navigation,
+                    title: innerText,
+                  })
+                }
+              >
+                <Image
+                  style={style.IconImage}
+                  source={icons[iconName][imagePath]}
+                ></Image>
+              </View>
             </View>
-          </View>}
+          )}
         </View>
       </ImageBackground>
     </TouchableOpacity>
@@ -239,4 +245,5 @@ const style = StyleSheet.create({
     resizeMode: "contain",
   },
   IconImageMusic: { width: 30, resizeMode: "contain", height: "100%" },
+  IconImageParaller: { width: 30, resizeMode: "contain", height: "100%" ,marginLeft:10},
 });

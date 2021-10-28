@@ -1,9 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Dimensions,PixelRatio } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Dimensions,
+  PixelRatio,
+} from "react-native";
 import { material } from "react-native-typography";
 import ColorPicker from "react-native-wheel-color-picker";
-
-
 
 var FONT_BACK_LABEL = 15;
 var FONT_HEADING = 17;
@@ -54,6 +59,6 @@ const style = StyleSheet.create({
   BottomContainer: { flex: 2, justifyContent: "center", alignItems: "center" },
   text: {
     letterSpacing: 1,
-    fontSize:FONT_BACK_LABEL
+    fontSize: FONT_BACK_LABEL,
   },
 });
