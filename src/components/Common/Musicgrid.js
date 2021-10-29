@@ -136,13 +136,17 @@ export default function Musicgrid({
       <ImageBackground style={style.backgroundImage}>
         <View style={style.container}>
           <View style={style.box}>
-            <View style={{ height: 50 }}>
+            <View style={{ height: 40 }}>
               <Image
                 style={style.IconImageMusic}
                 source={images[imagePath]}
               ></Image>
-              <View style={{ marginBottom: 30 }}>
-                <Text style={{ color: textColor, fontSize: 10 }}>20 min</Text>
+              <View>
+                <Text
+                  style={{ color: textColor, fontSize: 10, paddingTop: -40 }}
+                >
+                  20 min
+                </Text>
               </View>
             </View>
           </View>
@@ -229,11 +233,11 @@ const style = StyleSheet.create({
     flex: 2,
     resizeMode: "cover", // or 'stretch'
     height: 80,
-    borderWidth: 3,
+    borderWidth: 1,
     borderRadius: 2,
-    borderColor: "#ddd",
+    borderColor: "white",
     borderBottomWidth: 0,
-    shadowColor: "#ddd",
+    shadowColor: "#D3D3D3",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 2,
@@ -245,5 +249,10 @@ const style = StyleSheet.create({
     resizeMode: "contain",
   },
   IconImageMusic: { width: 30, resizeMode: "contain", height: "100%" },
-  IconImageParaller: { width: 30, resizeMode: "contain", height: "100%" ,marginLeft:10},
+  IconImageParaller: {
+    width: 30,
+    resizeMode: "contain",
+    height: "100%",
+    marginLeft: 10,
+  },
 });

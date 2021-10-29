@@ -147,7 +147,7 @@ export const bottomTabs = createBottomTabNavigator(
     Home: {
       screen: Home,
     },
-    Dome: {
+    Find: {
       screen: Dome,
       navigationOptions: {
         inactiveTintColor: "white",
@@ -223,7 +223,7 @@ export const bottomTabs = createBottomTabNavigator(
       return (
         <BottomTabBar
           {...props}
-          display={["Dome", "Learn", "Use", "Connect", "More"]}
+          display={["Find", "Learn", "Use", "Connect", "More"]}
           background="grey"
         />
       );
