@@ -28,7 +28,7 @@ const Userdata = [
     review: `Tasha in Houston, TX just completed the, "Deep Relaxation" sound healing and says, "Magical. I can't imagine a better way to start my day. I felt like I was floating."`,
   },
   {
-    image: require("../../../assets/images/community/tashaFrame.png"),
+    image: require("../../../assets/images/community/sarahFrame.png"),
     review: `Joan in New York, NY just completed the, "Increase Energy" breathwork session.`,
   },
   {
