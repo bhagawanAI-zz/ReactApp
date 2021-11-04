@@ -115,10 +115,25 @@ export default function Musicgrid({
     },
   };
 
+  const GUIDED = [
+    "CLARITY",
+    "HEAL",
+    "FIT",
+    "ASPIRE",
+    "MANIFEST",
+    "LOVE",
+    "RECLAIM",
+  ];
+
   let innerText = "";
   let icon_name = "";
   if (text) {
-    innerText = text.toUpperCase() + " (GUIDED)";
+    if (GUIDED.includes(text.toUpperCase())) {
+      innerText = text.toUpperCase() + " (GUIDED)";
+    } else {
+      innerText = text.toUpperCase();
+    }
+
     icon_name = text;
   }
 

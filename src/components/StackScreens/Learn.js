@@ -28,19 +28,8 @@ const Learn = ({ navigation }) => {
             LEARN
           </Text>
         </View>
-
-        <View>
-          <Text style={[material.subheadingWhite, style.subHeadingText]}>
-            A RESOURCE CENTER FOR MEDIATATION,
-          </Text>
-          <View style={{ justifyContent: "center", alignItems: "center" }}>
-            <Text style={[material.subheadingWhite, style.subHeadingText]}>
-              BREATHWORK,AND SOUND HEALING.{" "}
-            </Text>
-          </View>
-        </View>
       </View>
-      <View style={style.subheading}>
+      {/* <View style={style.subheading}>
         <View style={style.box}>
           <FeelTypes imageType="image1" text={"  CLASSIC\nMEDITATION"} />
         </View>
@@ -53,7 +42,7 @@ const Learn = ({ navigation }) => {
         <View style={[style.box, style.boxBorder]}>
           <FeelTypes imageType="image4" text={"BREATHWORK"} />
         </View>
-      </View>
+      </View> */}
       <ScrollView style={style.content}>
         {/* { need to use map here later } */}
         <View style={style.content__box}>
@@ -84,18 +73,18 @@ const Learn = ({ navigation }) => {
 const style = StyleSheet.create({
   container: { flex: 1 },
   heading: {
-    flex: 1,
+    flex: 1.1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#6c64c3",
     borderBottomWidth: 1,
     borderBottomColor: "grey",
   },
-  subheading: {
-    flex: 1,
-    flexDirection: "row",
-  },
-  content: { flex: 3, flexDirection: "column", flexGrow: 3 },
+  // subheading: {
+  //   flex: 1,
+  //   flexDirection: "row",
+  // },
+  content: { flex: 4, flexDirection: "column", flexGrow: 4 },
   heading__content: {},
   box: {
     flex: 1,
@@ -107,7 +96,7 @@ const style = StyleSheet.create({
   },
   content__box: {
     borderBottomWidth: 1,
-    borderBottomColor: "grey",
+    borderBottomColor: "#D3D3D3",
     flex: 1,
     marginLeft: 30,
     marginRight: 90,

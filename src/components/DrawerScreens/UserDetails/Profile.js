@@ -73,11 +73,13 @@ const Profile = ({ navigation }) => {
         <View style={style.sessionStartContainer}>
           <SessionCount
             text="CONSECUTIVE DAYS"
+            subheading="(CURRENT)"
             count="3"
             customeStyle={{ flex: 1, backgroundColor: "#49ab9d" }}
           />
           <SessionCount
             text="CONSECUTIVE DAYS"
+            subheading="(BEST)"
             count="18"
             customeStyle={{ flex: 1, backgroundColor: "#80ddd3" }}
           />
