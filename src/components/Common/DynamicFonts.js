@@ -3,7 +3,7 @@ import { Dimensions, Platform, PixelRatio } from "react-native";
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
-  FONT_BACK_LABEL = 15;
+  FONT_BACK_LABEL = 10;
   FONT_HEADING = 10;
 }
 

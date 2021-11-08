@@ -17,7 +17,7 @@ var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
   FONT_BACK_LABEL = 15;
-  FONT_HEADING = 8;
+  FONT_HEADING = 6;
 }
 
 const Profile = ({ navigation }) => {
@@ -92,11 +92,11 @@ const Profile = ({ navigation }) => {
       </View>
       <View style={style.bottom}>
         <Text style={style.bottomText}>
-          YOU COMPLETED <Text style={{ fontSize: 20 }}>MANIFEST</Text> ON MARCH
+          YOU COMPLETED <Text style={{ fontSize: 12 }}>MANIFEST</Text> ON MARCH
           30{" "}
         </Text>
         <Text style={style.bottomText}>
-          YOU COMPLETED <Text style={{ fontSize: 20 }}>FOCUS</Text> ON MARCH 30{" "}
+          YOU COMPLETED <Text style={{ fontSize: 12 }}>FOCUS</Text> ON MARCH 30{" "}
         </Text>
       </View>
     </SafeAreaView>
