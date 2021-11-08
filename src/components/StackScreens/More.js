@@ -21,9 +21,9 @@ export default function More({ navigation }) {
     navigation.navigate(title);
   };
   return (
-    <SafeAreaView style={style.contianer}>
+    <View style={style.contianer}>
       <View style={style.heading}>
-        <Text style={[material.headlineWhite, style.headingText]}>More</Text>
+        <Text style={[material.headlineWhite, style.headingText]}>MORE</Text>
       </View>
       <View style={style.mainContent}>
         {moreTitles.map((val, index) => {
@@ -43,23 +43,25 @@ export default function More({ navigation }) {
         <MoreCommon heading={moreTitles[0]} />
         <MoreCommon heading={moreTitles[0]} /> */}
       </View>
-    </SafeAreaView>
+      
+    </View>
   );
 }
 
 const style = StyleSheet.create({
-  contianer: { flex: 1 },
+  contianer: { flex: 1 ,backgroundColor:"white"},
   heading: {
-    flex: 0.2,
+    flex: 0.15,
     backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",
   },
   mainContent: {
-    flex: 1,
+    flex: 0.5,
     marginLeft: 30,
     marginRight: 90,
     marginTop: 20,
+    
   },
   headingText: {
     fontSize: GetFontSize(),

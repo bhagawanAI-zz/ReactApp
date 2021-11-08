@@ -46,7 +46,7 @@ const Community = ({ navigation }) => {
         </Text>
       </View>
       <View style={style.ActivitySection}>
-        <Text style={[material.body2, { marginTop: 20 }, style.text]}>
+        <Text style={[material.body2, { marginTop: 20 }, style.ActivitySection]}>
           ACTIVITY
         </Text>
         {Userdata.map((item, index) => {
@@ -176,7 +176,7 @@ function Activity({ text, imageType, isBorder }) {
 }
 
 const style = StyleSheet.create({
-  contianer: { flex: 1 },
+  contianer: { flex: 1 ,backgroundColor:"white"},
   heading: {
     flex: 0.4,
     backgroundColor: "#b8b8bb",
@@ -191,6 +191,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     marginLeft: 20,
     marginRight: 30,
+    color:"grey"
   },
   TopRatedSecion: {
     flex: 1,

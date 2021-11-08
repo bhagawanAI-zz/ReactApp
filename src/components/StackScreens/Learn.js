@@ -5,10 +5,10 @@ import Feel from "../Common/Feel";
 import FeelTypes from "../Common/FeelTypes";
 
 var FONT_BACK_LABEL = 15;
-var FONT_HEADING = 17;
+var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
-  FONT_BACK_LABEL = 10;
-  FONT_HEADING = 25;
+  FONT_BACK_LABEL = 8;
+  FONT_HEADING = 23;
 }
 
 const Learn = ({ navigation }) => {
@@ -46,7 +46,7 @@ const Learn = ({ navigation }) => {
       <ScrollView style={style.content}>
         {/* { need to use map here later } */}
         <View style={style.content__box}>
-          <Text> WHAT IS MEDITATION?</Text>
+          <Text style={style.Learn_heading}> WHAT IS MEDITATION?</Text>
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
         <View style={style.content__box}>
@@ -71,12 +71,12 @@ const Learn = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, backgroundColor: "white" },
   heading: {
-    flex: 1.1,
+    flex: 0.7,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#6c64c3",
+    backgroundColor: "#8B79E9",
     borderBottomWidth: 1,
     borderBottomColor: "grey",
   },
@@ -96,19 +96,22 @@ const style = StyleSheet.create({
   },
   content__box: {
     borderBottomWidth: 1,
-    borderBottomColor: "#D3D3D3",
+    borderBottomColor: "#F9F9F9",
     flex: 1,
     marginLeft: 30,
     marginRight: 90,
-    marginTop: 50,
+    marginTop: 30,
     paddingBottom: 20,
   },
-  content__auther_text: { color: "grey" },
-  mainHeadingText: { fontSize: FONT_HEADING, fontWeight: "400" },
+  content__auther_text: { color: "grey", fontSize: 13 },
+  mainHeadingText: { fontSize: FONT_HEADING, fontWeight: "400"},
   subHeadingText: {
     fontSize: FONT_BACK_LABEL,
     fontWeight: "400",
     letterSpacing: 1,
+  },
+  Learn_heading: {
+    fontSize: 13,
   },
 });
 
