@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import CommonHeadingText from "../Common/CommonHeadingText";
 
 // const textContent = [{}];
@@ -7,25 +7,27 @@ import CommonHeadingText from "../Common/CommonHeadingText";
 const Help = () => {
   return (
     <SafeAreaView style={style.container}>
-      <CommonHeadingText
-        headingText="NEED HELP ?"
-        SubheadingText="CONTACT US "
-      />
-      <CommonHeadingText headingText="CALL:" SubheadingText="[888]462-7655" />
-      <CommonHeadingText
-        headingText="EMAIL:"
-        SubheadingText="SUPPORT@SOMEDOME.COM"
-      />
+      <View style={{ height: 200 }}>
+        <CommonHeadingText
+          headingText="NEED HELP?"
+          SubheadingText="CONTACT US. "
+        />
+        <CommonHeadingText headingText="CALL:" SubheadingText="[888]462-7655" />
+        <CommonHeadingText
+          headingText="EMAIL:"
+          SubheadingText="SUPPORT@SOMEDOME.COM"
+        />
+      </View>
     </SafeAreaView>
   );
 };
-
 const style = StyleSheet.create({
   container: {
-    flex: 0.5,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 200,
-  },})
+    backgroundColor: "white",
+  },
+});
 
 export default Help;

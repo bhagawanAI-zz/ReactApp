@@ -8,6 +8,7 @@ import {
   Button,
   TouchableOpacity,
   StyleSheet,
+  PixelRatio,
 } from "react-native";
 import { material } from "react-native-typography";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
@@ -88,6 +89,13 @@ import { GetFontSize } from "./src/Utills/commonUtills";
 //     screen : SideMenu
 //  }
 // })
+
+var FONT_BACK_LABEL = 22;
+var FONT_HEADING = 15;
+if (PixelRatio.get() <= 2) {
+  FONT_BACK_LABEL = 15;
+  FONT_HEADING = 10;
+}
 
 const RenderIcon = ({ iconName, width, height }) => {
   const images = {
@@ -267,7 +275,7 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey", height: 100 },
+      headerStyle: { backgroundColor: "#b8b8bb", height: 100 },
       headerTintColor: "white",
     }),
   },
@@ -288,7 +296,7 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey", height: 100 },
+      headerStyle: { backgroundColor: "#b8b8bb", height: 100 },
       headerTintColor: "white",
     }),
   },
@@ -312,7 +320,7 @@ const Stackscreens = createStackNavigator({
       headerTintColor: "white",
     }),
 
-    headerStyle: { backgroundColor: "grey", height: 100 },
+    headerStyle: { backgroundColor: "#b8b8bb", height: 100 },
     headerTintColor: "white",
   },
   Settings: { screen: Settings },
@@ -355,7 +363,7 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey", height: 100 },
+      headerStyle: { backgroundColor: "#b8b8bb", height: 100 },
       headerTintColor: "white",
     }),
   },
@@ -378,7 +386,7 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey", height: 100 },
+      headerStyle: { backgroundColor: "#b8b8bb", height: 100 },
       headerTintColor: "white",
     }),
   },
@@ -398,7 +406,7 @@ const Stackscreens = createStackNavigator({
           />
         </TouchableOpacity>
       ),
-      headerStyle: { backgroundColor: "grey", height: 100 },
+      headerStyle: { backgroundColor: "#b8b8bb", height: 100 },
       headerTintColor: "white",
     }),
   },
@@ -436,6 +444,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     fontSize: GetFontSize(),
     color: "white",
+    fontSize: FONT_BACK_LABEL,
   },
 });
 

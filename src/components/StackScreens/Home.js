@@ -62,7 +62,7 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   heading: {
-    backgroundColor: "grey",
+    backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",
     flex: 0.5,

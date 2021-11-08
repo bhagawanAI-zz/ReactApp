@@ -6,18 +6,18 @@ import {
   StyleSheet,
   View,
   Image,
-  PixelRatio
+  PixelRatio,
 } from "react-native";
 import { Avatar } from "react-native-paper";
 import { material } from "react-native-typography";
 import SessionCount from "../../Common/SessionCount";
-
+import { normalize } from "../../Common/DynamicFonts";
 
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
   FONT_BACK_LABEL = 15;
-  FONT_HEADING = 10;
+  FONT_HEADING = 8;
 }
 
 const Profile = ({ navigation }) => {
@@ -86,22 +86,25 @@ const Profile = ({ navigation }) => {
         </View>
       </View>
       <View style={style.sessionsHistoryContent}>
-        <Text
-          style={[material.display1, {fontWeight: "bold",fontSize:FONT_BACK_LABEL}]}
-        >
+        <Text style={[{ fontSize: FONT_BACK_LABEL, color: "white" }]}>
           SESSION HISTORY
         </Text>
       </View>
       <View style={style.bottom}>
-        <Text style={style.bottomText}>YOU COMPLETED <Text style={{fontSize:20}}>MANIFEST</Text> ON MARCH 30 </Text> 
-        <Text style={style.bottomText}>YOU COMPLETED <Text style={{fontSize:20}}>FOCUS</Text> ON MARCH 30 </Text>
+        <Text style={style.bottomText}>
+          YOU COMPLETED <Text style={{ fontSize: 20 }}>MANIFEST</Text> ON MARCH
+          30{" "}
+        </Text>
+        <Text style={style.bottomText}>
+          YOU COMPLETED <Text style={{ fontSize: 20 }}>FOCUS</Text> ON MARCH 30{" "}
+        </Text>
       </View>
     </SafeAreaView>
   );
 };
 
 const style = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, backgroundColor: "white" },
   profile: {
     flex: 1,
     flexDirection: "column",
@@ -113,7 +116,8 @@ const style = StyleSheet.create({
     flex: 0.5,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:"#ececec"
+    backgroundColor: "grey",
+    marginTop: 20,
   },
   bottom: { flex: 0.5, justifyContent: "center", alignItems: "center" },
   sessionStartContainer: {
@@ -121,8 +125,15 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   flex1: { flex: 1, justifyContent: "center", alignItems: "center" },
-  headingText: { color: "black", letterSpacing: 2 },
-  bottomText:{color:"grey",letterSpacing:1,fontSize:FONT_HEADING}
+  headingText: { color: "grey", letterSpacing: 2 },
+  bottomText: {
+    color: "grey",
+    letterSpacing: 1,
+    fontSize: normalize(FONT_HEADING),
+  },
+  bottomTextHeading: {
+    fontSize: normalize(FONT_BACK_LABEL),
+  },
 });
 
 export default Profile;

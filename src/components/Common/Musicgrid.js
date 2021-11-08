@@ -127,13 +127,14 @@ export default function Musicgrid({
 
   let innerText = "";
   let icon_name = "";
-  if (text) {
-    if (GUIDED.includes(text.toUpperCase())) {
-      innerText = text.toUpperCase() + " (GUIDED)";
-    } else {
-      innerText = text.toUpperCase();
-    }
+  const text_in_upper_case = text.toUpperCase();
 
+  if (text) {
+    if (GUIDED.includes(text_in_upper_case)) {
+      innerText = text_in_upper_case + " (GUIDED)";
+    } else {
+      innerText = text_in_upper_case;
+    }
     icon_name = text;
   }
 

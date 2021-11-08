@@ -179,7 +179,7 @@ const style = StyleSheet.create({
   contianer: { flex: 1 },
   heading: {
     flex: 0.4,
-    backgroundColor: "grey",
+    backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",
   },

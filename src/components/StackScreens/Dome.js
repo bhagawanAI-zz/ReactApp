@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Linking,
   PixelRatio,
+  Dimensions,
 } from "react-native";
 import { material } from "react-native-typography";
 import MapView from "react-native-maps";
@@ -36,14 +37,15 @@ const FindDome = ({ navigation }) => {
       </View>
 
       <View style={styles.mapContainer}>
-        {/* <MapView
+        <MapView
+          style={styles.map}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: 40.744516,
+            longitude: -73.989325,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-        /> */}
+        />
       </View>
 
       <View style={styles.addressContainer}>
@@ -132,6 +134,10 @@ const styles = StyleSheet.create({
   addressInfoText: {
     marginLeft: 30,
     marginRight: 30,
+  },
+  map: {
+    width: "95%",
+    height: "95%",
   },
 });
 

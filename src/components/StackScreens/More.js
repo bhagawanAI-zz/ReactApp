@@ -51,7 +51,7 @@ const style = StyleSheet.create({
   contianer: { flex: 1 },
   heading: {
     flex: 0.2,
-    backgroundColor: "grey",
+    backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",
   },

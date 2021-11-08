@@ -171,7 +171,7 @@ const style = StyleSheet.create({
   textContainer: {},
   heading: {
     flex: 1,
-    backgroundColor: "grey",
+    backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",
   },
