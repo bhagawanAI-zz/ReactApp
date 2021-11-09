@@ -8,9 +8,10 @@ import {
   Linking,
   PixelRatio,
   Dimensions,
+  Image,
 } from "react-native";
 import { material } from "react-native-typography";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 25;
@@ -45,7 +46,22 @@ const FindDome = ({ navigation }) => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-        />
+        >
+          <Marker
+            coordinate={{
+              latitude: 40.744516,
+              longitude: -73.989325,
+            }}
+            tracksViewChanges={false}
+            icon={require("../../../assets/somadome.png")}
+            description={"This is a marker in React Natve"}
+          >
+            <Image
+              source={require("../../../assets/somadome.png")}
+              style={{ height: 35, width: 50 }}
+            />
+          </Marker>
+        </MapView>
       </View>
 
       <View style={styles.addressContainer}>
@@ -99,7 +115,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor:"white"
+    backgroundColor: "white",
   },
   heading: {
     flex: 0.7,
