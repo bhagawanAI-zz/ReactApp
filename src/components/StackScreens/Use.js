@@ -129,7 +129,7 @@ const style = StyleSheet.create({
     flexDirection: "column",
   },
   typeContainer: {
-    flex: 1.2,
+    flex: 1,
     backgroundColor: "white",
     flexDirection: "row",
     // alignItems:"center",
@@ -151,7 +151,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   TypeLeft__Text: { flex: 1, justifyContent: "center", alignItems: "center" },
-  TypeText: { color: "grey", letterSpacing: 1, fontSize: FONT_BACK_LABEL },
+  TypeText: { color: "#b8b8bb", letterSpacing: 1, fontSize: FONT_BACK_LABEL },
   time: {
     flex: 1,
     backgroundColor: "white",
@@ -170,7 +170,7 @@ const style = StyleSheet.create({
   },
   textContainer: {},
   heading: {
-    flex: 1,
+    flex: 0.7,
     backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",

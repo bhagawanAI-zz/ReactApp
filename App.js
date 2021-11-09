@@ -155,7 +155,7 @@ export const bottomTabs = createBottomTabNavigator(
     Home: {
       screen: Home,
     },
-    Find: {
+    FIND: {
       screen: Dome,
       navigationOptions: {
         inactiveTintColor: "white",
@@ -169,7 +169,7 @@ export const bottomTabs = createBottomTabNavigator(
         ),
       },
     },
-    Learn: {
+    LEARN: {
       screen: Learn,
       navigationOptions: {
         activeTintColor: "white",
@@ -183,7 +183,7 @@ export const bottomTabs = createBottomTabNavigator(
         ),
       },
     },
-    Use: {
+    USE: {
       screen: Use,
       navigationOptions: {
         inactiveTintColor: "white",
@@ -197,7 +197,7 @@ export const bottomTabs = createBottomTabNavigator(
         headerVisible: true,
       },
     },
-    Connect: {
+    CONNECT: {
       screen: Community,
       navigationOptions: {
         inactiveTintColor: "white",
@@ -210,7 +210,7 @@ export const bottomTabs = createBottomTabNavigator(
         ),
       },
     },
-    More: {
+    MORE: {
       // screen: SideMenu,
       screen: More,
       navigationOptions: {
@@ -231,8 +231,8 @@ export const bottomTabs = createBottomTabNavigator(
       return (
         <BottomTabBar
           {...props}
-          display={["Find", "Learn", "Use", "Connect", "More"]}
-          background="grey"
+          display={["FIND", "LEARN", "USE", "CONNECT", "MORE"]}
+          background="#b8b8bb"
         />
       );
     },

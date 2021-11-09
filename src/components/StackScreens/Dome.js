@@ -15,8 +15,8 @@ import MapView from "react-native-maps";
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 25;
 if (PixelRatio.get() <= 2) {
-  FONT_BACK_LABEL = 13;
-  FONT_HEADING = 20;
+  FONT_BACK_LABEL = 10;
+  FONT_HEADING = 15;
 }
 
 const FindDome = ({ navigation }) => {
@@ -75,7 +75,7 @@ const FindDome = ({ navigation }) => {
           style={{
             height: 50,
             width: 180,
-            backgroundColor: "rgb(37, 150, 190)",
+            backgroundColor: "#70b1ba",
             marginTop: "10%",
           }}
           onPress={() => Linking.openURL("https://somadome.com/")}
@@ -99,12 +99,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
+    backgroundColor:"white"
   },
   heading: {
-    flex: 1,
+    flex: 0.7,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgb(37, 150, 190)",
+    backgroundColor: "#70b1ba",
   },
   mapContainer: {
     flex: 1.5,

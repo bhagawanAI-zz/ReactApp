@@ -6,13 +6,14 @@ import {
   StyleSheet,
   Image,
   Dimensions,
+  Linking,
 } from "react-native";
 
 const Home = ({ navigation }) => {
   let isPaired = false;
-  let screen = "Use"; // change screen if not paired
+  let screen = "USE"; // change screen if not paired
   if (isPaired) {
-    screen = "Use";
+    screen = "USE";
   }
   const imagePath = require("../../../assets/images/creative.png");
 
@@ -25,7 +26,7 @@ const Home = ({ navigation }) => {
       </View>
       <View style={styles.mainContent}>
         <TouchableOpacity
-          style={[styles.roundButton,styles.roundTop]}
+          style={[styles.roundButton, styles.roundTop]}
           onPress={() => navigation.navigate(screen, { path: imagePath })}
         >
           {/* <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>DOMING AT HOME</Text> */}
@@ -41,8 +42,8 @@ const Home = ({ navigation }) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.roundButton,styles.roundBottom]}
-          onPress={() => navigation.navigate(screen, { path: imagePath })}
+          style={[styles.roundButton, styles.roundBottom]}
+          onPress={() => Linking.openURL("https://somadome.com/")}
         >
           <View style={styles.circle}>
             <Image
@@ -74,8 +75,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   images: {
-    width: 70,
-    height: 70,
+    width: 50,
+    height: 50,
   },
   center: {
     flex: 1,
@@ -95,9 +96,9 @@ const styles = StyleSheet.create({
       Math.round(
         Dimensions.get("window").width + Dimensions.get("window").height
       ) / 2,
-    width: Dimensions.get("window").width * 0.45,
-    height: Dimensions.get("window").width * 0.45,
-    backgroundColor: "#87d5e1",
+    width: Dimensions.get("window").width * 0.36,
+    height: Dimensions.get("window").width * 0.36,
+    backgroundColor: "#77bec7",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -107,8 +108,8 @@ const styles = StyleSheet.create({
     color: "white",
   },
 
-  roundTop: {paddingTop:"10%"},
-  roundBottom: {paddingBottom:"10%"},
+  roundTop: { paddingTop: "10%" },
+  roundBottom: { paddingBottom: "10%" },
 });
 
 export default Home;

@@ -11,10 +11,10 @@ import {
 } from "react-native";
 
 var FONT_BACK_LABEL = 20;
-var FONT_HEADING = 15;
+var FONT_HEADING = 20;
 if (PixelRatio.get() <= 2) {
-  FONT_BACK_LABEL = 15;
-  FONT_HEADING = 10;
+  FONT_BACK_LABEL = 12;
+  FONT_HEADING = 15;
 }
 
 export default function Clarity({ navigation }) {
@@ -37,7 +37,7 @@ export default function Clarity({ navigation }) {
       <View style={[style.para2, style.center]}>
         <View style={{ flexDirection: "row", color: "blue" }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("SeassionStart")}
+            onPress={() => console.log("")}
           >
             <Image source={require("../../../assets/images/play.png")}></Image>
           </TouchableOpacity>
@@ -72,6 +72,7 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
+    backgroundColor:"white"
   },
   heading: {
     flex: 0.5,
@@ -106,7 +107,7 @@ const style = StyleSheet.create({
     letterSpacing: 2,
   },
   text: {
-    fontSize: 30,
+    fontSize: FONT_HEADING,
     color: "grey",
   },
   paragraph: {
