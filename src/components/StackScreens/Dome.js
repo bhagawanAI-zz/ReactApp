@@ -54,7 +54,7 @@ const FindDome = ({ navigation }) => {
             }}
             tracksViewChanges={false}
             icon={require("../../../assets/somadome.png")}
-            description={"This is a marker in React Natve"}
+            description={"DOME"}
           >
             <Image
               source={require("../../../assets/somadome.png")}
@@ -65,21 +65,23 @@ const FindDome = ({ navigation }) => {
       </View>
 
       <View style={styles.addressContainer}>
-        <Text style={[material.headline, styles.addressHeadingText]}>
+        <Text style={[material.headlineObject, styles.addressHeadingText]}>
           MODRN SANCTUARY{" "}
         </Text>
         <Text style={[material.subheading, styles.addressText]}>
           {/* {
             "12 W 27th St 9th floor,\n New York ,NT 1000 \n www.modernsanctury.com \n(212) 675-9355"
           } */}
-          <Text style={styles.addressInfoText}>
-            12 W 27th St 9th floor,{"\n"}{" "}
-          </Text>
-          <Text style={styles.addressInfoText}>New York ,NT 1000 {"\n"}</Text>
-          <Text style={styles.addressInfoText}>
-            www.modernsanctury.com {"\n"}
-          </Text>
-          <Text style={styles.addressInfoText}>(212) 675-9355 {"\n"}</Text>
+          <View style={{ flex:1 }}>
+            <Text style={styles.addressInfoText}>
+              12 W 27th St 9th floor,{"\n"}{" "}
+            </Text>
+            <Text style={styles.addressInfoText}>New York ,NT 1000 {"\n"}</Text>
+            <Text style={styles.addressInfoText}>
+              www.modernsanctury.com {"\n"}
+            </Text>
+            <Text style={[styles.addressInfoText,{textAlign:"center"}]}>(212) 675-9355 {"\n"}</Text>
+          </View>
         </Text>
       </View>
 
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     flex: 1.5,
   },
   addressContainer: {
-    flex: 1,
+    flex: 1.5,
     alignItems: "center",
     marginLeft: 50,
     marginRight: 50,
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    borderTopColor: "grey",
+    borderTopColor: "#f9f9f9",
     borderTopWidth: 1,
   },
   headingText: {
@@ -144,16 +146,16 @@ const styles = StyleSheet.create({
     fontSize: FONT_HEADING,
   },
   addressText: {
-    color: "grey",
+    color: "#b8b8bb",
     fontSize: FONT_BACK_LABEL,
   },
-  addressHeadingText: { color: "grey", fontSize: FONT_HEADING },
+  addressHeadingText: { color: "#b8b8bb", fontSize: FONT_HEADING,marginBottom:10 },
   addressInfoText: {
-    marginLeft: 30,
-    marginRight: 30,
+    textAlign:"center",
+    color:"#b8b8bb"
   },
   map: {
-    width: "95%",
+    width: "100%",
     height: "95%",
   },
 });

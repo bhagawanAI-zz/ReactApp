@@ -104,7 +104,7 @@ const style = StyleSheet.create({
     paddingBottom: 20,
   },
   content__auther_text: { color: "grey", fontSize: 13 },
-  mainHeadingText: { fontSize: FONT_HEADING, fontWeight: "400"},
+  mainHeadingText: { fontSize: FONT_HEADING+5},
   subHeadingText: {
     fontSize: FONT_BACK_LABEL,
     fontWeight: "400",

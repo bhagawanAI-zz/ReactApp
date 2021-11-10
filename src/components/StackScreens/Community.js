@@ -18,22 +18,21 @@ if (PixelRatio.get() <= 2) {
   FONT_BACK_LABEL = 8;
   FONT_HEADING = 9;
 }
-
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 const Userdata = [
   {
     image: require("../../../assets/images/community/tashaFrame.png"),
-    review: `Tasha in Houston, TX just completed the, "Deep Relaxation" sound healing and says, "Magical. I can't imagine a better way to start my day. I felt like I was floating."`,
+    review: `Tasha in Houston, TX just completed the, "FOCUS"`,
   },
   {
     image: require("../../../assets/images/community/sarahFrame.png"),
-    review: `Joan in New York, NY just completed the, "Increase Energy" breathwork session.`,
+    review: `Joan in New York, NY just completed the, "RECHARGE"`,
   },
   {
     image: require("../../../assets/images/community/markFrame.png"),
-    review: `Mark in Los Angeles, CA just completed the, "Attract Intentions" meditation and says, “I swear this works! Been doing this every day this week."`,
+    review: `Mark in Los Angeles, CA just completed the, "CLARITY"`,
   },
 ];
 
@@ -46,7 +45,9 @@ const Community = ({ navigation }) => {
         </Text>
       </View>
       <View style={style.ActivitySection}>
-        <Text style={[material.body2, { marginTop: 20 }, style.ActivitySection]}>
+        <Text
+          style={[material.body2, { marginTop: 20 }, style.ActivitySection]}
+        >
           ACTIVITY
         </Text>
         {Userdata.map((item, index) => {
@@ -112,7 +113,7 @@ const Community = ({ navigation }) => {
                 </Text>
               </ImageBackground>
             </View>
-            <View style={[style.flex1, { marginBottom: "5%" }]}>
+            <View style={[style.flex1, { marginBottom: "1%" }]}>
               <View style={{ alignItems: "center" }}>
                 <Text style={[material.display1, { color: "grey" }]}>1.</Text>
               </View>
@@ -165,7 +166,8 @@ function Activity({ text, imageType, isBorder }) {
         style={{
           flex: 1,
           marginLeft: 20,
-          borderBottomColor: "grey",
+          marginTop:10,
+          borderBottomColor: "#F9F9F9",
           borderBottomWidth: borderWidth,
         }}
       >
@@ -176,7 +178,7 @@ function Activity({ text, imageType, isBorder }) {
 }
 
 const style = StyleSheet.create({
-  contianer: { flex: 1 ,backgroundColor:"white"},
+  contianer: { flex: 1, backgroundColor: "white" },
   heading: {
     flex: 0.4,
     backgroundColor: "#b8b8bb",
@@ -185,13 +187,13 @@ const style = StyleSheet.create({
   },
   ActivitySection: {
     flex: 1.2,
-    borderBottomColor: "grey",
+    borderBottomColor: "#f9f9f9",
     borderBottomWidth: 1,
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 20,
     marginRight: 30,
-    color:"grey"
+    color: "#b8b8bb",
   },
   TopRatedSecion: {
     flex: 1,
@@ -216,8 +218,8 @@ const style = StyleSheet.create({
     justifyContent: "center",
   },
   imageRoundBig: {
-    width: SCREEN_WIDTH * 0.25,
-    height: SCREEN_WIDTH * 0.25,
+    width: SCREEN_WIDTH * 0.27,
+    height: SCREEN_WIDTH * 0.27,
     borderRadius: (SCREEN_HEIGHT * 0.25) / 2,
     overflow: "hidden",
     borderWidth: 0,
@@ -226,11 +228,12 @@ const style = StyleSheet.create({
   },
   text: {
     letterSpacing: 2,
-    fontSize: FONT_HEADING,
+    fontSize: FONT_HEADING-2,
+    color:"grey"
   },
   activitytext: {
-    fontSize: FONT_BACK_LABEL,
-    color: "grey",
+    fontSize: FONT_BACK_LABEL-1,
+    color: "#b8b8bb",
   },
   Playtext: {
     fontSize: FONT_HEADING,

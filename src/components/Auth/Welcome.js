@@ -13,7 +13,7 @@ const Welcome = ({ navigation }) => {
   const width = Dimensions.get("window").width;
   return (
     <ImageBackground
-      source={require("./welcome.png")}
+      source={require("./1_FRONT_LOGIN.png")}
       style={styles.backgroundImage}
     >
       <View
@@ -37,14 +37,6 @@ const Welcome = ({ navigation }) => {
             height: 20,
           }}
         >
-          <Image
-            source={require("../../../assets/images/homeicoon.png")}
-            style={{
-              width: 500,
-              height: 70,
-              resizeMode: "contain",
-            }}
-          />
         </View>
 
         <View style={{ marginTop: "60%" }}>
