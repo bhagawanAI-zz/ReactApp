@@ -395,16 +395,22 @@ const Stackscreens = createStackNavigator({
   Unlock: {
     screen: Unlock,
     navigationOptions: ({ navigation }) => ({
-      title: (
-        <Text style={[material.display1, styles.headerText]}>UNLOCK MODE:</Text>
+      headerTitle: (
+        <View style={{alignItems:"center"}}>
+          <Text style={[material.display1, styles.headerText]}>UNLOCK MODE:</Text>
+          <Text style={[material.captionWhite, {letterSpacing: 1,fontSize: 13}]}>
+            SET YOUR COLOR CLOSE THE APP LISTEN TO ANYTHING
+          </Text>
+        </View>
       ),
       headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            style={{ width: 20, height: 20, marginLeft: 20 }}
-            source={require("./assets/images/back.png")}
-          />
-        </TouchableOpacity>
+        // <TouchableOpacity onPress={() => navigation.goBack()}>
+        //   <Image
+        //     style={{ width: 20, height: 20, marginLeft: 10 }}
+        //     source={require("./assets/images/back.png")}
+        //   />
+        // </TouchableOpacity>
+        null
       ),
       headerStyle: { backgroundColor: "#b8b8bb", height: 100 },
       headerTintColor: "white",

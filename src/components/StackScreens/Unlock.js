@@ -1,4 +1,4 @@
-import React from "react";
+   import React from "react";
 import {
   View,
   Text,
@@ -8,7 +8,8 @@ import {
   PixelRatio,
 } from "react-native";
 import { material } from "react-native-typography";
-import ColorPicker from "react-native-wheel-color-picker";
+// import ColorPicker from "react-native-wheel-color-picker";
+import ColorPicker from '../WheelColorPicker/ColorPicker';
 
 var FONT_BACK_LABEL = 15;
 var FONT_HEADING = 17;
@@ -20,25 +21,25 @@ if (PixelRatio.get() <= 2) {
 export default function Unlock() {
   return (
     <View style={style.container}>
-      <View style={style.heading}>
+      {/* <View style={style.heading}>
         <Text style={[material.headlineWhite, style.text]}></Text>
         <Text style={[material.captionWhite, style.text]}>
-          {" "}
           SET YOUR COLOR CLOSE THE APP LISTEN TO ANYTHING
         </Text>
-      </View>
+      </View> */}
       <View style={style.SlideContainer}>
-        <Image
+        {/* <Image
           source={require("../../../assets/images/unlock/slide.png")}
-        ></Image>
+        ></Image> */}
 
-        {/* <ColorPicker thumbSize={40} sliderSize={40} noSnap={true} row={false} /> */}
+        <ColorPicker thumbSize={20} sliderSize={20} noSnap={true} row={false} />
       </View>
       <View style={style.BottomContainer}>
         <Image
           source={require("../../../assets/images/unlock/play.png")}
         ></Image>
       </View>
+      <View style={style.thirdContainer}/>
     </View>
   );
 }
@@ -56,7 +57,10 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   SlideContainer: { flex: 3, justifyContent: "center", alignItems: "center" },
-  BottomContainer: { flex: 2, justifyContent: "center", alignItems: "center" },
+  BottomContainer: { flex: 1, justifyContent: "center", alignItems: "center" },
+  thirdContainer:{
+    flex:1
+  },
   text: {
     letterSpacing: 1,
     fontSize: FONT_BACK_LABEL,
