@@ -28,10 +28,16 @@
 		64AB4A481E9F4F56B7C57630 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91F1667F68824E59BEFC6CBF /* Octicons.ttf */; };
 		397D814FFBB9493198D5CCC5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FBB75E6B5DF4C40A337FC6B /* SimpleLineIcons.ttf */; };
 		8F2D52CDBFF343EEB7BCD889 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E60815F5488B4D4C841E8E72 /* Zocial.ttf */; };
+		C53BE8D5E0044AF0AABA9E3A /* BebasNeue-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1D326CF1EF048519C49DD7A /* BebasNeue-Book.otf */; };
+		6F852F66184E40B3B9A3EA90 /* BebasNeue-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A01FB7BF0BA44729A153EDBD /* BebasNeue-Book.ttf */; };
+		8DACFF30A6B741CCA1615546 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DC8BAA4A549431E8CC55A20 /* BebasNeue-Regular.ttf */; };
+		22EAE0173994486F996EC930 /* khula-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AC6463EAD604360A72835A2 /* khula-regular.otf */; };
+		A044631D5D324164B078541B /* Khula-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6B623D203A473EA58FA8C0 /* Khula-Regular.ttf */; };
+		664781A6AC0A42879C798B93 /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D2BD174B367403BABC8B7BA /* PTSans-Regular.ttf */; };
+		B7F8AD124F594344895E6FA1 /* Khula-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47C5D0C143EB4B28836F23F4 /* Khula-Bold.ttf */; };
+		270FD72026EB4900803A4BD7 /* Khula-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B84210EFD4DF42D8A8FF9473 /* Khula-SemiBold.ttf */; };
 		3367D03EAA63489D869E7269 /* BebasNeueBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9A664E2BD34FCFB0C2BECB /* BebasNeueBook.otf */; };
 		73BC2435445042668ED13AE3 /* khula-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B78F010A96441AB818931CC /* khula-regular.otf */; };
-		E144E2CC66184E898E5ABA53 /* Khula-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7634686AB40009D3D45D8 /* Khula-Regular.ttf */; };
-		9858755BFBC14ACCAB7FDDAD /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC26858A3B66495D98DDF134 /* PTSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +78,16 @@
 		91F1667F68824E59BEFC6CBF /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5FBB75E6B5DF4C40A337FC6B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E60815F5488B4D4C841E8E72 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B1D326CF1EF048519C49DD7A /* BebasNeue-Book.otf */ = {isa = PBXFileReference; name = "BebasNeue-Book.otf"; path = "../assets/fonts/BebasNeue-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A01FB7BF0BA44729A153EDBD /* BebasNeue-Book.ttf */ = {isa = PBXFileReference; name = "BebasNeue-Book.ttf"; path = "../assets/fonts/BebasNeue-Book.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6DC8BAA4A549431E8CC55A20 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; name = "BebasNeue-Regular.ttf"; path = "../assets/fonts/BebasNeue-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4AC6463EAD604360A72835A2 /* khula-regular.otf */ = {isa = PBXFileReference; name = "khula-regular.otf"; path = "../assets/fonts/khula-regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9E6B623D203A473EA58FA8C0 /* Khula-Regular.ttf */ = {isa = PBXFileReference; name = "Khula-Regular.ttf"; path = "../assets/fonts/Khula-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3D2BD174B367403BABC8B7BA /* PTSans-Regular.ttf */ = {isa = PBXFileReference; name = "PTSans-Regular.ttf"; path = "../assets/fonts/PTSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		47C5D0C143EB4B28836F23F4 /* Khula-Bold.ttf */ = {isa = PBXFileReference; name = "Khula-Bold.ttf"; path = "../assets/fonts/Khula-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B84210EFD4DF42D8A8FF9473 /* Khula-SemiBold.ttf */ = {isa = PBXFileReference; name = "Khula-SemiBold.ttf"; path = "../assets/fonts/Khula-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3F9A664E2BD34FCFB0C2BECB /* BebasNeueBook.otf */ = {isa = PBXFileReference; name = "BebasNeueBook.otf"; path = "../src/assets/fonts/BebasNeueBook.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5B78F010A96441AB818931CC /* khula-regular.otf */ = {isa = PBXFileReference; name = "khula-regular.otf"; path = "../src/assets/fonts/khula-regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9FE7634686AB40009D3D45D8 /* Khula-Regular.ttf */ = {isa = PBXFileReference; name = "Khula-Regular.ttf"; path = "../src/assets/fonts/Khula-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CC26858A3B66495D98DDF134 /* PTSans-Regular.ttf */ = {isa = PBXFileReference; name = "PTSans-Regular.ttf"; path = "../src/assets/fonts/PTSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,10 +196,16 @@
 				91F1667F68824E59BEFC6CBF /* Octicons.ttf */,
 				5FBB75E6B5DF4C40A337FC6B /* SimpleLineIcons.ttf */,
 				E60815F5488B4D4C841E8E72 /* Zocial.ttf */,
+				B1D326CF1EF048519C49DD7A /* BebasNeue-Book.otf */,
+				A01FB7BF0BA44729A153EDBD /* BebasNeue-Book.ttf */,
+				6DC8BAA4A549431E8CC55A20 /* BebasNeue-Regular.ttf */,
+				4AC6463EAD604360A72835A2 /* khula-regular.otf */,
+				9E6B623D203A473EA58FA8C0 /* Khula-Regular.ttf */,
+				3D2BD174B367403BABC8B7BA /* PTSans-Regular.ttf */,
+				47C5D0C143EB4B28836F23F4 /* Khula-Bold.ttf */,
+				B84210EFD4DF42D8A8FF9473 /* Khula-SemiBold.ttf */,
 				3F9A664E2BD34FCFB0C2BECB /* BebasNeueBook.otf */,
 				5B78F010A96441AB818931CC /* khula-regular.otf */,
-				9FE7634686AB40009D3D45D8 /* Khula-Regular.ttf */,
-				CC26858A3B66495D98DDF134 /* PTSans-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -299,10 +317,16 @@
 				64AB4A481E9F4F56B7C57630 /* Octicons.ttf in Resources */,
 				397D814FFBB9493198D5CCC5 /* SimpleLineIcons.ttf in Resources */,
 				8F2D52CDBFF343EEB7BCD889 /* Zocial.ttf in Resources */,
+				C53BE8D5E0044AF0AABA9E3A /* BebasNeue-Book.otf in Resources */,
+				6F852F66184E40B3B9A3EA90 /* BebasNeue-Book.ttf in Resources */,
+				8DACFF30A6B741CCA1615546 /* BebasNeue-Regular.ttf in Resources */,
+				22EAE0173994486F996EC930 /* khula-regular.otf in Resources */,
+				A044631D5D324164B078541B /* Khula-Regular.ttf in Resources */,
+				664781A6AC0A42879C798B93 /* PTSans-Regular.ttf in Resources */,
+				B7F8AD124F594344895E6FA1 /* Khula-Bold.ttf in Resources */,
+				270FD72026EB4900803A4BD7 /* Khula-SemiBold.ttf in Resources */,
 				3367D03EAA63489D869E7269 /* BebasNeueBook.otf in Resources */,
 				73BC2435445042668ED13AE3 /* khula-regular.otf in Resources */,
-				E144E2CC66184E898E5ABA53 /* Khula-Regular.ttf in Resources */,
-				9858755BFBC14ACCAB7FDDAD /* PTSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

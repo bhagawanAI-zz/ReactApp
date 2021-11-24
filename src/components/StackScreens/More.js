@@ -51,7 +51,7 @@ export default function More({ navigation }) {
 const style = StyleSheet.create({
   contianer: { flex: 1 ,backgroundColor:"white"},
   heading: {
-    flex: 0.15,
+    flex: 0.1,
     backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",
@@ -64,6 +64,8 @@ const style = StyleSheet.create({
     
   },
   headingText: {
-    fontSize: GetFontSize(),
+    fontSize: GetFontSize()+9,
+    fontFamily: "BebasNeue-Book"
+    
   },
 });

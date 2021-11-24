@@ -8,7 +8,7 @@ export default function MoreCommon({ heading, NavigateHandler }) {
       onPress={() => NavigateHandler(heading[1])}
     >
       <View style={style.text}>
-        <Text style={{ color: "grey" }}>{heading[0]}</Text>
+        <Text style={{ color: "grey",fontFamily: "BebasNeue-Book",fontSize:25 }}>{heading[0]}</Text>
       </View>
       <View style={style.image}>
         <Image
@@ -38,6 +38,6 @@ const style = StyleSheet.create({
   },
   arrowImage: {
     width: 20,
-    height: 20,
+    height: 20
   },
 });
