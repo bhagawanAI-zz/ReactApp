@@ -329,23 +329,24 @@ const Stackscreens = createStackNavigator({
   MusicApp: { screen: MusicApp },
   Clarity: {
     screen: Clarity,
-    navigationOptions: ({ navigation }) => ({
-      title: (
-        <Text style={[material.display1, styles.headerText]}>
-          BACK TO LIBRARY
-        </Text>
-      ),
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            style={{ width: 20, height: 20, marginLeft: 20 }}
-            source={require("./assets/images/back.png")}
-          />
-        </TouchableOpacity>
-      ),
-      headerStyle: { backgroundColor: "grey", height: 100 },
-      headerTintColor: "white",
-    }),
+    navigationOptions : {headerShown : false}
+    // navigationOptions: ({ navigation }) => ({
+    //   title: (
+    //     <Text style={[material.display1, styles.headerText]}>
+    //       BACK TO LIBRARY
+    //     </Text>
+    //   ),
+    //   headerLeft: () => (
+    //     <TouchableOpacity onPress={() => navigation.goBack()}>
+    //       <Image
+    //         style={{ width: 20, height: 20, marginLeft: 20 }}
+    //         source={require("./assets/images/back.png")}
+    //       />
+    //     </TouchableOpacity>
+    //   ),
+    //   headerStyle: { backgroundColor: "grey", height: 100 },
+    //   headerTintColor: "white",
+    // }),
   },
   PAIRDOME: {
     screen: PairDome,

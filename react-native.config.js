@@ -1,3 +1,10 @@
+/* eslint-disable prettier/prettier */
 module.exports = {
-    assets:['./assets/fonts']
-}
+    project: {
+      ios: {},
+      android: {},
+    },
+    assets: ["./src/assets/fonts"],
+  };
+  
+
