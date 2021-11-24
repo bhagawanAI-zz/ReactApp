@@ -25,14 +25,15 @@ const style = StyleSheet.create({
     flexDirection: "row",
     borderBottomColor: "#F9F9F9",
     borderBottomWidth: 1,
+    justifyContent : 'space-between'
   },
   text: {
-    padding: 20,
+    padding: 10,
     color: "grey",
   },
   image: {
-    width: 20,
-    height: 20,
+    position :"relative",
+    left: 50,
     marginTop: 20,
   },
   arrowImage: {

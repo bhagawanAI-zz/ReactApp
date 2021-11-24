@@ -6,6 +6,7 @@ import {
   Text,
   PixelRatio,
   ScrollView,
+  Image
 } from "react-native";
 import Feeltype from "../Common/Feeltype";
 import FeelTypes from "../Common/FeelTypes";
@@ -16,7 +17,7 @@ import {
   feelTypesMind,
   feelTypesSpirit,
 } from "../Common/Constants";
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { material } from "react-native-typography";
 
 var FONT_BACK_LABEL = 12;
@@ -74,8 +75,12 @@ const Use = ({ navigation }) => {
   const [feelTypesArray, setFeeltypesArray] = useState(feelTypesMind);
   return (
     <View style={style.container}>
-      <View style={style.heading}>
-        <Text style={[material.headlineWhite, style.text]}>USE</Text>
+       <View style={style.heading}>
+        <Image style={style.backIcon}
+          source={require("../../../assets/images/back.png")} />
+        <Text style={[material.display1, style.headingText, {marginLeft : wp("30%")}]}>
+          USE
+        </Text>
       </View>
       <View style={style.typeContainer}>
         <View style={style.TypeLeft}>
@@ -97,6 +102,7 @@ const Use = ({ navigation }) => {
             })}
           </View>
         </View>
+        <View style={style.lineStyle} />
         <View style={style.TypeRight}>
           <Feeltype
             imageType="lock"
@@ -128,12 +134,28 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
   },
+  heading: {
+    flexDirection : "row",
+    height : hp("10%"),
+    alignItems : "center",
+    backgroundColor: "#b8b8bb",
+  },
+  headingText: {
+    color: "white",
+    fontFamily : "BebasNeueBook"
+  },
+  backIcon : {
+    height : 30, 
+    width : 17,
+    marginLeft : wp("8%")
+  },
   typeContainer: {
     flex: 1,
     backgroundColor: "white",
     flexDirection: "row",
-    // alignItems:"center",
     justifyContent: "space-around",
+    paddingLeft : wp("4%"),
+    paddingRight : wp("4%")
   },
   TypeRight: {
     justifyContent: "center",
@@ -143,14 +165,16 @@ const style = StyleSheet.create({
   TypeLeft: {
     flex: 4,
     flexDirection: "column",
-    borderRightWidth: 1,
-    borderRightColor: "grey",
   },
   TypeLeft__icons: {
     flex: 3,
     flexDirection: "row",
   },
-  TypeLeft__Text: { flex: 1, justifyContent: "center", alignItems: "center" },
+  TypeLeft__Text: { 
+    flex: 1, 
+    justifyContent: "center",
+    paddingLeft : wp("2%")
+   },
   TypeText: { color: "#b8b8bb", letterSpacing: 1, fontSize: FONT_BACK_LABEL },
   time: {
     flex: 1,
@@ -168,13 +192,12 @@ const style = StyleSheet.create({
     flex: 1,
     backgroundColor: "pink",
   },
-  textContainer: {},
-  heading: {
-    flex: 0.7,
-    backgroundColor: "#b8b8bb",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  lineStyle : {
+    height : hp("13%"),
+    borderWidth : 1,
+    borderColor : "#b8b8bb",
+    marginTop : hp("2%")
+  }
 });
 
 export default Use;
