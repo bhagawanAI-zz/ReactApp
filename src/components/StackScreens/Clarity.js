@@ -9,7 +9,7 @@ import {
   PixelRatio,
   ScrollView,
 } from "react-native";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { material } from "react-native-typography";
 
 var FONT_BACK_LABEL = 20;
@@ -23,18 +23,18 @@ export default function Clarity({ navigation }) {
   const title = navigation.state.params.title || "CLRITY";
   return (
     <View style={style.container}>
-       <View style={style.heading}>
+      <View style={style.heading}>
         <Image style={style.backIcon}
           source={require("../../../assets/images/back.png")} />
-        <Text style={[material.display1, style.headingText , {marginLeft : wp("15%")} ]}>BACK TO LIBRARY</Text>
+        <Text style={[material.display1, style.headingText, { marginLeft: wp("15%") }]}>BACK TO LIBRARY</Text>
       </View>
       {/* <View style={[style.heading, style.center]}>
         <Text style={style.text}>{title}</Text>
       </View> */}
-      <View style={[style.para1, style.center]}>
-      <Text style={style.subHeading}>
-            {title}
-          </Text>
+      <View style={style.center}>
+        <Text style={style.subHeading}>
+          {title}
+        </Text>
         <View style={style.circle}>
           <Image
             source={require("../../../assets/images/somadomewhite.png")}
@@ -44,18 +44,19 @@ export default function Clarity({ navigation }) {
           </View>
         </View>
       </View>
-      <View style={[ style.center]}>
-        <View style={{ flexDirection: "row", color: "blue" ,alignItems : 'center'}}>
+      <View style={[style.center,{marginTop : hp("2%")}]}>
+        <View style={{ flexDirection: "row", color: "blue", alignItems: 'center' }}>
           <TouchableOpacity>
-            <Image source={require("../../../assets/images/play_button_light_blue.png")}></Image>
+            <Image style={{height: 40, width : 40}}
+               source={require("../../../assets/images/play_button_light_blue.png")}></Image>
           </TouchableOpacity>
-          <Text style={[style.subHeading, {marginLeft : wp("2%")}]}>
+          <Text style={[style.subHeading, { marginLeft: wp("2%") }]}>
             BEGIN SESSION
           </Text>
         </View>
       </View>
-      <ScrollView style={[style.para3, style.paragraph]}>
-        <Text style={[style.paratext]}>
+      <ScrollView style={style.paragraph}>
+        <Text style={style.paratext}>
           This guided meditation uses Theta and spoken meditation to encourage
           you to look into your heart to discover the purest, deepest intentions
           for your life. Theta waves erase thoughts of lack or limitation.
@@ -72,32 +73,27 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor:"white"
+    backgroundColor: "white"
   },
   heading: {
-    flexDirection : "row",
-    height : hp("10%"),
-    alignItems : "center",
+    flexDirection: "row",
+    height: hp("10%"),
+    alignItems: "center",
     backgroundColor: "#b8b8bb",
   },
   headingText: {
     color: "white",
-    fontFamily : "BebasNeueBook"
+    fontFamily: "BebasNeueBook"
   },
-  backIcon : {
-    height : 30, 
-    width : 17,
-    marginLeft : wp("8%")
-  },
-  para1: {
-    flex: 1,
-  },
-  para3: {
-    flex: 1,
+  backIcon: {
+    height: 30,
+    width: 17,
+    marginLeft: wp("8%")
   },
   center: {
     justifyContent: "center",
     alignItems: "center",
+    marginTop : hp("5%")
   },
   circle: {
     borderRadius:
@@ -109,6 +105,7 @@ const style = StyleSheet.create({
     backgroundColor: "#e2e6e7",
     justifyContent: "center",
     alignItems: "center",
+    marginTop : hp("3%")
   },
   durationText: {
     marginTop: 10,
@@ -119,16 +116,19 @@ const style = StyleSheet.create({
     color: "grey",
   },
   paragraph: {
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingLeft: wp("12%"),
+    paddingRight: wp("12%"),
+    marginTop : hp("5%"),
+    textAlign : "center",
   },
   paratext: {
-    fontSize: FONT_BACK_LABEL,
+    fontSize: 14,
     color: "grey",
-    lineHeight: 30,
+    fontFamily : "Khula-Regular",
+    textAlign : 'center'
   },
-  subHeading :{
-    fontSize : 24,
-    fontFamily : "BebasNeueBook"
+  subHeading: {
+    fontSize: 24,
+    fontFamily: "BebasNeueBook"
   }
 });

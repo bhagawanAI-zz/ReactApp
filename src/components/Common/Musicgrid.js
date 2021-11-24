@@ -167,7 +167,7 @@ export default function Musicgrid({
             </View>
           </View>
           <View style={style.box1}>
-            <Text style={[style.text, { color: textColor }]}>{innerText} </Text>
+            <Text style={[style.text, { color: textColor, fontFamily: "BebasNeueBook" ,fontSize : 16}]}>{innerText} </Text>
           </View>
           {(icon_name === "perform" && iconName == "mind" && (
             <View style={style.box2}>
