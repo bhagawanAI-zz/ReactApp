@@ -305,7 +305,7 @@ const Stackscreens = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: (
         <Text style={[material.display1, styles.headerText]}>
-          PAIR YOUR DOME
+          PAIR DOME
         </Text>
       ),
       headerLeft: () => (
@@ -350,10 +350,12 @@ const Stackscreens = createStackNavigator({
   PAIRDOME: {
     screen: PairDome,
     navigationOptions: ({ navigation }) => ({
-      title: (
+      headerTitle: (
+        <View style={{alignItems:"center",}}>
         <Text style={[material.display1, styles.headerText]}>
-          PAIR YOUR DOME
+          PAIR DOME
         </Text>
+        </View>
       ),
       headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -450,7 +452,8 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     fontSize: GetFontSize(),
     color: "white",
-    fontSize: FONT_BACK_LABEL,
+    fontSize: FONT_BACK_LABEL+14,
+    fontFamily:"BebasNeue-Book"
   },
 });
 

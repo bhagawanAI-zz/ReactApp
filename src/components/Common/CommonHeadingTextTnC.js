@@ -28,7 +28,7 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   contain_heading_text: { fontSize: FONT_BACK_LABEL+10, color: "black",fontFamily: "BebasNeue-Regular",letterSpacing:1 },
-  content__auther_text: { color: "grey", fontSize: FONT_HEADING+10 ,fontFamily: "BebasNeue-Book",letterSpacing:1,textAlign:"justify"},
+  content__auther_text: { color: "grey", fontSize: FONT_HEADING ,fontFamily: "Khula-Regular",letterSpacing:0,textAlign:"justify"},
 });
 
 export default CommonHeadingText;

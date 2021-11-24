@@ -50,19 +50,19 @@ const Learn = ({ navigation }) => {
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
         <View style={style.content__box}>
-          <Text> WHAT IS SOUND HEALING?</Text>
+          <Text style={style.Learn_heading}> WHAT IS SOUND HEALING?</Text>
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
         <View style={style.content__box}>
-          <Text> WHAT IS BREATH?</Text>
+          <Text style={style.Learn_heading}> WHAT IS BREATH?</Text>
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
         <View style={style.content__box}>
-          <Text> THE HEALING POWER OF SOUND</Text>
+          <Text style={style.Learn_heading}> THE HEALING POWER OF SOUND</Text>
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
         <View style={style.content__box}>
-          <Text> THE HISTORY OF BREATHWORK</Text>
+          <Text style={style.Learn_heading}> THE HISTORY OF BREATHWORK</Text>
           <Text style={style.content__auther_text}> BY: SOMADOME</Text>
         </View>
       </ScrollView>
@@ -73,7 +73,7 @@ const Learn = ({ navigation }) => {
 const style = StyleSheet.create({
   container: { flex: 1, backgroundColor: "white" },
   heading: {
-    flex: 0.7,
+    flex: 0.4,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#8B79E9",
@@ -103,15 +103,16 @@ const style = StyleSheet.create({
     marginTop: 30,
     paddingBottom: 20,
   },
-  content__auther_text: { color: "grey", fontSize: 13 },
-  mainHeadingText: { fontSize: FONT_HEADING+5},
+  content__auther_text: { color: "grey", fontSize: 17,fontFamily: "BebasNeue-Book" },
+  mainHeadingText: { fontSize: FONT_HEADING+19,fontFamily: "BebasNeue-Book"},
   subHeadingText: {
     fontSize: FONT_BACK_LABEL,
     fontWeight: "400",
     letterSpacing: 1,
   },
   Learn_heading: {
-    fontSize: 13,
+    fontSize: 19,
+    fontFamily: "BebasNeue-Regular"
   },
 });
 

@@ -28,7 +28,7 @@ export default function PairDome({ navigation }) {
       </View>
       <View style={style.para3}>
         <Text style={[material.subheading, style.marginTop]}>Select Dome:</Text>
-        <Text style={[material.button, style.marginTop]}>MODRN SANCTUARY </Text>
+        <Text style={[material.button, style.marginTop1]}>MODRN SANCTUARY </Text>
       </View>
       <View style={style.para3}>
         <TouchableOpacity
@@ -42,10 +42,11 @@ export default function PairDome({ navigation }) {
         >
           <Text
             style={{
-              fontSize: 17,
+              fontSize: 20,
               color: "white",
               textAlign: "center",
               paddingTop: 12,
+              fontFamily: "Khula-Regular"
             }}
           >
             CONNECT
@@ -86,12 +87,24 @@ const style = StyleSheet.create({
   margin: {
     marginLeft: 30,
     marginRight: 30,
-    fontSize: FONT_BACK_LABEL,
+    fontSize: FONT_BACK_LABEL-5,
     color: "grey",
+    fontFamily:"Khula-SemiBold",
+    letterSpacing:1
+    
   },
   marginTop: {
     marginTop: 10,
     letterSpacing: 1,
     color: "grey",
+    fontFamily: "Khula-Regular",
+    fontSize:17 
+  },
+  marginTop1: {
+    marginTop: 10,
+    letterSpacing: 1,
+    color: "grey",
+    fontFamily: "Khula-Bold",
+    fontSize:15 
   },
 });

@@ -48,11 +48,11 @@ const Profile = ({ navigation }) => {
         </View>
         <View>
           <Text style={[material.subheading, style.headingText]}>
-            Nick Freshno
+            Nick Fresno
           </Text>
         </View>
         <View>
-          <Text style={[material.subheading, { color: "grey" }]}>
+          <Text style={[material.subheading, { color: "grey",fontSize:13 }]}>
             Live, laugh, love.
           </Text>
         </View>
@@ -92,11 +92,11 @@ const Profile = ({ navigation }) => {
       </View>
       <View style={style.bottom}>
         <Text style={style.bottomText}>
-          YOU COMPLETED <Text style={{ fontSize: 12 }}>MANIFEST</Text> ON MARCH
+          YOU COMPLETED <Text style={{ fontSize: 18 }}>MANIFEST</Text> ON MARCH
           30{" "}
         </Text>
         <Text style={style.bottomText}>
-          YOU COMPLETED <Text style={{ fontSize: 12 }}>FOCUS</Text> ON MARCH 30{" "}
+          YOU COMPLETED <Text style={{ fontSize: 18 }}>FOCUS</Text> ON MARCH 30{" "}
         </Text>
       </View>
     </SafeAreaView>
@@ -113,10 +113,10 @@ const style = StyleSheet.create({
   },
   sessionsContent: { flex: 1 },
   sessionsHistoryContent: {
-    flex: 0.5,
+    flex: 0.2,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "grey",
+    alignItems: "center",     
+    backgroundColor: "lightgray",
     marginTop: 20,
   },
   bottom: { flex: 0.5, justifyContent: "center", alignItems: "center" },
@@ -125,11 +125,11 @@ const style = StyleSheet.create({
     flexDirection: "row",
   },
   flex1: { flex: 1, justifyContent: "center", alignItems: "center" },
-  headingText: { color: "grey", letterSpacing: 2 },
+  headingText: { color: "grey", letterSpacing: 2,fontFamily: "Khula-Regular",fontSize:19},
   bottomText: {
     color: "grey",
     letterSpacing: 1,
-    fontSize: normalize(FONT_HEADING),
+    fontSize: normalize(FONT_HEADING)-5,
   },
   bottomTextHeading: {
     fontSize: normalize(FONT_BACK_LABEL),
