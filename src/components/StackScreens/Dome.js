@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { material } from "react-native-typography";
 import MapView, { Marker } from "react-native-maps";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 25;
@@ -32,11 +33,12 @@ const FindDome = ({ navigation }) => {
 
     <View style={styles.container}>
       <View style={styles.heading}>
-        <Text style={[material.display1, styles.headingText]}>
-          FIND A DOME{" "}
+        <Image style={styles.backIcon}
+          source={require("../../../assets/images/back.png")} />
+        <Text style={[material.display1, styles.headingText, {marginLeft : wp("17%")}]}>
+          FIND A DOME
         </Text>
       </View>
-
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
@@ -66,44 +68,43 @@ const FindDome = ({ navigation }) => {
 
       <View style={styles.addressContainer}>
         <Text style={[material.headlineObject, styles.addressHeadingText]}>
-          MODRN SANCTUARY{" "}
+          MODERN SANCTUARY
         </Text>
-        <Text style={[material.subheading, styles.addressText]}>
-          {/* {
-            "12 W 27th St 9th floor,\n New York ,NT 1000 \n www.modernsanctury.com \n(212) 675-9355"
-          } */}
-          <View style={{ flex:1 }}>
+        <View style={[material.subheading, styles.addressText]}>
+          <View style={{marginTop : 5}}>
             <Text style={styles.addressInfoText}>
-              12 W 27th St 9th floor,{"\n"}{" "}
+              12 W 27th St 9th floor
             </Text>
-            <Text style={styles.addressInfoText}>New York ,NT 1000 {"\n"}</Text>
-            <Text style={styles.addressInfoText}>
-              www.modernsanctury.com {"\n"}
+            <Text style={styles.addressInfoText}>New York ,NT 1000 </Text>
+            <Text style={[styles.addressInfoText, {fontFamily : "Khula-Regular"}]}>
+              www.modernsanctury.com
             </Text>
-            <Text style={[styles.addressInfoText,{textAlign:"center"}]}>(212) 675-9355 {"\n"}</Text>
+            <Text style={[styles.addressInfoText,{textAlign:"center"}]}>(212) 675-9355</Text>
           </View>
-        </Text>
+        </View>
       </View>
 
       <View style={styles.bookingContainer}>
-        <Text style={[material.subheading, styles.addressText]}>
-          CALL TO BOOK YOUR SESSION{" "}
+        <Text style={styles.addressText}>
+          CALL TO BOOK YOUR SESSION
         </Text>
         <TouchableOpacity
           style={{
-            height: 50,
-            width: 180,
+            height: hp("6%"),
+            width: wp("60%"),
             backgroundColor: "#70b1ba",
-            marginTop: "10%",
+            marginTop: hp("1.8%"),
+            justifyContent : 'center',
+            alignItems : 'center'
           }}
           onPress={() => Linking.openURL("https://somadome.com/")}
         >
           <Text
             style={{
-              fontSize: FONT_BACK_LABEL,
+              fontSize: 17,
               color: "white",
               textAlign: "center",
-              paddingTop: 12,
+              fontFamily : "PTSans-Regular"
             }}
           >
             BOOK A SESSION
@@ -120,44 +121,57 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   heading: {
-    flex: 0.7,
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection : "row",
+    height : hp("10%"),
+    alignItems : "center",
     backgroundColor: "#70b1ba",
   },
   mapContainer: {
-    flex: 1.5,
+    marginTop : hp("0.4%"),
+    height : hp("40%"),
   },
   addressContainer: {
-    flex: 1.5,
     alignItems: "center",
-    marginLeft: 50,
-    marginRight: 50,
   },
   bookingContainer: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     borderTopColor: "#f9f9f9",
     borderTopWidth: 1,
+    marginTop : hp("6%")
   },
   headingText: {
     color: "white",
-    fontSize: FONT_HEADING,
+    fontFamily : "BebasNeueBook"
   },
   addressText: {
     color: "#b8b8bb",
-    fontSize: FONT_BACK_LABEL,
+    fontSize: 14,
+    fontFamily : "PTSans-Regular",
+    fontWeight : "700"
   },
-  addressHeadingText: { color: "#b8b8bb", fontSize: FONT_HEADING,marginBottom:10 },
+  addressHeadingText: { 
+    color: "black",
+    fontSize: FONT_HEADING,
+    fontFamily : "BebasNeueBook",
+    fontWeight : "600"
+   },
   addressInfoText: {
     textAlign:"center",
-    color:"#b8b8bb"
+    color:"#b8b8bb",
+    fontFamily : "PTSans-Regular",
+    marginTop : 5
   },
   map: {
     width: "100%",
     height: "95%",
   },
+  backIcon : {
+    height : 30, 
+    width : 17,
+    marginLeft : wp("8%")
+  },
+  
 });
 
 export default FindDome;

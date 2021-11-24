@@ -9,6 +9,8 @@ import {
   PixelRatio,
   ScrollView,
 } from "react-native";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { material } from "react-native-typography";
 
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 20;
@@ -21,10 +23,18 @@ export default function Clarity({ navigation }) {
   const title = navigation.state.params.title || "CLRITY";
   return (
     <View style={style.container}>
-      <View style={[style.heading, style.center]}>
-        <Text style={style.text}>{title}</Text>
+       <View style={style.heading}>
+        <Image style={style.backIcon}
+          source={require("../../../assets/images/back.png")} />
+        <Text style={[material.display1, style.headingText , {marginLeft : wp("15%")} ]}>BACK TO LIBRARY</Text>
       </View>
+      {/* <View style={[style.heading, style.center]}>
+        <Text style={style.text}>{title}</Text>
+      </View> */}
       <View style={[style.para1, style.center]}>
+      <Text style={style.subHeading}>
+            {title}
+          </Text>
         <View style={style.circle}>
           <Image
             source={require("../../../assets/images/somadomewhite.png")}
@@ -34,23 +44,13 @@ export default function Clarity({ navigation }) {
           </View>
         </View>
       </View>
-      <View style={[style.para2, style.center]}>
-        <View style={{ flexDirection: "row", color: "blue" }}>
-          <TouchableOpacity
-            onPress={() => console.log("")}
-          >
-            <Image source={require("../../../assets/images/play.png")}></Image>
+      <View style={[ style.center]}>
+        <View style={{ flexDirection: "row", color: "blue" ,alignItems : 'center'}}>
+          <TouchableOpacity>
+            <Image source={require("../../../assets/images/play_button_light_blue.png")}></Image>
           </TouchableOpacity>
-
-          <Text
-            style={{
-              color: "#77bec7",
-              marginTop: 20,
-              marginLeft: 10,
-              fontSize: 24,
-            }}
-          >
-            BEGIN SESSION{" "}
+          <Text style={[style.subHeading, {marginLeft : wp("2%")}]}>
+            BEGIN SESSION
           </Text>
         </View>
       </View>
@@ -75,14 +75,22 @@ const style = StyleSheet.create({
     backgroundColor:"white"
   },
   heading: {
-    flex: 0.5,
-    color: "grey",
+    flexDirection : "row",
+    height : hp("10%"),
+    alignItems : "center",
+    backgroundColor: "#b8b8bb",
+  },
+  headingText: {
+    color: "white",
+    fontFamily : "BebasNeueBook"
+  },
+  backIcon : {
+    height : 30, 
+    width : 17,
+    marginLeft : wp("8%")
   },
   para1: {
     flex: 1,
-  },
-  para2: {
-    flex: 0.5,
   },
   para3: {
     flex: 1,
@@ -119,4 +127,8 @@ const style = StyleSheet.create({
     color: "grey",
     lineHeight: 30,
   },
+  subHeading :{
+    fontSize : 24,
+    fontFamily : "BebasNeueBook"
+  }
 });

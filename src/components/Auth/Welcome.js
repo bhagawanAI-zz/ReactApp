@@ -9,6 +9,8 @@ import {
   Dimensions,
   SafeAreaView,
 } from "react-native";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 const Welcome = ({ navigation }) => {
   const width = Dimensions.get("window").width;
   return (
@@ -42,16 +44,17 @@ const Welcome = ({ navigation }) => {
         <View style={{ marginTop: "60%" }}>
           <TouchableOpacity
             style={{
-              height: 50,
-              width: 150,
+              height: hp("10%"),
+              width: wp("55%"),
+              justifyContent : "center",
+              alignItems : 'center',
               backgroundColor: "rgb(37, 150, 190)",
-              marginTop: "10%",
             }}
             onPress={() => navigation.navigate("Login")}
           >
             <Text
               style={{
-                fontSize: 18,
+                fontSize: 15,
                 color: "white",
                 textAlign: "center",
                 paddingTop: 12,
@@ -62,16 +65,18 @@ const Welcome = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{
-              height: 50,
-              width: 150,
+              height: hp("10%"),
+              width: wp("55%"),
+              justifyContent : "center",
+              alignItems : 'center',
               backgroundColor: "rgb(37, 150, 190)",
-              marginTop: "3%",
+              marginTop : hp("1.5%")
             }}
             onPress={() => navigation.navigate("Registration")}
           >
             <Text
               style={{
-                fontSize: 18,
+                fontSize: 15,
                 color: "white",
                 textAlign: "center",
                 paddingTop: 12,

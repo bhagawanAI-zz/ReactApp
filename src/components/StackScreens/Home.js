@@ -35,7 +35,7 @@ const Home = ({ navigation }) => {
               style={styles.images}
               source={require("../../../assets/images/home/HOME.png")}
             ></Image>
-            <View style={{ alignItems: "center" }}>
+            <View style={{ alignItems: "center", marginTop : 3}}>
               <Text style={styles.durationText}>MY</Text>
               <Text style={styles.durationText}>DOME</Text>
             </View>
@@ -50,7 +50,7 @@ const Home = ({ navigation }) => {
               style={styles.images}
               source={require("../../../assets/images/home/DOME.png")}
             ></Image>
-            <View style={{ alignItems: "center" }}>
+            <View style={{ alignItems: "center", marginTop : 5 }}>
               <Text style={styles.durationText}>MARKET</Text>
               <Text style={styles.durationText}>DOME</Text>
             </View>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#b8b8bb",
     justifyContent: "center",
     alignItems: "center",
-    flex: 0.5,
+    flex: 0.45,
   },
   roundButton: {
     justifyContent: "space-evenly",
@@ -86,10 +86,11 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontSize: 20,
+    fontSize: 28,
     textAlign: "center",
     textAlignVertical: "center",
     letterSpacing: 3,
+    fontFamily : "BebasNeueBook"
   },
   circle: {
     borderRadius:
@@ -103,9 +104,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   durationText: {
+    fontSize : 15,
     marginTop: 1,
-    fontWeight: "bold",
     color: "white",
+    fontFamily : "BebasNeueBook"
   },
 
   roundTop: { paddingTop: "10%" },
