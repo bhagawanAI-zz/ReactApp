@@ -24,8 +24,10 @@ export default function Clarity({ navigation }) {
   return (
     <View style={style.container}>
       <View style={style.heading}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
         <Image style={style.backIcon}
           source={require("../../../assets/images/back.png")} />
+        </TouchableOpacity>
         <Text style={[material.display1, style.headingText, { marginLeft: wp("15%") }]}>BACK TO LIBRARY</Text>
       </View>
       {/* <View style={[style.heading, style.center]}>
@@ -46,7 +48,7 @@ export default function Clarity({ navigation }) {
       </View>
       <View style={[style.center,{marginTop : hp("2%")}]}>
         <View style={{ flexDirection: "row", color: "blue", alignItems: 'center' }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("MusicPlayerScreen")}>
             <Image style={{height: 40, width : 40}}
                source={require("../../../assets/images/play_button_light_blue.png")}></Image>
           </TouchableOpacity>

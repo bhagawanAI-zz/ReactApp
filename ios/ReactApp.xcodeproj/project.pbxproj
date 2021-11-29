@@ -38,6 +38,8 @@
 		270FD72026EB4900803A4BD7 /* Khula-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B84210EFD4DF42D8A8FF9473 /* Khula-SemiBold.ttf */; };
 		3367D03EAA63489D869E7269 /* BebasNeueBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9A664E2BD34FCFB0C2BECB /* BebasNeueBook.otf */; };
 		73BC2435445042668ED13AE3 /* khula-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B78F010A96441AB818931CC /* khula-regular.otf */; };
+		B21FE88FEB8A45BFACCA9735 /* Khula-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A51C23707374613801F1A1D /* Khula-Regular.ttf */; };
+		29448B42EB514D38BD31A1E9 /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4FBEE826DA24A4BB286CA80 /* PTSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		B84210EFD4DF42D8A8FF9473 /* Khula-SemiBold.ttf */ = {isa = PBXFileReference; name = "Khula-SemiBold.ttf"; path = "../assets/fonts/Khula-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3F9A664E2BD34FCFB0C2BECB /* BebasNeueBook.otf */ = {isa = PBXFileReference; name = "BebasNeueBook.otf"; path = "../src/assets/fonts/BebasNeueBook.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5B78F010A96441AB818931CC /* khula-regular.otf */ = {isa = PBXFileReference; name = "khula-regular.otf"; path = "../src/assets/fonts/khula-regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5A51C23707374613801F1A1D /* Khula-Regular.ttf */ = {isa = PBXFileReference; name = "Khula-Regular.ttf"; path = "../src/assets/fonts/Khula-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C4FBEE826DA24A4BB286CA80 /* PTSans-Regular.ttf */ = {isa = PBXFileReference; name = "PTSans-Regular.ttf"; path = "../src/assets/fonts/PTSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,8 @@
 				B84210EFD4DF42D8A8FF9473 /* Khula-SemiBold.ttf */,
 				3F9A664E2BD34FCFB0C2BECB /* BebasNeueBook.otf */,
 				5B78F010A96441AB818931CC /* khula-regular.otf */,
+				5A51C23707374613801F1A1D /* Khula-Regular.ttf */,
+				C4FBEE826DA24A4BB286CA80 /* PTSans-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -327,6 +333,8 @@
 				270FD72026EB4900803A4BD7 /* Khula-SemiBold.ttf in Resources */,
 				3367D03EAA63489D869E7269 /* BebasNeueBook.otf in Resources */,
 				73BC2435445042668ED13AE3 /* khula-regular.otf in Resources */,
+				B21FE88FEB8A45BFACCA9735 /* Khula-Regular.ttf in Resources */,
+				29448B42EB514D38BD31A1E9 /* PTSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

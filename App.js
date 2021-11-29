@@ -42,23 +42,19 @@ import SideMenu from './src/components/DrawerNav/sideBar';
 import Registration from './src/components/Auth/Register';
 import Welcome from './src/components/Auth/Welcome';
 //import Creative from "./src/components/StackScreens/Creative";
-import MusicApp from './src/components/Common/MusicPlayer';
-import Clarity from './src/components/StackScreens/Clarity';
-import PairDome from './src/components/StackScreens/PairDome';
-import Pay from './src/components/StackScreens/Pay';
-import SeassionStart from './src/components/StackScreens/SeassionStart';
-import More from './src/components/StackScreens/More';
-import TermsServices from './src/components/DrawerScreens/TermsServices';
-import StartupScreen from './src/components/StartupScreen';
-import Book from './src/components/StackScreens/Book';
-import DomePerformance from './src/components/StackScreens/DomePerformance';
-import Unlock from './src/components/StackScreens/Unlock';
-import {GetFontSize} from './src/Utills/commonUtills';
-import AppStatusBar from './src/components/StatusBar/GeneraStatusBar';
-
+import MusicApp from "./src/components/Common/MusicPlayer";
+import MusicPlayerScreen from "./src/components/StackScreens/MusicPlayerScreen";
+import Clarity from "./src/components/StackScreens/Clarity";
+import PairDome from "./src/components/StackScreens/PairDome";
+import Pay from "./src/components/StackScreens/Pay";
+import SeassionStart from "./src/components/StackScreens/SeassionStart";
+import More from "./src/components/StackScreens/More";
+import TermsServices from "./src/components/DrawerScreens/TermsServices";
+import StartupScreen from "./src/components/StartupScreen";
+import Book from "./src/components/StackScreens/Book";
+import DomePerformance from "./src/components/StackScreens/DomePerformance";
 import DeviceInfo from 'react-native-device-info';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
-
 // const HomeScreen = createStackNavigator({
 //   Home :  {
 //     screen : Home,
@@ -330,7 +326,11 @@ const Stackscreens = createStackNavigator({
   Settings: {screen: Settings},
   Subscription: {screen: Subscription},
   // Creative: { screen: Creative },
-  MusicApp: {screen: MusicApp},
+  MusicApp: { screen: MusicApp },
+  MusicPlayerScreen : {
+      screen : MusicPlayerScreen, 
+      navigationOptions : {headerShown : false}
+    },
   Clarity: {
     screen: Clarity,
     navigationOptions: {headerShown: false},
