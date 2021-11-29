@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/AntDesign"
 import Slider from "react-native-slider";
 
 const MusicPlayerScreen = (props) => {
+    const {navigation} = props;
     const [value, setValue] = useState(0.1);
     return (
         <View style={styles.container}>
