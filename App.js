@@ -43,6 +43,7 @@ import Registration from "./src/components/Auth/Register";
 import Welcome from "./src/components/Auth/Welcome";
 //import Creative from "./src/components/StackScreens/Creative";
 import MusicApp from "./src/components/Common/MusicPlayer";
+import MusicPlayerScreen from "./src/components/StackScreens/MusicPlayerScreen";
 import Clarity from "./src/components/StackScreens/Clarity";
 import PairDome from "./src/components/StackScreens/PairDome";
 import Pay from "./src/components/StackScreens/Pay";
@@ -327,6 +328,10 @@ const Stackscreens = createStackNavigator({
   Subscription: { screen: Subscription },
   // Creative: { screen: Creative },
   MusicApp: { screen: MusicApp },
+  MusicPlayerScreen : {
+      screen : MusicPlayerScreen, 
+      navigationOptions : {headerShown : false}
+    },
   Clarity: {
     screen: Clarity,
     navigationOptions : {headerShown : false}
