@@ -6,7 +6,8 @@ import {
   Text,
   PixelRatio,
   ScrollView,
-  Image
+  Image,
+  TouchableOpacity
 } from "react-native";
 import Feeltype from "../Common/Feeltype";
 import FeelTypes from "../Common/FeelTypes";
@@ -76,8 +77,9 @@ const Use = ({ navigation }) => {
   return (
     <View style={style.container}>
        <View style={style.heading}>
-        <Image style={style.backIcon}
-          source={require("../../../assets/images/back.png")} />
+         <TouchableOpacity onPress={() => navigation.goBack()}> 
+         <Image style={style.backIcon} source={require("../../../assets/images/back.png")} />
+         </TouchableOpacity>
         <Text style={[material.display1, style.headingText, {marginLeft : wp("30%")}]}>
           USE
         </Text>
