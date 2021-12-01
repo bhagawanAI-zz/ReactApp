@@ -481,7 +481,11 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {/* <AppStatusBar animated={true} /> */}
+        <StatusBar
+        animated={true}
+        backgroundColor="#9b9b9c"
+        barStyle={"dark-content"}
+        showHideTransition={"none"}/>
         <AppContainer />
       </Provider>
     );
