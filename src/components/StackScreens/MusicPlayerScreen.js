@@ -5,7 +5,9 @@ import Icon from "react-native-vector-icons/AntDesign"
 import Slider from "react-native-slider";
 
 const MusicPlayerScreen = (props) => {
+    console.log("In music player", props)
     const {navigation} = props;
+    const {title} = navigation?.state?.params;
     const [value, setValue] = useState(0.1);
     return (
         <View style={styles.container}>
@@ -16,7 +18,7 @@ const MusicPlayerScreen = (props) => {
                     <Image style={styles.backIcon}
                         source={require("../../../assets/images/back.png")} />
                 </TouchableOpacity>
-                <Text style={styles.musicText}>CLARITY</Text>
+                <Text style={styles.musicText}>{title ? title :"CLARITY"}</Text>
                 <View style={styles.slider}>
                     <Slider
                         value={value}
