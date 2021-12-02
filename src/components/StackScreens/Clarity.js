@@ -48,7 +48,7 @@ export default function Clarity({ navigation }) {
       </View>
       <View style={[style.center,{marginTop : hp("2%")}]}>
         <View style={{ flexDirection: "row", color: "blue", alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => navigation.navigate("MusicPlayerScreen")}>
+          <TouchableOpacity onPress={() => navigation.navigate("MusicPlayerScreen",{title: title})}>
             <Image style={{height: 40, width : 40}}
                source={require("../../../assets/images/play_button_light_blue.png")}></Image>
           </TouchableOpacity>

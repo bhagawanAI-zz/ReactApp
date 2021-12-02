@@ -133,7 +133,7 @@ const FindDome = ({ navigation }) => {
               longitude: location.longitude||-73.98932,
             }}
             tracksViewChanges={false}
-            icon={require("../../../assets/somadome_medium.png")}
+            icon={require("../../../assets/somadome.png")}
             description={"DOME"}
           >
             {/* <Image
