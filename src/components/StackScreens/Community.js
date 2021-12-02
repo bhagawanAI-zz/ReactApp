@@ -1,19 +1,22 @@
 import React from 'react';
 import {
   Text,
-  SafeAreaView,
+  // SafeAreaView,
   StyleSheet,
-  View,
   Image,
   ImageBackground,
   PixelRatio,
   Dimensions,
+  View,
 } from 'react-native';
 import {color} from 'react-native-elements/dist/helpers';
 import DeviceInfo from 'react-native-device-info';
 import {material} from 'react-native-typography';
 import {GetFontSize} from '../../Utills/commonUtills';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+
+import {SafeAreaView} from 'react-navigation';
+
 var FONT_BACK_LABEL = 10;
 var FONT_HEADING = 15;
 if (PixelRatio.get() <= 2) {
@@ -41,7 +44,7 @@ const Userdata = [
 
 const Community = ({navigation}) => {
   return (
-    <View style={style.contianer}>
+    <SafeAreaView style={style.contianer}>
       <View style={style.heading}>
         <Text style={[material.headlineWhite, style.headingText]}>
           COMMUNITY
@@ -200,7 +203,7 @@ const Community = ({navigation}) => {
           </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -230,7 +233,7 @@ function Activity({text, imageType, isBorder}) {
 }
 
 const style = StyleSheet.create({
-  contianer: {flex: 1, backgroundColor: 'white'},
+  contianer: {flex: 1, backgroundColor: 'white', marginTop: 34},
   heading: {
     flex: 0.3,
     backgroundColor: '#b8b8bb',
@@ -317,7 +320,7 @@ const style = StyleSheet.create({
     fontSize: RFPercentage(4),
     fontFamily: 'BebasNeue-Book',
     fontWeight: '200',
-    marginTop: isNotch ? 35 : 0,
+    // marginTop: isNotch ? 35 : 0,
     letterSpacing: 3,
   },
   activityHeaderTxt: {
