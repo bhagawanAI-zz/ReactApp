@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import {
   StyleSheet,
   TextInput,
   SafeAreaView,
-} from 'react-native';
+} from "react-native";
 
 export default class SideBar extends Component {
   constructor() {
@@ -38,8 +38,8 @@ export default class SideBar extends Component {
         bool6: false,
       },
       () => {
-        this.props.navigation.navigate('Profile');
-      },
+        this.props.navigation.navigate("Profile");
+      }
     );
   };
 
@@ -55,8 +55,8 @@ export default class SideBar extends Component {
         bool6: false,
       },
       () => {
-        this.props.navigation.navigate('Settings');
-      },
+        this.props.navigation.navigate("Settings");
+      }
     );
   };
   renderBool2 = () => {
@@ -71,8 +71,8 @@ export default class SideBar extends Component {
         bool6: false,
       },
       () => {
-        this.props.navigation.navigate('Subscription');
-      },
+        this.props.navigation.navigate("Subscription");
+      }
     );
   };
   renderBool3 = () => {
@@ -87,8 +87,8 @@ export default class SideBar extends Component {
         bool6: false,
       },
       () => {
-        this.props.navigation.navigate('Help');
-      },
+        this.props.navigation.navigate("Help");
+      }
     );
   };
   renderBool4 = () => {
@@ -103,8 +103,8 @@ export default class SideBar extends Component {
         bool6: false,
       },
       () => {
-        this.props.navigation.navigate('PurchaseDome');
-      },
+        this.props.navigation.navigate("PurchaseDome");
+      }
     );
   };
   renderBool5 = () => {
@@ -119,8 +119,8 @@ export default class SideBar extends Component {
         bool6: false,
       },
       () => {
-        this.props.navigation.navigate('About');
-      },
+        this.props.navigation.navigate("About");
+      }
     );
   };
   renderBool6 = () => {
@@ -135,142 +135,170 @@ export default class SideBar extends Component {
         bool6: true,
       },
       () => {
-        this.props.navigation.navigate('TermsServices');
-      },
+        this.props.navigation.navigate("TermsServices");
+      }
     );
   };
 
   render() {
     return (
-      <SafeAreaView style={{marginTop: 10}}>
+      <SafeAreaView style={{ marginTop: 10 }}>
         <SafeAreaView
-          style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}}
+          style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
         />
         <ScrollView>
           <TouchableOpacity
             style={[
               styles.touchStyle,
               {
-                backgroundColor: this.state.bool0 == true ? '#800000' : 'white',
+                backgroundColor: this.state.bool0 == true ? "#800000" : "white",
               },
             ]}
-            onPress={this.renderBool0}>
+            onPress={this.renderBool0}
+          >
             <Text
               style={[
-                {color: this.state.bool0 == false ? '#800000' : 'white'},
+                { color: this.state.bool0 == false ? "#800000" : "white" },
                 styles.textStyles,
-              ]}>
+              ]}
+            >
               Profile
             </Text>
           </TouchableOpacity>
-          <View style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}} />
+          <View
+            style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
+          />
 
           <TouchableOpacity
             style={[
               styles.touchStyle,
               {
-                backgroundColor: this.state.bool1 == true ? '#800000' : 'white',
+                backgroundColor: this.state.bool1 == true ? "#800000" : "white",
               },
             ]}
-            onPress={this.renderBool1}>
+            onPress={this.renderBool1}
+          >
             <Text
               style={[
-                {color: this.state.bool1 == false ? '#800000' : 'white'},
+                { color: this.state.bool1 == false ? "#800000" : "white" },
                 styles.textStyles,
-              ]}>
+              ]}
+            >
               Settings
             </Text>
           </TouchableOpacity>
-          <View style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}} />
+          <View
+            style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
+          />
 
           <TouchableOpacity
             style={[
               styles.touchStyle,
               {
-                backgroundColor: this.state.bool2 == true ? '#800000' : 'white',
+                backgroundColor: this.state.bool2 == true ? "#800000" : "white",
               },
             ]}
-            onPress={this.renderBool2}>
+            onPress={this.renderBool2}
+          >
             <Text
               style={[
-                {color: this.state.bool2 == false ? '#800000' : 'white'},
+                { color: this.state.bool2 == false ? "#800000" : "white" },
                 styles.textStyles,
-              ]}>
+              ]}
+            >
               Manage Subscription
             </Text>
           </TouchableOpacity>
-          <View style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}} />
+          <View
+            style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
+          />
 
           <TouchableOpacity
             style={[
               styles.touchStyle,
               {
-                backgroundColor: this.state.bool3 == true ? '#800000' : 'white',
+                backgroundColor: this.state.bool3 == true ? "#800000" : "white",
               },
             ]}
-            onPress={this.renderBool3}>
+            onPress={this.renderBool3}
+          >
             <Text
               style={[
-                {color: this.state.bool3 == false ? '#800000' : 'white'},
+                { color: this.state.bool3 == false ? "#800000" : "white" },
                 styles.textStyles,
-              ]}>
-              Help & Suppors
+              ]}
+            >
+              Help & Support
             </Text>
           </TouchableOpacity>
-          <View style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}} />
+          <View
+            style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
+          />
 
           <TouchableOpacity
             style={[
               styles.touchStyle,
               {
-                backgroundColor: this.state.bool4 == true ? '#800000' : 'white',
+                backgroundColor: this.state.bool4 == true ? "#800000" : "white",
               },
             ]}
-            onPress={this.renderBool4}>
+            onPress={this.renderBool4}
+          >
             <Text
               style={[
-                {color: this.state.bool4 == false ? '#800000' : 'white'},
+                { color: this.state.bool4 == false ? "#800000" : "white" },
                 styles.textStyles,
-              ]}>
+              ]}
+            >
               Purchase Dome
             </Text>
           </TouchableOpacity>
-          <View style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}} />
+          <View
+            style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
+          />
 
           <TouchableOpacity
             style={[
               styles.touchStyle,
               {
-                backgroundColor: this.state.bool5 == true ? '#800000' : 'white',
+                backgroundColor: this.state.bool5 == true ? "#800000" : "white",
               },
             ]}
-            onPress={this.renderBool5}>
+            onPress={this.renderBool5}
+          >
             <Text
               style={[
-                {color: this.state.bool5 == false ? '#800000' : 'white'},
+                { color: this.state.bool5 == false ? "#800000" : "white" },
                 styles.textStyles,
-              ]}>
+              ]}
+            >
               About Us
             </Text>
           </TouchableOpacity>
-          <View style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}} />
+          <View
+            style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
+          />
           <TouchableOpacity
             style={[
               styles.touchStyle,
               {
-                backgroundColor: this.state.bool6 == true ? '#800000' : 'white',
+                backgroundColor: this.state.bool6 == true ? "#800000" : "white",
               },
             ]}
-            onPress={this.renderBool6}>
+            onPress={this.renderBool6}
+          >
             <Text
               style={[
-                {color: this.state.bool6 == false ? '#800000' : 'white'},
+                { color: this.state.bool6 == false ? "#800000" : "white" },
                 styles.textStyles,
-              ]}>
+              ]}
+            >
               Terms & Service
             </Text>
           </TouchableOpacity>
-          <View style={{borderBottomColor: '#f2f2f2', borderBottomWidth: 1}} />
+          <View
+            style={{ borderBottomColor: "#f2f2f2", borderBottomWidth: 1 }}
+          />
         </ScrollView>
       </SafeAreaView>
     );
@@ -279,12 +307,12 @@ export default class SideBar extends Component {
 
 const styles = StyleSheet.create({
   touchStyle: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     height: 50,
-    width: '100%',
+    width: "100%",
   },
   textStyles: {
-    textAlign: 'center',
+    textAlign: "center",
     paddingTop: 12,
     margin: 12,
   },
