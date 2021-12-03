@@ -14,12 +14,12 @@ import {material} from 'react-native-typography';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator, HeaderTitle} from 'react-navigation-stack';
 import {createDrawerNavigator} from 'react-navigation-drawer';
-import {FontAwesome5} from '@expo/vector-icons';
+// import {FontAwesome5} from '@expo/vector-icons';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import BottomTabBar from 'react-navigation-selective-tab-bar';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
-import {Icon} from 'react-native-elements';
+// import {Icon} from 'react-native-elements';
 /* screens path */
 import Login from './src/components/Auth/Login';
 import Profile from './src/components/DrawerScreens/UserDetails/Profile';
