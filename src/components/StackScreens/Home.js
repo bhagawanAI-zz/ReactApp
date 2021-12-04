@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
         >
           <View style={styles.circle}>
             <Image
-              style={styles.images}
+              style={styles.imagesMarket}
               source={require("../../../assets/images/home/DOME.png")}
             ></Image>
             <View style={{ alignItems: "center", marginTop : 5 }}>
@@ -76,6 +76,10 @@ const styles = StyleSheet.create({
   },
   images: {
     width: 50,
+    height: 50,
+  },
+  imagesMarket: {
+    width: 73,
     height: 50,
   },
   center: {
