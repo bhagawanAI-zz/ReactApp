@@ -59,8 +59,11 @@ const FindDome = ({ navigation }) => {
 
     <View style={styles.container}>
       <View style={styles.heading}>
+        <TouchableOpacity onPress={()=>navigation.goBack()}>
         <Image style={styles.backIcon}
-          source={require("../../../assets/images/back.png")} />
+          source={require("../../../assets/images/back.png")} 
+          />
+        </TouchableOpacity>
         <Text style={[material.display1, styles.headingText, {marginLeft : wp("17%")}]}>
           FIND A DOME
         </Text>
