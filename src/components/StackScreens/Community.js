@@ -231,7 +231,7 @@ function Activity({text, imageType, isBorder}) {
 }
 
 const style = StyleSheet.create({
-  contianer: {flex: 1, marginTop: 15},
+  contianer: {flex: 1},
   heading: {
     flex: 0.3,
     backgroundColor: '#b8b8bb',
@@ -318,7 +318,6 @@ const style = StyleSheet.create({
     fontSize: RFPercentage(4),
     fontFamily: 'BebasNeue-Book',
     fontWeight: '200',
-    marginTop: isNotch ? 35 : 0,
     letterSpacing: 3,
   },
   activityHeaderTxt: {
