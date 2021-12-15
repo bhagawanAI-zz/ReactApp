@@ -1,29 +1,29 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity,Image } from "react-native";
 import { material } from "react-native-typography";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import { FONT_BACK_LABEL, FONT_HEADING } from "../Common/DynamicFonts";
 
 export default function PairDome({ navigation }) {
   return (
     <View style={style.container}>
-      {/* <View style={style.heading}>
-        <Text style={[material.display1,{color:"black"}]}>PAIR YOUR DOME</Text>
-      </View> */}
-      <View style={style.para1}>
-        <Text style={[material.subheading, style.margin]}>
-          It appears this is your first seassion in this
+      <View style={style.heading}>
+         <TouchableOpacity onPress={() => navigation.goBack()}> 
+         <Image style={style.backIcon} source={require("../../../assets/images/back.png")} />
+         </TouchableOpacity>
+        <Text style={[material.display1, style.headingText, {marginLeft : wp("25%")}]}>
+          PAIR DOME
         </Text>
-        <Text style={[material.subheading, style.margin]}>
-          dome, so let's pair your phone.
+      </View>
+      <View style={style.para1}>
+        <Text style={[material.subheading, style.margin,{textAlign : "center"}]}>
+          It appears this is your first seassion in this dome, so let's pair your phone.
         </Text>
       </View>
       <View style={style.para2}>
-        <Text style={[material.subheading, style.margin]}>
-          Please stand near the dome, select your
-        </Text>
-        <Text style={[material.subheading, style.margin]}>
-          dome, and click "connect".
+        <Text style={[material.subheading, style.margin, {textAlign : "center"}]}>
+          Please stand near the dome, select your dome, and click "connect".
         </Text>
       </View>
       <View style={style.para3}>
@@ -61,12 +61,21 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "white",
   },
   heading: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection : "row",
+    height : hp("10%"),
+    alignItems : "center",
+    backgroundColor: "#b8b8bb",
+  },
+  headingText: {
+    color: "white",
+    fontFamily : "BebasNeueBook"
+  },
+  backIcon : {
+    height : 30, 
+    width : 17,
+    marginLeft : wp("8%")
   },
   para1: {
     flex: 1,
