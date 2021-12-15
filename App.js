@@ -230,39 +230,6 @@ export const bottomTabs = createBottomTabNavigator(
         ),
       },
     },
-    Unlock: {
-      screen: Unlock,
-      navigationOptions: ({navigation}) => ({
-        // headerTitle: (
-        //   <View style={{alignItems: 'center'}}>
-        //     <Text style={[styles.headerText]}>UNLOCK MODE:</Text>
-        //     <Text
-        //       style={[
-        //         material.captionWhite,
-        //         {
-        //           letterSpacing: 0,
-        //           fontFamily: 'BebasNeue-Book',
-        //           letterSpacing: 2,
-        //           fontSize: RFPercentage(2),
-        //         },
-        //       ]}>
-        //       SET YOUR COLOR CLOSE THE APP LISTEN TO ANYTHING
-        //     </Text>
-        //   </View>
-        // ),
-        headerLeft: () =>
-          // <TouchableOpacity onPress={() => navigation.goBack()}>
-          //   <Image
-          //     style={{ width: 20, height: 20, marginLeft: 10 }}
-          //     source={require("./assets/images/back.png")}
-          //   />
-          // </TouchableOpacity>
-          null,
-        headerStyle: {backgroundColor: '#b8b8bb', height: isNotch ? 115 : 100},
-        headerTintColor: 'white',
-      }),
-    },
-    
   },
   {
     initialRouteName: 'Home',
@@ -391,23 +358,7 @@ const Stackscreens = createStackNavigator({
   },
   PAIRDOME: {
     screen: PairDome,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: (
-        <View style={{alignItems: 'center'}}>
-          <Text style={[material.display1, styles.headerText]}>PAIR DOME</Text>
-        </View>
-      ),
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            style={{width: 20, height: 20, marginLeft: 20}}
-            source={require('./assets/images/back.png')}
-          />
-        </TouchableOpacity>
-      ),
-      headerStyle: {backgroundColor: '#b8b8bb', height: 100},
-      headerTintColor: 'white',
-    }),
+    navigationOptions : {headerShown : false}
   },
   Pay: {screen: Pay},
   SeassionStart: {screen: SeassionStart},
