@@ -1,4 +1,4 @@
-   import React from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
 import { material } from "react-native-typography";
 // import ColorPicker from "react-native-wheel-color-picker";
 import ColorPicker from '../WheelColorPicker/ColorPicker';
+import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 
 var FONT_BACK_LABEL = 15;
 var FONT_HEADING = 17;
@@ -18,9 +19,24 @@ if (PixelRatio.get() <= 2) {
   FONT_HEADING = 25;
 }
 
-export default function Unlock() {
+export default function Unlock({navigation}) {
   return (
     <View style={style.container}>
+       <View style={{alignItems: 'center',flex:0.6,backgroundColor:"#b8b8bb"}}>
+            <Text style={[style.headerText,{paddingTop:12}]}>UNLOCK MODE:</Text>
+            <Text
+              style={[
+                material.captionWhite,
+                {
+                  letterSpacing: 0,
+                  fontFamily: 'BebasNeue-Book',
+                  letterSpacing: 2,
+                  fontSize: RFPercentage(2),
+                },
+              ]}>
+              SET YOUR COLOR CLOSE THE APP LISTEN TO ANYTHING
+            </Text>
+          </View>
       {/* <View style={style.heading}>
         <Text style={[material.headlineWhite, style.text]}></Text>
         <Text style={[material.captionWhite, style.text]}>
@@ -65,4 +81,10 @@ const style = StyleSheet.create({
     letterSpacing: 1,
     fontSize: FONT_BACK_LABEL,
   },
+  headerText: {
+    letterSpacing: 2,
+    fontSize: RFPercentage(5),
+    color: 'white',
+    fontFamily: 'BebasNeue-Book',
+  }
 });
