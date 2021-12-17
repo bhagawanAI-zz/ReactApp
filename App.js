@@ -19,7 +19,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import BottomTabBar from 'react-navigation-selective-tab-bar';
 import {Provider} from 'react-redux';
-import store from './src/redux/store';
+import store from './src/store/index';
 // import {Icon} from 'react-native-elements';
 /* screens path */
 import Login from './src/components/Auth/Login';
@@ -262,7 +262,6 @@ export const bottomTabs = createBottomTabNavigator(
         headerTintColor: 'white',
       }),
     },
-    
   },
   {
     initialRouteName: 'Home',
@@ -391,7 +390,7 @@ const Stackscreens = createStackNavigator({
   },
   PAIRDOME: {
     screen: PairDome,
-    navigationOptions : {headerShown : false}
+    navigationOptions: {headerShown: false},
   },
   Pay: {screen: Pay},
   SeassionStart: {screen: SeassionStart},

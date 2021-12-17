@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ScrollView,
   View,
@@ -13,15 +13,22 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Card from '../../components/UI/Card';
 import Colors from '../../constants/Colors';
 
-import { Formik } from 'formik';
+import {Formik} from 'formik';
 import * as yup from 'yup';
 
-import { useDispatch } from 'react-redux';
-import * as userActions from '../../redux/user/userActions';
+import {useDispatch} from 'react-redux';
+import {
+  loginFailure,
+  loginSuccess,
+  loginRequest,
+  userLoginAPI,
+} from '../../services/loginService';
+
 const userRegisterImage = require('../../../assets/userRegister/registerPageBackground.png');
 const emailRegex =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -33,11 +40,11 @@ const loginSchema = yup.object({
     .required()
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character'
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
     ),
 });
 
-const Login = (props) => {
+function Login(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const dispatch = useDispatch();
@@ -49,33 +56,38 @@ const Login = (props) => {
 
   const [formState, setFormState] = useState(initialForm);
 
-  const loginHandler = async () => {
-    setError(null);
-    setIsLoading(true);
-    try {
-      await dispatch(userActions.login(formState.email, formState.password));
-      props.navigation.navigate('Home'); // screen name to navigate on success
-    } catch (err) {
-      props.navigation.navigate('Home'); // COMMENT THIS CODE WHEN API SETUP FOR LOGIN IS WORKING
-      setError(err.message);
-    }
-
+  const loginHandler = async userData => {
+    // const userData = {username: formState.email, password: formState.password};
+    dispatch(loginRequest(userData));
+    await userLoginAPI(userData)
+      .then(response => {
+        console.log('response-->', response.data);
+        const token = response.data.access_token;
+        console.log('Token-->', token);
+        AsyncStorage.setItem('token', token);
+        // await AsyncStorage.setItem('key', value)
+        props.navigation.navigate('Home');
+        dispatch(loginSuccess(response.data));
+      })
+      .catch(error => {
+        dispatch(loginFailure(error.response.data));
+      });
     setIsLoading(false);
   };
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An Error Occured!', error, [{ text: 'Okay' }]);
+      Alert.alert('An Error Occured!', error, [{text: 'Okay'}]);
     }
+    // console.log('Props', props);
   }, [error]);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
-        behaviour='padding'
+        behaviour="padding"
         keyboardVerticalOffset={50}
-        style={styles.screen}
-      >
+        style={styles.screen}>
         <ImageBackground source={userRegisterImage} style={styles.image}>
           <View style={styles.gradient}>
             <Card style={styles.authContainer}>
@@ -95,14 +107,13 @@ const Login = (props) => {
               /> */}
 
                   <Formik
-                    initialValues={{ email: '', password: '' }}
+                    initialValues={{email: '', password: ''}}
                     validationSchema={loginSchema}
                     onSubmit={(values, actions) => {
                       actions.resetForm();
-                      loginHandler();
-                    }}
-                  >
-                    {(props) => (
+                      loginHandler(values);
+                    }}>
+                    {props => (
                       <View style={styles.formControl}>
                         <Text style={styles.label}> Email</Text>
                         <TextInput
@@ -111,7 +122,7 @@ const Login = (props) => {
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, email: text });
                           // }}
-                          placeholder='Enter email'
+                          placeholder="Enter email"
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
                           onBlur={props.handleBlur('email')}
@@ -124,20 +135,20 @@ const Login = (props) => {
 
                         <Text style={styles.label}> Password</Text>
                         <TextInput
-                          id='password'
-                          label='password'
-                          keyboardType='default'
+                          id="password"
+                          label="password"
+                          keyboardType="default"
                           secureTextEntry
                           required
                           minLength={5}
-                          autoCapitalize='none'
-                          errorText='Please enter a valid password'
+                          autoCapitalize="none"
+                          errorText="Please enter a valid password"
                           style={styles.input}
                           // value={formState.password}
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
                           // }}
-                          placeholder='Enter password'
+                          placeholder="Enter password"
                           value={props.values.password}
                           onChangeText={props.handleChange('password')}
                           onBlur={props.handleBlur('password')}
@@ -152,12 +163,12 @@ const Login = (props) => {
                         <View style={styles.buttonContainer}>
                           {isLoading ? (
                             <ActivityIndicator
-                              size='small'
+                              size="small"
                               color={Colors.primary}
                             />
                           ) : (
                             <Button
-                              title='LOGIN'
+                              title="LOGIN"
                               color={Colors.primary}
                               // onPress={loginHandler}
                               onPress={props.handleSubmit}
@@ -170,17 +181,11 @@ const Login = (props) => {
                   </Formik>
                   <View style={styles.buttonContainer}>
                     <Button
-                      title='SWITCH TO REGISTER'
+                      title="SWITCH TO REGISTER"
                       color={Colors.primary}
                       onPress={() => {
                         props.navigation.navigate('Registration');
                         setFormState(initialForm);
-                      }}
-                    />
-                    <Button
-                      title='demo button'
-                      onPress={() => {
-                        props.navigation.navigate('Home');
                       }}
                     />
                   </View>
@@ -192,7 +197,7 @@ const Login = (props) => {
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
-};
+}
 
 Login.navigationOptions = {
   headerTitle: 'Please authenticate',

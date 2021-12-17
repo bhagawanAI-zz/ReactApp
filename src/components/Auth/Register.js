@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useCallback } from 'react';
+import React, {useState, useEffect, useReducer, useCallback} from 'react';
 import {
   ScrollView,
   View,
@@ -17,11 +17,11 @@ import {
 import Card from '../../components/UI/Card';
 import Colors from '../../constants/Colors';
 
-import { Formik } from 'formik';
+import {Formik} from 'formik';
 import * as yup from 'yup';
 
-import { useDispatch } from 'react-redux';
-import * as userActions from '../../redux/user/userActions';
+import {useDispatch} from 'react-redux';
+// import * as userActions from '../../redux/user/userActions';
 const userRegisterImage = require('../../../assets/userRegister/registerPageBackground.png');
 const emailRegex =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -34,11 +34,11 @@ const registerSchema = yup.object({
     .required()
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character'
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
     ),
 });
 
-const Registration = ({ navigation }) => {
+const Registration = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
@@ -59,8 +59,8 @@ const Registration = ({ navigation }) => {
         userActions.signup(
           formState.email,
           formState.password,
-          formState.username
-        )
+          formState.username,
+        ),
       );
       navigation.navigate(''); // screen name to navigate on success
     } catch (err) {
@@ -72,7 +72,7 @@ const Registration = ({ navigation }) => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An Error Occured!', error, [{ text: 'Okay' }]);
+      Alert.alert('An Error Occured!', error, [{text: 'Okay'}]);
     }
   }, [error]);
 
@@ -84,10 +84,9 @@ const Registration = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
-        behaviour='padding'
+        behaviour="padding"
         keyboardVerticalOffset={50}
-        style={styles.screen}
-      >
+        style={styles.screen}>
         <ImageBackground source={userRegisterImage} style={styles.image}>
           <View style={styles.gradient}>
             <Card style={styles.authContainer}>
@@ -107,15 +106,14 @@ const Registration = ({ navigation }) => {
               /> */}
 
                   <Formik
-                    initialValues={{ username: '', email: '', password: '' }}
+                    initialValues={{username: '', email: '', password: ''}}
                     validationSchema={registerSchema}
                     onSubmit={(values, actions) => {
                       actions.resetForm();
                       console.log(values);
                       signupHandler();
-                    }}
-                  >
-                    {(props) => (
+                    }}>
+                    {props => (
                       <View style={styles.formControl}>
                         <Text style={styles.label}> Username</Text>
                         <TextInput
@@ -126,7 +124,7 @@ const Registration = ({ navigation }) => {
                           //   setFormState({ ...formState, username: text });
                           // }}
                           onChangeText={props.handleChange('username')}
-                          placeholder='Enter username'
+                          placeholder="Enter username"
                           onBlur={props.handleBlur('username')}
                         />
                         <View style={styles.errorContainer}>
@@ -142,7 +140,7 @@ const Registration = ({ navigation }) => {
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, email: text });
                           // }}
-                          placeholder='Enter email'
+                          placeholder="Enter email"
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
                           onBlur={props.handleBlur('email')}
@@ -155,20 +153,20 @@ const Registration = ({ navigation }) => {
 
                         <Text style={styles.label}> Password</Text>
                         <TextInput
-                          id='password'
-                          label='password'
-                          keyboardType='default'
+                          id="password"
+                          label="password"
+                          keyboardType="default"
                           secureTextEntry
                           required
                           minLength={5}
-                          autoCapitalize='none'
-                          errorText='Please enter a valid password'
+                          autoCapitalize="none"
+                          errorText="Please enter a valid password"
                           style={styles.input}
                           // value={formState.password}
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
                           // }}
-                          placeholder='Enter password'
+                          placeholder="Enter password"
                           value={props.values.password}
                           onChangeText={props.handleChange('password')}
                           onBlur={props.handleBlur('password')}
@@ -183,12 +181,12 @@ const Registration = ({ navigation }) => {
                         <View style={styles.buttonContainer}>
                           {isLoading ? (
                             <ActivityIndicator
-                              size='small'
+                              size="small"
                               color={Colors.primary}
                             />
                           ) : (
                             <Button
-                              title='REGISTER'
+                              title="REGISTER"
                               color={Colors.primary}
                               // onPress={signupHandler}
                               onPress={props.handleSubmit}
@@ -198,7 +196,7 @@ const Registration = ({ navigation }) => {
                         </View>
                         <View style={styles.buttonContainer}>
                           <Button
-                            title='SWITCH TO LOGIN'
+                            title="SWITCH TO LOGIN"
                             color={Colors.primary}
                             onPress={() => {
                               props.handleReset();
