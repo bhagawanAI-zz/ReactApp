@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ScrollView,
   View,
@@ -17,12 +17,15 @@ import {
 import Card from '../../components/UI/Card';
 import Colors from '../../constants/Colors';
 
-import { Formik } from 'formik';
+import {Formik} from 'formik';
 import * as yup from 'yup';
 
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import * as userActions from '../../redux/user/userActions';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const userRegisterImage = require('../../../assets/userRegister/registerPageBackground.png');
 const emailRegex =
@@ -35,11 +38,11 @@ const loginSchema = yup.object({
     .required()
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character'
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
     ),
 });
 
-const Login = (props) => {
+const Login = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const dispatch = useDispatch();
@@ -67,17 +70,16 @@ const Login = (props) => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An Error Occured!', error, [{ text: 'Okay' }]);
+      Alert.alert('An Error Occured!', error, [{text: 'Okay'}]);
     }
   }, [error]);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
-        behaviour='padding'
+        behaviour="padding"
         keyboardVerticalOffset={50}
-        style={styles.screen}
-      >
+        style={styles.screen}>
         <ImageBackground source={userRegisterImage} style={styles.image}>
           <View style={styles.gradient}>
             <Card style={styles.authContainer}>
@@ -97,14 +99,13 @@ const Login = (props) => {
               /> */}
 
                   <Formik
-                    initialValues={{ email: '', password: '' }}
+                    initialValues={{email: '', password: ''}}
                     validationSchema={loginSchema}
                     onSubmit={(values, actions) => {
                       actions.resetForm();
                       loginHandler();
-                    }}
-                  >
-                    {(props) => (
+                    }}>
+                    {props => (
                       <View style={styles.formControl}>
                         <Text style={styles.label}> Email</Text>
                         <TextInput
@@ -113,7 +114,7 @@ const Login = (props) => {
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, email: text });
                           // }}
-                          placeholder='Enter email'
+                          placeholder="Enter email"
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
                           onBlur={props.handleBlur('email')}
@@ -126,20 +127,20 @@ const Login = (props) => {
 
                         <Text style={styles.label}> Password</Text>
                         <TextInput
-                          id='password'
-                          label='password'
-                          keyboardType='default'
+                          id="password"
+                          label="password"
+                          keyboardType="default"
                           secureTextEntry
                           required
                           minLength={5}
-                          autoCapitalize='none'
-                          errorText='Please enter a valid password'
+                          autoCapitalize="none"
+                          errorText="Please enter a valid password"
                           style={styles.input}
                           // value={formState.password}
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
                           // }}
-                          placeholder='Enter password'
+                          placeholder="Enter password"
                           value={props.values.password}
                           onChangeText={props.handleChange('password')}
                           onBlur={props.handleBlur('password')}
@@ -154,12 +155,12 @@ const Login = (props) => {
                         <View style={styles.buttonContainer}>
                           {isLoading ? (
                             <ActivityIndicator
-                              size='small'
+                              size="small"
                               color={Colors.primary}
                             />
                           ) : (
                             <Button
-                              title='LOGIN'
+                              title="LOGIN"
                               color={Colors.primary}
                               // onPress={loginHandler}
                               onPress={props.handleSubmit}
@@ -172,7 +173,7 @@ const Login = (props) => {
                   </Formik>
                   <View style={styles.buttonContainer}>
                     <Button
-                      title='SWITCH TO REGISTER'
+                      title="SWITCH TO REGISTER"
                       color={Colors.primary}
                       onPress={() => {
                         props.navigation.navigate('Registration');
@@ -180,7 +181,7 @@ const Login = (props) => {
                       }}
                     />
                     <Button
-                      title='demo button'
+                      title="demo button"
                       onPress={() => {
                         props.navigation.navigate('Home');
                       }}
@@ -211,7 +212,7 @@ const styles = StyleSheet.create({
   },
   authContainer: {
     width: '80%',
-    width : wp('85%'),
+    width: wp('85%'),
     height: hp('60%'),
     // maxHeight: 400,
     padding: 20,
@@ -228,9 +229,9 @@ const styles = StyleSheet.create({
   },
   label: {
     fontFamily: 'Khula-Regular',
-    color : 'gray',
+    color: 'gray',
     marginVertical: 8,
-    fontSize : 14
+    fontSize: 14,
   },
   input: {
     paddingHorizontal: 2,
