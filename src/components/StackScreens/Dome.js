@@ -59,11 +59,8 @@ const FindDome = ({ navigation }) => {
 
     <View style={styles.container}>
       <View style={styles.heading}>
-        <TouchableOpacity onPress={()=>navigation.goBack()}>
         <Image style={styles.backIcon}
-          source={require("../../../assets/images/back.png")} 
-          />
-        </TouchableOpacity>
+          source={require("../../../assets/images/back.png")} />
         <Text style={[material.display1, styles.headingText, {marginLeft : wp("17%")}]}>
           FIND A DOME
         </Text>
@@ -82,7 +79,7 @@ const FindDome = ({ navigation }) => {
             multi = {false}
             itemStyle={{
               padding: 10,
-              marginTop: 2,
+              marginTop: 0,
               backgroundColor: '#ddd',
               borderColor: '#bbb',
               borderWidth: 1,
@@ -208,7 +205,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#70b1ba",
   },
   mapContainer: {
-    marginTop : hp("0.4%"),
+    marginTop : hp("0%"),
     height : hp("40%"),
   },
   addressContainer: {
@@ -219,7 +216,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderTopColor: "#f9f9f9",
     borderTopWidth: 1,
-    marginTop : hp("6%")
+    marginTop : hp("2%")
   },
   headingText: {
     color: "white",

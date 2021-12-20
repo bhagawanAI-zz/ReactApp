@@ -131,6 +131,7 @@ const style = StyleSheet.create({
   },
   subHeading: {
     fontSize: 24,
-    fontFamily: "BebasNeueBook"
+    fontFamily: "BebasNeue-Book",
+    color : 'gray'
   }
 });

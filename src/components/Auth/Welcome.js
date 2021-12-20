@@ -22,7 +22,7 @@ const Welcome = ({ navigation }) => {
         style={{
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "90%",
+          marginTop: hp("68%"),
         }}
       >
         {/* <View style={{justifyContent:"center",alignItems:"center" }}>
@@ -41,7 +41,7 @@ const Welcome = ({ navigation }) => {
         >
         </View>
 
-        <View style={{ marginTop: "60%" }}>
+        <View>
           <TouchableOpacity
             style={{
               height: hp("10%"),

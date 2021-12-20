@@ -87,7 +87,8 @@ const Use = ({ navigation }) => {
       <View style={style.typeContainer}>
         <View style={style.TypeLeft}>
           <View style={style.TypeLeft__Text}>
-            <Text style={style.TypeText}>WHAT NEEDS YOUR ATTENTION ? </Text>
+            <Text style={style.TypeText}
+              numberOfLines={1}>WHAT NEEDS YOUR ATTENTION ? </Text>
           </View>
           <View style={style.TypeLeft__icons}>
             {feelTypesArray.map((item, index) => {
@@ -165,17 +166,15 @@ const style = StyleSheet.create({
     paddingTop: "7%",
   },
   TypeLeft: {
-    flex: 4,
     flexDirection: "column",
   },
   TypeLeft__icons: {
-    flex: 3,
     flexDirection: "row",
   },
   TypeLeft__Text: { 
-    flex: 1, 
+    height : hp("4%"),
     justifyContent: "center",
-    paddingLeft : wp("2%")
+    paddingLeft : wp("2%"),
    },
   TypeText: { color: "#b8b8bb", letterSpacing: 1, fontSize: FONT_BACK_LABEL },
   time: {

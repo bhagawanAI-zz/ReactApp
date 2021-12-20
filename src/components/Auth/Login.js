@@ -22,6 +22,8 @@ import * as yup from 'yup';
 
 import { useDispatch } from 'react-redux';
 import * as userActions from '../../redux/user/userActions';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 const userRegisterImage = require('../../../assets/userRegister/registerPageBackground.png');
 const emailRegex =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -209,9 +211,9 @@ const styles = StyleSheet.create({
   },
   authContainer: {
     width: '80%',
-    maxWidth: 400,
-    // height: '50%',
-    maxHeight: 400,
+    width : wp('85%'),
+    height: hp('60%'),
+    // maxHeight: 400,
     padding: 20,
   },
   buttonContainer: {
@@ -222,11 +224,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formControl: {
-    width: '100%',
+    // width: '100%',
   },
   label: {
-    // fontFamily: 'open-sans-bold',
+    fontFamily: 'Khula-Regular',
+    color : 'gray',
     marginVertical: 8,
+    fontSize : 14
   },
   input: {
     paddingHorizontal: 2,
