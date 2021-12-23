@@ -115,6 +115,7 @@ const Login = props => {
                           //   setFormState({ ...formState, email: text });
                           // }}
                           placeholder="Enter email"
+                          placeholderTextColor= 'gray' 
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
                           onBlur={props.handleBlur('email')}
@@ -136,6 +137,7 @@ const Login = props => {
                           autoCapitalize="none"
                           errorText="Please enter a valid password"
                           style={styles.input}
+                          placeholderTextColor= 'gray' 
                           // value={formState.password}
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
@@ -213,7 +215,7 @@ const styles = StyleSheet.create({
   authContainer: {
     width: '80%',
     width: wp('85%'),
-    height: hp('60%'),
+    // height: hp('60%'),
     // maxHeight: 400,
     padding: 20,
   },
@@ -238,6 +240,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
+    color:'gray'
   },
   errorContainer: {
     marginVertical: 5,

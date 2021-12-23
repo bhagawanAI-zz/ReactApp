@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     marginTop : hp("0%"),
-    height : hp("40%"),
+    height : hp("30%"),
   },
   addressContainer: {
     alignItems: "center",
