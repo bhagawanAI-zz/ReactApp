@@ -125,6 +125,7 @@ const Registration = ({navigation}) => {
                           // }}
                           onChangeText={props.handleChange('username')}
                           placeholder="Enter username"
+                          placeholderTextColor="gray"
                           onBlur={props.handleBlur('username')}
                         />
                         <View style={styles.errorContainer}>
@@ -141,6 +142,7 @@ const Registration = ({navigation}) => {
                           //   setFormState({ ...formState, email: text });
                           // }}
                           placeholder="Enter email"
+                          placeholderTextColor="gray"
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
                           onBlur={props.handleBlur('email')}
@@ -156,6 +158,7 @@ const Registration = ({navigation}) => {
                           id="password"
                           label="password"
                           keyboardType="default"
+                          placeholderTextColor="gray"
                           secureTextEntry
                           required
                           minLength={5}
@@ -259,6 +262,7 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
+    color: 'gray',
   },
   errorContainer: {
     marginVertical: -2,

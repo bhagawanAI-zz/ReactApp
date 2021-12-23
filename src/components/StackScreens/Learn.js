@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, PixelRatio, ScrollView } from "react-native";
 import { material } from "react-native-typography";
 import Feel from "../Common/Feel";
 import FeelTypes from "../Common/FeelTypes";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 var FONT_BACK_LABEL = 15;
 var FONT_HEADING = 15;
@@ -112,7 +113,9 @@ const style = StyleSheet.create({
   },
   Learn_heading: {
     fontSize: 19,
-    fontFamily: "BebasNeue-Regular"
+    fontFamily: "BebasNeue-Book",
+    fontWeight : "normal",
+    color : "gray"
   },
 });
 

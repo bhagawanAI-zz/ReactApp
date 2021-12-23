@@ -28,6 +28,11 @@ import {
   loginRequest,
   userLoginAPI,
 } from '../../services/loginService';
+import * as userActions from '../../redux/user/userActions';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const userRegisterImage = require('../../../assets/userRegister/registerPageBackground.png');
 const emailRegex =
@@ -44,7 +49,7 @@ const loginSchema = yup.object({
     ),
 });
 
-function Login(props) {
+const Login = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const dispatch = useDispatch();
@@ -123,6 +128,7 @@ function Login(props) {
                           //   setFormState({ ...formState, email: text });
                           // }}
                           placeholder="Enter email"
+                          placeholderTextColor="gray"
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
                           onBlur={props.handleBlur('email')}
@@ -144,6 +150,7 @@ function Login(props) {
                           autoCapitalize="none"
                           errorText="Please enter a valid password"
                           style={styles.input}
+                          placeholderTextColor="gray"
                           // value={formState.password}
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
@@ -197,7 +204,7 @@ function Login(props) {
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
-}
+};
 
 Login.navigationOptions = {
   headerTitle: 'Please authenticate',
@@ -214,9 +221,9 @@ const styles = StyleSheet.create({
   },
   authContainer: {
     width: '80%',
-    maxWidth: 400,
-    // height: '50%',
-    maxHeight: 400,
+    width: wp('85%'),
+    // height: hp('60%'),
+    // maxHeight: 400,
     padding: 20,
   },
   buttonContainer: {
@@ -227,17 +234,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formControl: {
-    width: '100%',
+    // width: '100%',
   },
   label: {
-    // fontFamily: 'open-sans-bold',
+    fontFamily: 'Khula-Regular',
+    color: 'gray',
     marginVertical: 8,
+    fontSize: 14,
   },
   input: {
     paddingHorizontal: 2,
     paddingVertical: 5,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
+    color: 'gray',
   },
   errorContainer: {
     marginVertical: 5,

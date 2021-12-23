@@ -40,7 +40,7 @@ const Welcome = ({navigation}) => {
         style={{
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '90%',
+          marginTop: hp('68%'),
         }}>
         {/* <View style={{justifyContent:"center",alignItems:"center" }}>
            <Text style={{ fontSize:50,fontWeight:'bold',color:"white" }}>somadome</Text>
@@ -56,7 +56,7 @@ const Welcome = ({navigation}) => {
             height: 20,
           }}></View>
 
-        <View style={{marginTop: '60%'}}>
+        <View>
           <TouchableOpacity
             style={{
               height: hp('10%'),
