@@ -9,6 +9,7 @@ import {
   StyleSheet,
   PixelRatio,
   StatusBar,
+  Platform,
 } from 'react-native';
 import {material} from 'react-native-typography';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
@@ -18,7 +19,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import BottomTabBar from 'react-navigation-selective-tab-bar';
 import {Provider} from 'react-redux';
-import store from './src/redux/store';
+import store from './src/store/index';
 // import {Icon} from 'react-native-elements';
 /* screens path */
 import Login from './src/components/Auth/Login';
@@ -42,21 +43,22 @@ import SideMenu from './src/components/DrawerNav/sideBar';
 import Registration from './src/components/Auth/Register';
 import Welcome from './src/components/Auth/Welcome';
 //import Creative from "./src/components/StackScreens/Creative";
-import MusicApp from "./src/components/Common/MusicPlayer";
-import MusicPlayerScreen from "./src/components/StackScreens/MusicPlayerScreen";
-import Clarity from "./src/components/StackScreens/Clarity";
-import PairDome from "./src/components/StackScreens/PairDome";
-import Pay from "./src/components/StackScreens/Pay";
-import SeassionStart from "./src/components/StackScreens/SeassionStart";
-import More from "./src/components/StackScreens/More";
-import TermsServices from "./src/components/DrawerScreens/TermsServices";
-import StartupScreen from "./src/components/StartupScreen";
-import Book from "./src/components/StackScreens/Book";
-import DomePerformance from "./src/components/StackScreens/DomePerformance";
-import Unlock from "./src/components/StackScreens/Unlock";
-import { GetFontSize } from "./src/Utills/commonUtills";
+import MusicApp from './src/components/Common/MusicPlayer';
+import MusicPlayerScreen from './src/components/StackScreens/MusicPlayerScreen';
+import Clarity from './src/components/StackScreens/Clarity';
+import PairDome from './src/components/StackScreens/PairDome';
+import Pay from './src/components/StackScreens/Pay';
+import SeassionStart from './src/components/StackScreens/SeassionStart';
+import More from './src/components/StackScreens/More';
+import TermsServices from './src/components/DrawerScreens/TermsServices';
+import StartupScreen from './src/components/StartupScreen';
+import Book from './src/components/StackScreens/Book';
+import DomePerformance from './src/components/StackScreens/DomePerformance';
+import Unlock from './src/components/StackScreens/Unlock';
+import {GetFontSize} from './src/Utills/commonUtills';
 import DeviceInfo from 'react-native-device-info';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+import {SafeAreaView} from 'react-navigation';
 // const HomeScreen = createStackNavigator({
 //   Home :  {
 //     screen : Home,
@@ -260,7 +262,6 @@ export const bottomTabs = createBottomTabNavigator(
         headerTintColor: 'white',
       }),
     },
-    
   },
   {
     initialRouteName: 'Home',
@@ -361,11 +362,11 @@ const Stackscreens = createStackNavigator({
   Settings: {screen: Settings},
   Subscription: {screen: Subscription},
   // Creative: { screen: Creative },
-  MusicApp: { screen: MusicApp },
-  MusicPlayerScreen : {
-      screen : MusicPlayerScreen, 
-      navigationOptions : {headerShown : false}
-    },
+  MusicApp: {screen: MusicApp},
+  MusicPlayerScreen: {
+    screen: MusicPlayerScreen,
+    navigationOptions: {headerShown: false},
+  },
   Clarity: {
     screen: Clarity,
     navigationOptions: {headerShown: false},
@@ -389,7 +390,7 @@ const Stackscreens = createStackNavigator({
   },
   PAIRDOME: {
     screen: PairDome,
-    navigationOptions : {headerShown : false}
+    navigationOptions: {headerShown: false},
   },
   Pay: {screen: Pay},
   SeassionStart: {screen: SeassionStart},
@@ -420,7 +421,13 @@ const Stackscreens = createStackNavigator({
     screen: Unlock,
     navigationOptions: ({navigation}) => ({
       headerTitle: (
-        <View style={{alignItems: 'center'}}>
+        <SafeAreaView style={{alignItems: 'center'}}>
+          <StatusBar
+            animated={true}
+            backgroundColor="white"
+            barStyle={'dark-content'}
+            showHideTransition={'none'}
+          />
           <Text style={[styles.headerText]}>UNLOCK MODE:</Text>
           <Text
             style={[
@@ -434,7 +441,7 @@ const Stackscreens = createStackNavigator({
             ]}>
             SET YOUR COLOR CLOSE THE APP LISTEN TO ANYTHING
           </Text>
-        </View>
+        </SafeAreaView>
       ),
       headerLeft: () =>
         // <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -498,12 +505,20 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <StatusBar
-        animated={true}
-        backgroundColor="#9b9b9c"
-        barStyle={"dark-content"}
-        showHideTransition={"none"}/>
-        <AppContainer />
+        <SafeAreaView
+          style={{
+            flex: 1,
+            paddingTop: Platform.OS === 'ios' && isNotch ? 38 : 0,
+            backgroundColor: '#9b9b9c',
+          }}>
+          <StatusBar
+            animated={true}
+            backgroundColor="#9b9b9c"
+            barStyle={'dark-content'}
+            showHideTransition={'none'}
+          />
+          <AppContainer />
+        </SafeAreaView>
       </Provider>
     );
   }

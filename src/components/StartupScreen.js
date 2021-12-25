@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
-import { useDispatch } from 'react-redux';
+import React, {useEffect} from 'react';
+import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import {useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Colors from '../constants/Colors';
-import * as authActions from '../redux/user/userActions';
+// import * as authActions from '../redux/user/userActions';
 
-const StartupScreen = (props) => {
+const StartupScreen = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const StartupScreen = (props) => {
         return;
       }
       const transformedData = JSON.parse(userData);
-      const { token, userId } = transformedData;
+      const {token, userId} = transformedData;
 
       if (!token || !userId) {
         props.navigation.navigate('Welcome');
@@ -33,7 +33,7 @@ const StartupScreen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <ActivityIndicator size='large' color={Colors.primary} />
+      <ActivityIndicator size="large" color={Colors.primary} />
     </View>
   );
 };

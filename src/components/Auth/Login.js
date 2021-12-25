@@ -13,6 +13,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Card from '../../components/UI/Card';
 import Colors from '../../constants/Colors';
@@ -21,6 +22,12 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 
 import {useDispatch} from 'react-redux';
+import {
+  loginFailure,
+  loginSuccess,
+  loginRequest,
+  userLoginAPI,
+} from '../../services/loginService';
 import * as userActions from '../../redux/user/userActions';
 import {
   widthPercentageToDP as wp,
@@ -54,17 +61,22 @@ const Login = props => {
 
   const [formState, setFormState] = useState(initialForm);
 
-  const loginHandler = async () => {
-    setError(null);
-    setIsLoading(true);
-    try {
-      await dispatch(userActions.login(formState.email, formState.password));
-      props.navigation.navigate('Home'); // screen name to navigate on success
-    } catch (err) {
-      props.navigation.navigate('Home'); // COMMENT THIS CODE WHEN API SETUP FOR LOGIN IS WORKING
-      setError(err.message);
-    }
-
+  const loginHandler = async userData => {
+    // const userData = {username: formState.email, password: formState.password};
+    dispatch(loginRequest(userData));
+    await userLoginAPI(userData)
+      .then(response => {
+        console.log('response-->', response.data);
+        const token = response.data.access_token;
+        console.log('Token-->', token);
+        AsyncStorage.setItem('token', token);
+        // await AsyncStorage.setItem('key', value)
+        props.navigation.navigate('Home');
+        dispatch(loginSuccess(response.data));
+      })
+      .catch(error => {
+        dispatch(loginFailure(error.response.data));
+      });
     setIsLoading(false);
   };
 
@@ -72,6 +84,7 @@ const Login = props => {
     if (error) {
       Alert.alert('An Error Occured!', error, [{text: 'Okay'}]);
     }
+    // console.log('Props', props);
   }, [error]);
 
   return (
@@ -103,7 +116,7 @@ const Login = props => {
                     validationSchema={loginSchema}
                     onSubmit={(values, actions) => {
                       actions.resetForm();
-                      loginHandler();
+                      loginHandler(values);
                     }}>
                     {props => (
                       <View style={styles.formControl}>
@@ -115,7 +128,7 @@ const Login = props => {
                           //   setFormState({ ...formState, email: text });
                           // }}
                           placeholder="Enter email"
-                          placeholderTextColor= 'gray' 
+                          placeholderTextColor="gray"
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
                           onBlur={props.handleBlur('email')}
@@ -137,7 +150,7 @@ const Login = props => {
                           autoCapitalize="none"
                           errorText="Please enter a valid password"
                           style={styles.input}
-                          placeholderTextColor= 'gray' 
+                          placeholderTextColor="gray"
                           // value={formState.password}
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
@@ -180,12 +193,6 @@ const Login = props => {
                       onPress={() => {
                         props.navigation.navigate('Registration');
                         setFormState(initialForm);
-                      }}
-                    />
-                    <Button
-                      title="demo button"
-                      onPress={() => {
-                        props.navigation.navigate('Home');
                       }}
                     />
                   </View>
@@ -240,7 +247,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
-    color:'gray'
+    color: 'gray',
   },
   errorContainer: {
     marginVertical: 5,

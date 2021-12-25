@@ -15,7 +15,10 @@ import {material} from 'react-native-typography';
 import {GetFontSize} from '../../Utills/commonUtills';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import {SafeAreaView} from 'react-navigation';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 var FONT_BACK_LABEL = 10;
 var FONT_HEADING = 15;
@@ -68,9 +71,9 @@ const Community = ({navigation}) => {
         })}
       </View>
       <View style={style.TopRatedSecion}>
-        <Text style={style.text}
-        numberOfLines={1}>
-          TOP RATED SESSIONS THIS WEEK</Text>
+        <Text style={style.text} numberOfLines={1}>
+          TOP RATED SESSIONS THIS WEEK
+        </Text>
         <View
           style={{
             flex: isNotch ? 0.6 : 0.8,
@@ -298,21 +301,21 @@ const style = StyleSheet.create({
     fontFamily: 'Khula-Regular',
   },
   Playtext: {
-    fontSize: RFValue(24,SCREEN_HEIGHT),
+    fontSize: RFValue(24, SCREEN_HEIGHT),
     fontWeight: 'bold',
     fontFamily: 'BebasNeue-Book',
     lineHeight: 30,
     letterSpacing: 2,
   },
   playsText: {
-    fontSize: RFValue(24,SCREEN_HEIGHT),
+    fontSize: RFValue(24, SCREEN_HEIGHT),
     fontWeight: 'bold',
     fontFamily: 'BebasNeue-Book',
     letterSpacing: 2,
     lineHeight: 16,
   },
   bigBubbleText: {
-    fontSize: RFValue(28,SCREEN_HEIGHT),
+    fontSize: RFValue(28, SCREEN_HEIGHT),
     fontWeight: 'bold',
     fontFamily: 'BebasNeue-Book',
     lineHeight: 30,
