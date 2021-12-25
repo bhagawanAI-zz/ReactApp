@@ -21,7 +21,7 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 
 import {useDispatch} from 'react-redux';
-// import * as userActions from '../../redux/user/userActions';
+import {userRegisterAPI, registerequest, registerSuccess, registerFailure} from "../../services/registerServices"
 const userRegisterImage = require('../../../assets/userRegister/registerPageBackground.png');
 const emailRegex =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -51,23 +51,22 @@ const Registration = ({navigation}) => {
 
   const [formState, setFormState] = useState(initialForm);
 
-  const signupHandler = async () => {
+  const signupHandler = async ( userData ) => {
     setError(null);
     setIsLoading(true);
-    try {
-      await dispatch(
-        userActions.signup(
-          formState.email,
-          formState.password,
-          formState.username,
-        ),
-      );
-      navigation.navigate(''); // screen name to navigate on success
-    } catch (err) {
-      setError(err.message);
-    }
-
-    setIsLoading(false);
+    await userRegisterAPI(userData)
+    .then(res => {
+      console.log("In Registration screen", res.data)
+      // dispatch(loginSuccess(response.data));
+      setIsLoading(false);
+      Alert.alert("Registration Successfull")
+      props.navigation.navigate('Login');
+    })
+    .catch(error => {
+      setIsLoading(false);
+      dispatch(registerFailure(error.response.data));
+      Alert.alert("Error while registering the user")
+    });
   };
 
   useEffect(() => {
@@ -110,8 +109,7 @@ const Registration = ({navigation}) => {
                     validationSchema={registerSchema}
                     onSubmit={(values, actions) => {
                       actions.resetForm();
-                      console.log(values);
-                      signupHandler();
+                      signupHandler(values);
                     }}>
                     {props => (
                       <View style={styles.formControl}>
