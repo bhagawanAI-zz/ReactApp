@@ -188,7 +188,7 @@ const Registration = ({navigation}) => {
                           onChangeText={props.handleChange('password')}
                           onBlur={props.handleBlur('password')}
                         />
-                        <Text style={styles.label}>Re-Enter Password</Text>
+                        <Text style={[styles.label,{marginTop : 20}]}>Re-Enter Password</Text>
                         <TextInput
                           id="reEnterPassword"
                           label="Re Enter Password"
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
     width: '80%',
     maxWidth: 400,
     // height: '50%',
-    maxHeight: 400,
+    maxHeight: 500,
     padding: 20,
     // paddingRight: 20,
     // paddingTop: 20,
