@@ -3,7 +3,7 @@ import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Image } from
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Icon from "react-native-vector-icons/AntDesign"
 import Slider from "react-native-slider";
-import { Audio } from "expo-av";
+// import { Audio } from "expo-av";
 
 const MusicPlayerScreen = (props) => {
     console.log("In music player", props)
@@ -12,19 +12,19 @@ const MusicPlayerScreen = (props) => {
     const [value, setValue] = useState(0.1);
     const [sound, setSound] = useState();
 
-    const playSound = async () => {
-        console.log("Loading sound");
-        const { sound } = await Audio.Sound.createAsync(require("../../../assets/testing.mp3"));
-        setSound(sound);
-        console.log("Playing sound");
-        await sound.playAsync();
-    }
+    // const playSound = async () => {
+    //     console.log("Loading sound");
+    //     const { sound } = await Audio.Sound.createAsync(require("../../../assets/testing.mp3"));
+    //     setSound(sound);
+    //     console.log("Playing sound");
+    //     await sound.playAsync();
+    // }
 
-    useEffect(() => {
-        return sound ? () => {
-            console.log("Unloading Sound");
-            sound.unloadAsync() } : undefined
-        },[sound])
+    // useEffect(() => {
+    //     return sound ? () => {
+    //         console.log("Unloading Sound");
+    //         sound.unloadAsync() } : undefined
+    //     },[sound])
 
     return (
         <View style={styles.container}>
@@ -43,8 +43,7 @@ const MusicPlayerScreen = (props) => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Icon name="banckward" size={20} color="white" />
-                    <TouchableOpacity style={{marginLeft : wp("10%"), marginRight : wp("10%")}}
-                    onPress={playSound}>
+                    <TouchableOpacity style={{marginLeft : wp("10%"), marginRight : wp("10%")}}>
                         <Image style={{backgroundColor : "white", height : 50, width :50, borderRadius: 25}}
                         source={require("../../../assets/images/play_button_dark_blue.png")} />
                     </TouchableOpacity>
