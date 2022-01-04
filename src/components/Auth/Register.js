@@ -36,6 +36,13 @@ const registerSchema = yup.object({
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
       'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
     ),
+  reEnterPassword : yup
+  .string()
+  .required()
+  .matches(
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+    'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+  ),
 });
 
 const Registration = ({navigation}) => {
@@ -47,26 +54,35 @@ const Registration = ({navigation}) => {
     email: '',
     password: '',
     username: '',
+    reEnterPassword : ''
   });
 
   const [formState, setFormState] = useState(initialForm);
 
-  const signupHandler = async ( userData ) => {
+  const signupHandler = async ( userData,actions ) => {
     setError(null);
-    setIsLoading(true);
-    await userRegisterAPI(userData)
-    .then(res => {
-      console.log("In Registration screen", res.data)
-      // dispatch(loginSuccess(response.data));
-      setIsLoading(false);
-      Alert.alert("Registration Successfull")
-      props.navigation.navigate('Login');
-    })
-    .catch(error => {
-      setIsLoading(false);
-      dispatch(registerFailure(error.response.data));
-      Alert.alert("Error while registering the user")
-    });
+    console.log("In signup handle", userData);
+    if(userData.password===userData.reEnterPassword){
+      setIsLoading(true);
+      delete userData["reEnterPassword"]
+      await userRegisterAPI(userData)
+      .then(res => {
+        console.log("In Registration screen", res.data)
+        // dispatch(loginSuccess(response.data));
+        setIsLoading(false);
+        actions.resetForm();
+        Alert.alert("Registration Succesfull")
+        navigation.navigate('Login');
+      })
+      .catch(error => {
+        setIsLoading(false);
+        actions.resetForm();
+        dispatch(registerFailure(error.response.data));
+        Alert.alert("Error while registering the user")
+      });
+    }else{
+      Alert.alert("Passwords Donot Match")
+    }
   };
 
   useEffect(() => {
@@ -105,11 +121,11 @@ const Registration = ({navigation}) => {
               /> */}
 
                   <Formik
-                    initialValues={{username: '', email: '', password: ''}}
+                    initialValues={{username: '', email: '', password: '',reEnterPassword : ''}}
                     validationSchema={registerSchema}
                     onSubmit={(values, actions) => {
-                      actions.resetForm();
-                      signupHandler(values);
+                      // actions.resetForm();
+                      signupHandler(values,actions);
                     }}>
                     {props => (
                       <View style={styles.formControl}>
@@ -172,7 +188,27 @@ const Registration = ({navigation}) => {
                           onChangeText={props.handleChange('password')}
                           onBlur={props.handleBlur('password')}
                         />
-
+                        <Text style={styles.label}>Re-Enter Password</Text>
+                        <TextInput
+                          id="reEnterPassword"
+                          label="Re Enter Password"
+                          keyboardType="default"
+                          placeholderTextColor="gray"
+                          secureTextEntry
+                          required
+                          minLength={5}
+                          autoCapitalize="none"
+                          errorText="Please enter a valid password"
+                          style={styles.input}
+                          // value={formState.password}
+                          // onChangeText={(text) => {
+                          //   setFormState({ ...formState, password: text });
+                          // }}
+                          placeholder="Enter Password"
+                          value={props.values.reEnterPassword}
+                          onChangeText={props.handleChange('reEnterPassword')}
+                          onBlur={props.handleBlur('reEnterPassword')}
+                        />
                         <View style={styles.errorContainer}>
                           <Text style={styles.errorText}>
                             {props.touched.password && props.errors.password}

@@ -43,7 +43,7 @@ const Home = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.roundButton, styles.roundBottom]}
-          onPress={() => Linking.openURL("https://somadome.com/")}
+          onPress={() => navigation.navigate("FIND")}
         >
           <View style={styles.circle}>
             <Image
