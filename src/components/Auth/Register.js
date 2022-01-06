@@ -86,10 +86,8 @@ const Registration = ({navigation}) => {
           Alert.alert('Error while registering the user');
         });
     } else {
-      Alert.alert('Passwords Does not Match');
+      Alert.alert('Passwords Donot Match');
     }
-
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -228,6 +226,29 @@ const Registration = ({navigation}) => {
                           blurOnSubmit={false}
                           onSubmitEditing={() => Keyboard.dismiss()}
                         />
+                        <Text style={[styles.label, {marginTop: 20}]}>
+                          Re-Enter Password
+                        </Text>
+                        <TextInput
+                          id="reEnterPassword"
+                          label="Re Enter Password"
+                          keyboardType="default"
+                          placeholderTextColor="gray"
+                          secureTextEntry
+                          required
+                          minLength={5}
+                          autoCapitalize="none"
+                          errorText="Please enter a valid password"
+                          style={styles.input}
+                          // value={formState.password}
+                          // onChangeText={(text) => {
+                          //   setFormState({ ...formState, password: text });
+                          // }}
+                          placeholder="Enter Password"
+                          value={props.values.reEnterPassword}
+                          onChangeText={props.handleChange('reEnterPassword')}
+                          onBlur={props.handleBlur('reEnterPassword')}
+                        />
                         <View style={styles.errorContainer}>
                           <Text style={styles.errorText}>
                             {(props.touched.password &&
@@ -293,7 +314,7 @@ const styles = StyleSheet.create({
     width: '80%',
     maxWidth: 400,
     // height: '50%',
-    maxHeight: 400,
+    maxHeight: 500,
     padding: 20,
     // paddingRight: 20,
     // paddingTop: 20,
