@@ -21,7 +21,12 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 
 import {useDispatch} from 'react-redux';
-// import * as userActions from '../../redux/user/userActions';
+import {
+  userRegisterAPI,
+  registerequest,
+  registerSuccess,
+  registerFailure,
+} from '../../services/registerServices';
 const userRegisterImage = require('../../../assets/userRegister/registerPageBackground.png');
 const emailRegex =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -30,6 +35,13 @@ const registerSchema = yup.object({
   username: yup.string().required().min(3),
   email: yup.string().required().email(),
   password: yup
+    .string()
+    .required()
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+    ),
+  reEnterPassword: yup
     .string()
     .required()
     .matches(
@@ -47,24 +59,34 @@ const Registration = ({navigation}) => {
     email: '',
     password: '',
     username: '',
+    reEnterPassword: '',
   });
 
   const [formState, setFormState] = useState(initialForm);
 
-  const signupHandler = async () => {
+  const signupHandler = async (userData, actions) => {
     setError(null);
-    setIsLoading(true);
-    try {
-      await dispatch(
-        userActions.signup(
-          formState.email,
-          formState.password,
-          formState.username,
-        ),
-      );
-      navigation.navigate(''); // screen name to navigate on success
-    } catch (err) {
-      setError(err.message);
+    console.log('In signup handle', userData);
+    if (userData.password === userData.reEnterPassword) {
+      setIsLoading(true);
+      delete userData['reEnterPassword'];
+      await userRegisterAPI(userData)
+        .then(res => {
+          console.log('In Registration screen', res.data);
+          // dispatch(loginSuccess(response.data));
+          setIsLoading(false);
+          actions.resetForm();
+          Alert.alert('Registration Succesfull');
+          navigation.navigate('Login');
+        })
+        .catch(error => {
+          setIsLoading(false);
+          actions.resetForm();
+          dispatch(registerFailure(error.response.data));
+          Alert.alert('Error while registering the user');
+        });
+    } else {
+      Alert.alert('Passwords Does not Match');
     }
 
     setIsLoading(false);
@@ -82,7 +104,7 @@ const Registration = ({navigation}) => {
   }, []);
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <KeyboardAvoidingView
         behaviour="padding"
         keyboardVerticalOffset={50}
@@ -106,12 +128,16 @@ const Registration = ({navigation}) => {
               /> */}
 
                   <Formik
-                    initialValues={{username: '', email: '', password: ''}}
+                    initialValues={{
+                      username: '',
+                      email: '',
+                      password: '',
+                      reEnterPassword: '',
+                    }}
                     validationSchema={registerSchema}
                     onSubmit={(values, actions) => {
-                      actions.resetForm();
-                      console.log(values);
-                      signupHandler();
+                      // actions.resetForm();
+                      signupHandler(values, actions);
                     }}>
                     {props => (
                       <View style={styles.formControl}>
@@ -173,11 +199,41 @@ const Registration = ({navigation}) => {
                           value={props.values.password}
                           onChangeText={props.handleChange('password')}
                           onBlur={props.handleBlur('password')}
+                          blurOnSubmit={false}
+                          onSubmitEditing={() => Keyboard.dismiss()}
                         />
-
+                        <Text style={[styles.label, {marginTop: 20}]}>
+                          Re-Enter Password
+                        </Text>
+                        <TextInput
+                          id="reEnterPassword"
+                          label="Re Enter Password"
+                          keyboardType="default"
+                          placeholderTextColor="gray"
+                          secureTextEntry
+                          required
+                          minLength={5}
+                          autoCapitalize="none"
+                          errorText="Please enter a valid password"
+                          style={styles.input}
+                          // value={formState.password}
+                          // onChangeText={(text) => {
+                          //   setFormState({ ...formState, password: text });
+                          // }}
+                          placeholder="Enter Password"
+                          value={props.values.reEnterPassword}
+                          onChangeText={props.handleChange('reEnterPassword')}
+                          onBlur={props.handleBlur('reEnterPassword')}
+                          returnKeyType="done"
+                          blurOnSubmit={false}
+                          onSubmitEditing={() => Keyboard.dismiss()}
+                        />
                         <View style={styles.errorContainer}>
                           <Text style={styles.errorText}>
-                            {props.touched.password && props.errors.password}
+                            {(props.touched.password &&
+                              props.errors.password) ||
+                              (props.touched.reEnterPassword &&
+                                props.errors.reEnterPassword)}
                           </Text>
                         </View>
 
