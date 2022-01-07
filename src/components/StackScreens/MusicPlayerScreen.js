@@ -3,28 +3,35 @@ import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Image } from
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Icon from "react-native-vector-icons/AntDesign"
 import Slider from "react-native-slider";
-// import { Audio } from "expo-av";
+import TrackPlayer , { State } from "react-native-track-player";
 
 const MusicPlayerScreen = (props) => {
     console.log("In music player", props)
     const {navigation} = props;
     const {title} = navigation?.state?.params;
     const [value, setValue] = useState(0.1);
-    const [sound, setSound] = useState();
 
-    // const playSound = async () => {
-    //     console.log("Loading sound");
-    //     const { sound } = await Audio.Sound.createAsync(require("../../../assets/testing.mp3"));
-    //     setSound(sound);
-    //     console.log("Playing sound");
-    //     await sound.playAsync();
-    // }
+    useEffect(() => {
+        TrackPlayer.setupPlayer();
+    },[])
 
-    // useEffect(() => {
-    //     return sound ? () => {
-    //         console.log("Unloading Sound");
-    //         sound.unloadAsync() } : undefined
-    //     },[sound])
+    const track = {
+        url : require("../../../assets/testing.mp3"),
+        title : "Test Title",
+        artist : "Test Artist",
+        artwork : require("../../../assets/somadome.png"),
+        duration : 58
+    }
+
+    const handlePlayClick = async () => {
+        await TrackPlayer.add([track]);
+        // const state = await TrackPlayer.getState();
+        // if(state === State.Playing){
+        //     console.log("The Player is playing")
+        // }
+
+        TrackPlayer.play();
+    }
 
     return (
         <View style={styles.container}>
@@ -43,7 +50,8 @@ const MusicPlayerScreen = (props) => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Icon name="banckward" size={20} color="white" />
-                    <TouchableOpacity style={{marginLeft : wp("10%"), marginRight : wp("10%")}}>
+                    <TouchableOpacity style={{marginLeft : wp("10%"), marginRight : wp("10%")}}
+                        onPress={handlePlayClick}>
                         <Image style={{backgroundColor : "white", height : 50, width :50, borderRadius: 25}}
                         source={require("../../../assets/images/play_button_dark_blue.png")} />
                     </TouchableOpacity>

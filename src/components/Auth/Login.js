@@ -75,6 +75,7 @@ const Login = props => {
         dispatch(loginSuccess(response.data));
       })
       .catch(error => {
+        Alert.alert("Error while logging in")
         dispatch(loginFailure(error.response.data));
       });
     setIsLoading(false);
