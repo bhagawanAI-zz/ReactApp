@@ -10,6 +10,7 @@ import {
   Dimensions,
   Image,
   TextInput,
+  Platform,
 } from 'react-native';
 import {material} from 'react-native-typography';
 import MapView, {Marker} from 'react-native-maps';
@@ -26,6 +27,9 @@ if (PixelRatio.get() <= 2) {
   FONT_BACK_LABEL = 10;
   FONT_HEADING = 15;
 }
+const isAndroid = Platform.OS === 'android';
+const key = 'uniqueMarkerKey';
+const markerImage = require('../../../assets/somadome.png');
 
 const initialLocation = {
   id: 6,
@@ -131,19 +135,25 @@ const FindDome = ({navigation}) => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}>
-          <Marker
-            coordinate={{
-              latitude: location.latitude || 40.744516,
-              longitude: location.longitude || -73.98932,
-            }}
-            tracksViewChanges={false}
-            icon={require('../../../assets/somadome.png')}
-            description={'DOME'}>
-            {/* <Image
-              source={require("../../../assets/somadome.png")}
-              style={{ height: 35, width: 50 }}
-            /> */}
-          </Marker>
+          {locationList.map((marker, index) => (
+            <Marker
+              key={index}
+              coordinate={{
+                latitude: marker.latitude || 40.744516,
+                longitude: marker.longitude || -73.98932,
+              }}
+              tracksViewChanges={false}
+              icon={isAndroid ? markerImage : null}
+              image={markerImage}
+              description={'DOME'}>
+              {isAndroid ? null : (
+                <Image
+                  source={markerImage}
+                  style={{height: 35, width: 35, overflow: 'visible'}}
+                />
+              )}
+            </Marker>
+          ))}
         </MapView>
       </View>
 
