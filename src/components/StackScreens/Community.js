@@ -92,7 +92,7 @@ const Community = ({navigation}) => {
                   style={[
                     material.captionWhite,
                     style.playsText,
-                    {fontSize: RFValue(16)},
+                    {fontSize: RFValue(14)},
                   ]}>
                   {'PLAYS'}
                 </Text>
@@ -176,7 +176,7 @@ const Community = ({navigation}) => {
                   style={[
                     material.captionWhite,
                     style.playsText,
-                    {fontSize: RFValue(16)},
+                    {fontSize: RFValue(14)},
                   ]}>
                   {'PLAYS'}
                 </Text>
@@ -289,7 +289,7 @@ const style = StyleSheet.create({
   },
   text: {
     letterSpacing: 2,
-    fontSize: 23,
+    fontSize: wp("6%"),
     color: '#686767',
     fontFamily: 'BebasNeue-Regular',
     // fontWeight: '400',
@@ -301,7 +301,7 @@ const style = StyleSheet.create({
     fontFamily: 'Khula-Regular',
   },
   Playtext: {
-    fontSize: RFValue(24, SCREEN_HEIGHT),
+    fontSize: RFValue(20, SCREEN_HEIGHT),
     fontWeight: 'bold',
     fontFamily: 'BebasNeue-Book',
     lineHeight: 30,
@@ -315,7 +315,7 @@ const style = StyleSheet.create({
     lineHeight: 16,
   },
   bigBubbleText: {
-    fontSize: RFValue(28, SCREEN_HEIGHT),
+    fontSize: RFValue(25, SCREEN_HEIGHT),
     fontWeight: 'bold',
     fontFamily: 'BebasNeue-Book',
     lineHeight: 30,
