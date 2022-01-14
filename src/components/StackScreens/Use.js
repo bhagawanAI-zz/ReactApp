@@ -169,6 +169,7 @@ const style = StyleSheet.create({
     flexDirection: "column",
   },
   TypeLeft__icons: {
+    flex : 1,
     flexDirection: "row",
   },
   TypeLeft__Text: { 

@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { feelTypesBody, feelTypesMind, feelTypesSpirit } from "./Constants";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function Feeltype({
   imageType,
@@ -10,7 +11,8 @@ export default function Feeltype({
   navigation,
   setFeelTypeArray,
 }) {
-  function onTypeHandler() {
+  const onTypeHandler = () => {
+    console.log("In ontype handler", imageType)
     if (imageType === "body") {
       setFeelTypeArray(feelTypesBody);
     } else if (imageType == "spirit") {
@@ -32,6 +34,7 @@ export default function Feeltype({
     spiritActive: require("../../../assets/images/use/SPIRIT_ON_ICON.png"),
     lock: require("../../../assets/images/use/lock.png"),
   };
+  console.log("In ontype handler", imageType)
   if (imageType == "lock") {
     return (
       <TouchableOpacity
@@ -41,19 +44,20 @@ export default function Feeltype({
         <Image style={style.image} source={images[imageType]}></Image>
       </TouchableOpacity>
     );
+  }else{
+    return (
+      <TouchableOpacity style={style.container}
+        // activeOpacity={0.7}
+        onPress={onTypeHandler}
+      >
+        <View style={style.imageContainer}>
+          <Image style={style.image} source={images[imageType]}
+             resizeMethod="resize"
+             resizeMode="stretch"></Image>
+        </View>
+      </TouchableOpacity>
+    );
   }
-  return (
-    <TouchableOpacity
-      activeOpacity={0.7}
-      onPress={() => {
-        onTypeHandler();
-      }}
-    >
-      <View style={style.container}>
-        <Image style={style.image} source={images[imageType]}></Image>
-      </View>
-    </TouchableOpacity>
-  );
 }
 const style = StyleSheet.create({
   container: {
@@ -62,11 +66,17 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 80 / 2,
+    width: wp("20%"),
+    height: wp("20%"),
+    borderRadius: wp("10%"),
+    // borderWidth : 1,
+    // borderColor : "black"
   },
-
+  imageContainer : {
+    // width: wp("10%"),
+    // height: wp("10%"),
+    // borderRadius: wp("5%"),
+  },
   textContainer: {
     flex: 1,
     paddingTop: 15,
