@@ -76,7 +76,7 @@ const Registration = ({navigation}) => {
           // dispatch(loginSuccess(response.data));
           setIsLoading(false);
           actions.resetForm();
-          Alert.alert('Registration Succesfull');
+          Alert.alert('You have Successfully registered, Please sign-in.');
           navigation.navigate('Login');
         })
         .catch(error => {
@@ -225,29 +225,6 @@ const Registration = ({navigation}) => {
                           returnKeyType="done"
                           blurOnSubmit={false}
                           onSubmitEditing={() => Keyboard.dismiss()}
-                        />
-                        <Text style={[styles.label, {marginTop: 20}]}>
-                          Re-Enter Password
-                        </Text>
-                        <TextInput
-                          id="reEnterPassword"
-                          label="Re Enter Password"
-                          keyboardType="default"
-                          placeholderTextColor="gray"
-                          secureTextEntry
-                          required
-                          minLength={5}
-                          autoCapitalize="none"
-                          errorText="Please enter a valid password"
-                          style={styles.input}
-                          // value={formState.password}
-                          // onChangeText={(text) => {
-                          //   setFormState({ ...formState, password: text });
-                          // }}
-                          placeholder="Enter Password"
-                          value={props.values.reEnterPassword}
-                          onChangeText={props.handleChange('reEnterPassword')}
-                          onBlur={props.handleBlur('reEnterPassword')}
                         />
                         <View style={styles.errorContainer}>
                           <Text style={styles.errorText}>
