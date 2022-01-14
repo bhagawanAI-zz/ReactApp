@@ -10,6 +10,7 @@ const MusicPlayerScreen = (props) => {
     const {navigation} = props;
     const {title} = navigation?.state?.params;
     const [value, setValue] = useState(0.1);
+    const [songState,setSongState] = useState('paused');
 
     useEffect(() => {
         TrackPlayer.setupPlayer();
@@ -25,12 +26,17 @@ const MusicPlayerScreen = (props) => {
 
     const handlePlayClick = async () => {
         await TrackPlayer.add([track]);
-        // const state = await TrackPlayer.getState();
+        const state = await TrackPlayer.getState();
         // if(state === State.Playing){
         //     console.log("The Player is playing")
         // }
-
-        TrackPlayer.play();
+        if(songState==="paused"){
+            TrackPlayer.play();
+            setSongState("playing")
+        }else if(songState==="playing"){
+            TrackPlayer.pause();
+            setSongState("paused")
+        }
     }
 
     return (
@@ -50,10 +56,10 @@ const MusicPlayerScreen = (props) => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Icon name="banckward" size={20} color="white" />
-                    <TouchableOpacity style={{marginLeft : wp("10%"), marginRight : wp("10%")}}
-                        onPress={handlePlayClick}>
-                        <Image style={{backgroundColor : "white", height : 50, width :50, borderRadius: 25}}
-                        source={require("../../../assets/images/play_button_dark_blue.png")} />
+                    <TouchableOpacity style={styles.musicIconContainer}
+                     onPress={handlePlayClick}>
+                        {songState==="paused" && <Icon name="caretright" size={28} color="white" />}
+                        {songState==="playing" && <Icon name="pause" size={28} color="white" />}
                     </TouchableOpacity>
                     <Icon name="forward" size={20} color="white" />
                 </View>
@@ -91,6 +97,17 @@ const styles = StyleSheet.create({
         alignItems : 'center',
         justifyContent : 'center',
         marginTop : hp("2%")
+    },
+    musicIconContainer : {
+        display : 'flex',
+        alignItems : "center",
+        justifyContent : 'center',
+        height : 60,
+        width : 60,
+        borderRadius : 30,
+        backgroundColor : '#3890e8',
+        marginLeft : wp("10%"),
+        marginRight : wp("10%")
     }
 })
 

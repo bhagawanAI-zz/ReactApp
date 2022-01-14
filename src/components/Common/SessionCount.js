@@ -38,11 +38,13 @@ const style = StyleSheet.create({
     color: "white",
     letterSpacing: 0.5,
     fontSize: normalize(FONT_HEADING),
+    textAlign : 'center'
   },
   count: {
     color: "white",
     paddingTop: 20,
     fontSize: normalize(FONT_BACK_LABEL),
+    textAlign : 'center'
   },
-  subHeading: { color: "white", fontSize: normalize(FONT_HEADING) },
+  subHeading: { color: "white", fontSize: normalize(FONT_HEADING),textAlign : 'center' },
 });

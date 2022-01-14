@@ -12,6 +12,7 @@ import { Avatar } from "react-native-paper";
 import { material } from "react-native-typography";
 import SessionCount from "../../Common/SessionCount";
 import { normalize } from "../../Common/DynamicFonts";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 15;
@@ -22,14 +23,15 @@ if (PixelRatio.get() <= 2) {
 
 const Profile = ({ navigation }) => {
   return (
-    // <SafeAreaView style={{ justifyContent:'center',alignItems:'center' }}>
-    //   <Text style={{ fontSize:30,fontWeight:'bold' }}>Profile Screen</Text>
-    //   <TouchableOpacity style={{ height:50,width:150,backgroundColor:'black',marginTop:'10%' }}
-    //                     onPress={()=>navigation.navigate("EditProfile")}>
-    //        <Text style={{ fontSize:18,color:'white',textAlign:'center',paddingTop:12 }}>Go to Edit Profile</Text>
-    //   </TouchableOpacity>
-    // </SafeAreaView>
-    <SafeAreaView style={style.container}>
+    <View style={style.container}>
+      <View style={style.heading}>
+         <TouchableOpacity onPress={() => navigation.goBack()}> 
+         <Image style={style.backIcon} source={require("../../../../assets/images/back.png")} />
+         </TouchableOpacity>
+        <Text style={[material.display1, style.headingText2, {marginLeft : wp("26%")}]}>
+          Profile
+        </Text>
+      </View>
       <View style={style.profile}>
         <View
           style={{
@@ -62,12 +64,12 @@ const Profile = ({ navigation }) => {
           <SessionCount
             text="SESSIONS THIS MONTH"
             count="4"
-            customeStyle={{ backgroundColor: "#717aa1", flex: 1 }}
+            customeStyle={{ backgroundColor: "#717aa1"}}
           />
           <SessionCount
             text="TOTAL SESSIONS"
             count="123"
-            customeStyle={{ flex: 1, backgroundColor: "#5869b7" }}
+            customeStyle={{  backgroundColor: "#5869b7" }}
           />
         </View>
         <View style={style.sessionStartContainer}>
@@ -75,13 +77,13 @@ const Profile = ({ navigation }) => {
             text="CONSECUTIVE DAYS"
             subheading="(CURRENT)"
             count="3"
-            customeStyle={{ flex: 1, backgroundColor: "#49ab9d" }}
+            customeStyle={{ backgroundColor: "#49ab9d" }}
           />
           <SessionCount
             text="CONSECUTIVE DAYS"
             subheading="(BEST)"
             count="18"
-            customeStyle={{ flex: 1, backgroundColor: "#80ddd3" }}
+            customeStyle={{ backgroundColor: "#80ddd3" }}
           />
         </View>
       </View>
@@ -99,12 +101,27 @@ const Profile = ({ navigation }) => {
           YOU COMPLETED <Text style={{ fontSize: 18 }}>FOCUS</Text> ON MARCH 30{" "}
         </Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const style = StyleSheet.create({
   container: { flex: 1, backgroundColor: "white" },
+  heading: {
+    flexDirection : "row",
+    height : hp("10%"),
+    alignItems : "center",
+    backgroundColor: "#b8b8bb",
+  },
+  headingText2: {
+    color: "white",
+    fontFamily : "BebasNeueBook",
+  },
+  backIcon : {
+    height : 30, 
+    width : 17,
+    marginLeft : wp("8%")
+  },
   profile: {
     flex: 1,
     flexDirection: "column",

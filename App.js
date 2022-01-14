@@ -301,21 +301,22 @@ const Stackscreens = createStackNavigator({
   EditProfile: {screen: EditProfile},
   PROFILE: {
     screen: Profile,
-    navigationOptions: ({navigation}) => ({
-      title: (
-        <Text style={[material.display1, styles.headerText]}>PROFILE</Text>
-      ),
-      headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            style={{width: 20, height: 20, marginLeft: 20}}
-            source={require('./assets/images/back.png')}
-          />
-        </TouchableOpacity>
-      ),
-      headerStyle: {backgroundColor: '#b8b8bb', height: 100},
-      headerTintColor: 'white',
-    }),
+    navigationOptions : {headerShown : false}
+    // navigationOptions: ({navigation}) => ({
+    //   title: (
+    //     <Text style={[material.display1, styles.headerText]}>PROFILE</Text>
+    //   ),
+    //   headerLeft: () => (
+    //     <TouchableOpacity onPress={() => navigation.goBack()}>
+    //       <Image
+    //         style={{width: 20, height: 20, marginLeft: 20}}
+    //         source={require('./assets/images/back.png')}
+    //       />
+    //     </TouchableOpacity>
+    //   ),
+    //   headerStyle: {backgroundColor: '#b8b8bb', height: 100, marginLeft :  },
+    //   headerTintColor: 'white',
+    // }),
   },
   About: {screen: About},
   HELP: {

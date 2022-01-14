@@ -190,7 +190,7 @@ export default function Musicgrid({
                 ></Image>
                 <Image
                   style={style.IconImageParaller}
-                  source={icons["body"][imagePath]}
+                  source={icons[iconName][imagePath]}
                 ></Image>
               </View>
             </View>
@@ -246,18 +246,18 @@ const style = StyleSheet.create({
     letterSpacing: 1,
   },
   backgroundImage: {
-    flex: 2,
+    // flex: 2,
     resizeMode: "cover", // or 'stretch'
     height: 80,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: "white",
-    borderBottomWidth: 0,
+    // borderWidth: 1,
+    // borderRadius: 2,
+    // borderColor: "white",
+    // borderBottomWidth: 0,
     shadowColor: "#D3D3D3",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
-    shadowRadius: 2,
-    elevation: 1,
+    // shadowRadius: 1,
+    elevation: 0.7,
   },
   IconImage: {
     width: 30,
