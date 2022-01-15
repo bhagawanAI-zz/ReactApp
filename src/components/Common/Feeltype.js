@@ -51,9 +51,7 @@ export default function Feeltype({
         onPress={onTypeHandler}
       >
         <View style={style.imageContainer}>
-          <Image style={style.image} source={images[imageType]}
-             resizeMethod="resize"
-             resizeMode="stretch"></Image>
+          <Image style={style.image} source={images[imageType]}></Image>
         </View>
       </TouchableOpacity>
     );
@@ -64,17 +62,18 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
+    marginRight : 10
   },
   image: {
-    width: wp("20%"),
-    height: wp("20%"),
-    borderRadius: wp("10%"),
+    width: wp("17%"),
+    height: wp("17%"),
+    borderRadius: wp("8%"),
     // borderWidth : 1,
     // borderColor : "black"
   },
   imageContainer : {
-    // width: wp("10%"),
-    // height: wp("10%"),
+    width: wp("18%"),
+    height: wp("18%"),
     // borderRadius: wp("5%"),
   },
   textContainer: {
