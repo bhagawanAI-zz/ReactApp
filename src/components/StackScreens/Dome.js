@@ -106,6 +106,7 @@ const FindDome = ({navigation}) => {
           textInputProps={{
             placeholder: 'Enter location',
             underlineColorAndroid: 'transparent',
+            placeholderTextColor: 'gray',
             style: {
               padding: 12,
               borderWidth: 1,
