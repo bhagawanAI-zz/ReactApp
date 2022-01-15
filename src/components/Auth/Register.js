@@ -148,7 +148,7 @@ const Registration = ({navigation}) => {
                           //   setFormState({ ...formState, username: text });
                           // }}
                           onChangeText={props.handleChange('username')}
-                          placeholder="Enter username"
+                          placeholder="Enter Username"
                           placeholderTextColor="gray"
                           onBlur={props.handleBlur('username')}
                         />
@@ -165,7 +165,7 @@ const Registration = ({navigation}) => {
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, email: text });
                           // }}
-                          placeholder="Enter email"
+                          placeholder="Enter Email"
                           placeholderTextColor="gray"
                           value={props.values.email}
                           onChangeText={props.handleChange('email')}
@@ -193,7 +193,7 @@ const Registration = ({navigation}) => {
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
                           // }}
-                          placeholder="Enter password"
+                          placeholder="Enter Password"
                           value={props.values.password}
                           onChangeText={props.handleChange('password')}
                           onBlur={props.handleBlur('password')}
@@ -218,7 +218,7 @@ const Registration = ({navigation}) => {
                           // onChangeText={(text) => {
                           //   setFormState({ ...formState, password: text });
                           // }}
-                          placeholder="Enter Password"
+                          placeholder="Re Enter Password"
                           value={props.values.reEnterPassword}
                           onChangeText={props.handleChange('reEnterPassword')}
                           onBlur={props.handleBlur('reEnterPassword')}

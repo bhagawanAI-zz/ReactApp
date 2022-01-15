@@ -111,6 +111,7 @@ const FindDome = ({navigation}) => {
               borderWidth: 1,
               borderColor: '#ccc',
               borderRadius: 5,
+              color: 'gray',
             },
             onTextChange: text => console.log(text),
           }}

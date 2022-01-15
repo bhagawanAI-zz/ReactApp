@@ -44,7 +44,7 @@ const Home = ({navigation}) => {
           onPress={() => navigation.navigate('FIND')}>
           <View style={styles.circle}>
             <Image
-              style={[styles.images]}
+              style={[styles.domeImage]}
               source={require('../../../assets/images/home/DOME.png')}></Image>
             <View style={{alignItems: 'center', marginTop: 5}}>
               <Text style={styles.durationText}>MARKET</Text>
@@ -74,6 +74,12 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     overflow: 'visible',
+  },
+  domeImage: {
+    width: 70,
+    height: 70,
+    resizeMode: 'contain',
+    right: 7,
   },
   center: {
     flex: 1,
