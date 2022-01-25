@@ -146,7 +146,7 @@ const FindDome = ({navigation}) => {
               }}
               tracksViewChanges={false}
               icon={isAndroid ? markerImage : null}
-              image={markerImage}
+              // image={markerImage}
               onPress={() => setLocation(marker)}
               description={'DOME'}>
               {isAndroid ? null : (
