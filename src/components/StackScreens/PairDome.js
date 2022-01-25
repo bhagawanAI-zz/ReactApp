@@ -38,7 +38,7 @@ export default function PairDome({ navigation }) {
             backgroundColor: "#85D0DA",
             marginTop: "0%",
           }}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate("ConnectBluetooth")}
         >
           <Text
             style={{
