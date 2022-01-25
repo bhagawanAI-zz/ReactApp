@@ -136,6 +136,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -214,6 +215,7 @@ dependencies {
    }
    implementation 'com.google.android.gms:play-services-base:17.2.1'
    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+   implementation 'androidx.multidex:multidex:2.0.1'
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

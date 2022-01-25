@@ -55,10 +55,11 @@ import StartupScreen from './src/components/StartupScreen';
 import Book from './src/components/StackScreens/Book';
 import DomePerformance from './src/components/StackScreens/DomePerformance';
 import Unlock from './src/components/StackScreens/Unlock';
-import {GetFontSize} from './src/Utills/commonUtills';
+// import {GetFontSize} from './src/Utills/commonUtills';
 import DeviceInfo from 'react-native-device-info';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import {SafeAreaView} from 'react-navigation';
+import ConnectBluetooth from './src/components/StackScreens/ConnectBlutooth';
 // const HomeScreen = createStackNavigator({
 //   Home :  {
 //     screen : Home,
@@ -392,6 +393,10 @@ const Stackscreens = createStackNavigator({
   PAIRDOME: {
     screen: PairDome,
     navigationOptions: {headerShown: false},
+  },
+  ConnectBluetooth : {
+    screen : ConnectBluetooth,
+    navigationOptions : {headerShown : false},
   },
   Pay: {screen: Pay},
   SeassionStart: {screen: SeassionStart},
