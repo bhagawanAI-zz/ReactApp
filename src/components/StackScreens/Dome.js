@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   Text,
@@ -18,6 +18,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Geolocation from '@react-native-community/geolocation';
+
 import SearchableDropdown from '../Common/SearchableDropdown';
 import locationList from '../../../assets/locationList.json';
 
@@ -54,6 +56,16 @@ const FindDome = ({navigation}) => {
   // const [website,setWebsite] = useState("www.modernsanctury.com");
   // const [phoneNumber,setPhoneNumber] = useState("(212) 675-9355");
   const [location, setLocation] = useState(initialLocation);
+
+  useEffect(() => {
+    Geolocation.getCurrentPosition(pos => {
+      const crd = pos.coords;
+      setLocation(crd);
+      console.log('currentLocation', crd);
+    }).catch(err => {
+      console.log(err);
+    });
+  }, []);
   return (
     // <SafeAreaView style={{ justifyContent:'center',alignItems:'center' ,flex:1}}>
     //   <Text style={{ fontSize:30,fontWeight:'bold' }}>Find Dome Screen</Text>
@@ -126,8 +138,8 @@ const FindDome = ({navigation}) => {
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: location.latitude || 40.744516,
-            longitude: location.longitude || -73.98932,
+            latitude: location.latitude || 37.785834,
+            longitude: location.longitude || -122.406417,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
@@ -162,25 +174,24 @@ const FindDome = ({navigation}) => {
 
       <View style={styles.addressContainer}>
         <Text style={[material.headlineObject, styles.addressHeadingText]}>
-          {location.businessName}
+          {location?.businessName}
         </Text>
         <View style={[material.subheading, styles.addressText]}>
           <View style={{marginTop: 5}}>
             <Text style={styles.addressInfoText}>
-              {location.businessAddress.split(',')[0]}
+              {location?.businessAddress?.split(',')[0]}
             </Text>
             <Text style={styles.addressInfoText}>
-              {' '}
-              {location.businessAddress.substring(
-                location.businessAddress.indexOf(',') + 1,
-              )}{' '}
+              {location?.businessAddress?.substring(
+                location?.businessAddress?.indexOf(',') + 1,
+              )}
             </Text>
             <Text
               style={[styles.addressInfoText, {fontFamily: 'Khula-Regular'}]}>
-              {location.website}
+              {location?.website}
             </Text>
             <Text style={[styles.addressInfoText, {textAlign: 'center'}]}>
-              {location.phoneNumber}
+              {location?.phoneNumber}
             </Text>
           </View>
         </View>
