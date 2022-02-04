@@ -29,36 +29,36 @@ if (PixelRatio.get() <= 2) {
 }
 
 const MindGrids = [
-  { text: "clarity", imagePath: "relaxed", colorCode: "#82e6f2" },
-  { text: "create", imagePath: "creative", colorCode: "#cc47ae" },
-  { text: "focus", imagePath: "focused", colorCode: "#1283ba" },
-  { text: "succeed", imagePath: "focused", colorCode: "#1283ba" },
-  { text: "relaxed", imagePath: "relaxed", colorCode: "#82e6f2" },
-  { text: "motivate", imagePath: "focused", colorCode: "#1283ba" },
-  { text: "perform", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "confidence", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "Clarity", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "Create", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "Focus", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "Succeed", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "Relaxed", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "Motivate", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "Perform", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "Confidence", imagePath: "focused", colorCode: "#1283ba" },
 ];
 
 const BodyGrids = [
-  { text: "perform", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "recharge", imagePath: "relaxed", colorCode: "#82e6f2" },
-  { text: "relax", imagePath: "relaxed", colorCode: "#82e6f2" },
-  { text: "snooze", imagePath: "relaxed", colorCode: "#82e6f2" },
-  { text: "heal", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "overcome", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "fit", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "confidence", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "Perform", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "Recharge", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "Relax", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "Snooze", imagePath: "relaxed", colorCode: "#82e6f2" },
+  { text: "Heal", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "Overcome", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "Fit", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "Confidence", imagePath: "focused", colorCode: "#1283ba" },
 ];
 
 const SpiritGrids = [
-  { text: "ascend", imagePath: "creative", colorCode: "#cc47ae" },
-  { text: "aspire", imagePath: "focused", colorCode: "#1283ba" },
-  { text: "bliss", imagePath: "creative", colorCode: "#cc47ae" },
-  { text: "manifest", imagePath: "creative", colorCode: "#cc47ae" },
-  { text: "love", imagePath: "creative", colorCode: "#cc47ae" },
-  { text: "reclaim", imagePath: "creative", colorCode: "#cc47ae" },
-  { text: "prosper", imagePath: "recovered", colorCode: "#70a65d" },
-  { text: "overcome", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "Ascend", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "Aspire", imagePath: "focused", colorCode: "#1283ba" },
+  { text: "Bliss", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "Manifest", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "Love", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "Reclaim", imagePath: "creative", colorCode: "#cc47ae" },
+  { text: "Prosper", imagePath: "recovered", colorCode: "#70a65d" },
+  { text: "Overcome", imagePath: "recovered", colorCode: "#70a65d" },
 ];
 
 const TRACKS = {
