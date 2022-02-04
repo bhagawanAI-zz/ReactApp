@@ -146,6 +146,7 @@ export default function Musicgrid({
         navigation.navigate("Clarity", {
           navigation: navigation,
           title: innerText,
+          musicName : text
         })
       }
     >

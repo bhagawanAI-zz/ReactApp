@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { material } from "react-native-typography";
+import { getMusicDescription } from "../../Utills/musicDescription";
 
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 20;
@@ -20,7 +21,8 @@ if (PixelRatio.get() <= 2) {
 }
 
 export default function Clarity({ navigation }) {
-  const title = navigation.state.params.title || "CLRITY";
+  const title = navigation.state.params.title || "CLARITY";
+  const musicName = navigation.state.params.musicName || "Clarity";
   return (
     <View style={style.container}>
       <View style={style.heading}>
@@ -48,7 +50,7 @@ export default function Clarity({ navigation }) {
       </View>
       <View style={[style.center,{marginTop : hp("2%")}]}>
         <View style={{ flexDirection: "row", color: "blue", alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => navigation.navigate("MusicPlayerScreen",{title: title})}>
+          <TouchableOpacity onPress={() => navigation.navigate("MusicPlayerScreen",{title: title, musicName : musicName})}>
             <Image style={{height: 40, width : 40}}
                source={require("../../../assets/images/play_button_light_blue.png")}></Image>
           </TouchableOpacity>
@@ -59,12 +61,13 @@ export default function Clarity({ navigation }) {
       </View>
       <ScrollView style={style.paragraph}>
         <Text style={style.paratext}>
-          This guided meditation uses Theta and spoken meditation to encourage
+          {getMusicDescription(musicName)}
+          {/* This guided meditation uses Theta and spoken meditation to encourage
           you to look into your heart to discover the purest, deepest intentions
           for your life. Theta waves erase thoughts of lack or limitation.
           This guided meditation uses Theta and spoken meditation to encourage
           you to look into your heart to discover the purest, deepest intentions
-          for your life. Theta waves erase thoughts of lack or limitation.
+          for your life. Theta waves erase thoughts of lack or limitation. */}
         </Text>
       </ScrollView>
     </View>
