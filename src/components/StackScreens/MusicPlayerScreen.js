@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Image } from "react-native";
+import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Image, Alert } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Icon from "react-native-vector-icons/AntDesign"
 import Slider from "react-native-slider";
@@ -12,6 +12,7 @@ import TrackPlayer, {
     useTrackPlayerEvents,
     STATE_PLAYING,
     STATE_PAUSED,
+    useTrackPlayerProgress
 } from "react-native-track-player";
 
 const { PLAYBACK_STATE } = TrackPlayerEvents;
@@ -29,9 +30,17 @@ const MusicPlayerScreen = (props) => {
         title: "undefined",
         artist: "undefined",
         url: "",
-        duration: "05:30",
+        duration: 60,
         artwork: require("../../../assets/somadome.png")
     })
+
+    const { position} = useTrackPlayerProgress();
+
+    // useEffect(() => {
+    //     if(position){
+    //         setValue(position)
+    //     }
+    // },[position])
 
     useTrackPlayerEvents([PLAYBACK_STATE], (event) => {
         if (event.type === PLAYBACK_STATE) {
@@ -84,8 +93,8 @@ const MusicPlayerScreen = (props) => {
                         ...prevState,
                         title : musicName,
                         artist : musicName,
-                        url : resData.data,
-                        duration : "180"
+                        url : resData.data.url,
+                        duration : resData.data.play_time_in_milliseconds ? parseInt(resData.data.play_time_in_milliseconds/1000) : 60
                     }))
                 }
             }catch(err){
@@ -98,16 +107,34 @@ const MusicPlayerScreen = (props) => {
     const handlePlayClick = async () => {
         await TrackPlayer.add([track]);
         const state = await TrackPlayer.getState();
+        if(track.url!== "" && isReady){
+            if (!isplaying) {
+                TrackPlayer.play();
+                setPlaying(true)
+            } else if (isplaying) {
+                TrackPlayer.pause();
+                setPlaying(false)
+            }
+        }else{
+            Alert.alert("Sorry, the selected track is not available")
+        }
         // if(state === State.Playing){
         //     console.log("The Player is playing")
         // }
-        if (!isplaying) {
-            TrackPlayer.play();
-            setPlaying(true)
-        } else if (isplaying) {
-            TrackPlayer.pause();
-            setPlaying(false)
-        }
+     
+    }
+
+    const msToTime = (duration) => {
+        var milliseconds = parseInt((duration % 1000) / 100),
+          seconds = Math.floor((duration / 1000) % 60),
+          minutes = Math.floor((duration / (1000 * 60)) % 60),
+          hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+      
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+        return minutes + ":" + seconds;
     }
 
     return (
@@ -121,9 +148,17 @@ const MusicPlayerScreen = (props) => {
                 </TouchableOpacity>
                 <Text style={styles.musicText}>{title ? title : "CLARITY"}</Text>
                 <View style={styles.slider}>
-                    <Slider
-                        value={value}
-                        onValueChange={(value) => setValue(value)} />
+                    <View style={styles.sliderTimeContainer}>
+                        <Text style={styles.timeStyles}>{msToTime(position*1000)}</Text>
+                        <Text style={styles.timeStyles}>{msToTime(track.duration*1000)}</Text>
+                    </View>
+                    <Slider minimumValue={0}
+                        maximumValue={track.duration}
+                        minimumTrackTintColor="#4da6ff"
+                        maximumTrackTintColor="#e1e1ea"
+                        value={position}
+                        onValueChange={(value) => setValue(value)} 
+                        disabled={true}  />
                 </View>
                 <View style={styles.buttonContainer}>
                     <Icon name="banckward" size={20} color="white" />
@@ -179,6 +214,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#3890e8',
         marginLeft: wp("10%"),
         marginRight: wp("10%")
+    },
+    timeStyles : {
+        color: "white",
+        fontSize : 12
+    },
+    sliderTimeContainer : {
+        display : "flex",
+        flexDirection : "row",
+        justifyContent : "space-between",
+        alignItems : "center",
+        marginLeft : 10,
+        marginRight: 10
     }
 })
 
