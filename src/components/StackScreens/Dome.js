@@ -137,6 +137,8 @@ const FindDome = ({navigation}) => {
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
+          showsUserLocation={true}
+          followsUserLocation={true}
           initialRegion={{
             latitude: location.latitude || 37.785834,
             longitude: location.longitude || -122.406417,
@@ -208,7 +210,9 @@ const FindDome = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}
-          onPress={() => Linking.openURL(location.website)}>
+          onPress={() =>
+            Linking.openURL(location.website || 'https://somadome.com/')
+          }>
           <Text
             style={{
               fontSize: 17,
