@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
 
 import login from './login';
+import locationList from './locationlist';
 import {LOGOUT} from '../constants/ActionTypes.js';
 
 const appReducer = combineReducers({
   login,
+  locationList,
 });
 
 const rootReducer = (state, action) => {
