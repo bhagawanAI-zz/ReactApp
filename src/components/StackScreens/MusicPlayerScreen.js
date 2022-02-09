@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Image, Alert } from "react-native";
+import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Image, Alert ,ActivityIndicator} from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Icon from "react-native-vector-icons/AntDesign"
 import Slider from "react-native-slider";
@@ -12,10 +12,15 @@ import TrackPlayer, {
     useTrackPlayerEvents,
     STATE_PLAYING,
     STATE_PAUSED,
-    useTrackPlayerProgress
+    useTrackPlayerProgress,
 } from "react-native-track-player";
 
-const { PLAYBACK_STATE } = TrackPlayerEvents;
+const events = [
+    TrackPlayerEvents.PLAYBACK_STATE,
+    TrackPlayerEvents.PLAYBACK_ERROR,
+    TrackPlayerEvents.PLAYBACK_QUEUE_ENDED,
+    TrackPlayerEvents.PLAYBACK_TRACK_CHANGED
+]
 
 const MusicPlayerScreen = (props) => {
     const { navigation } = props;
@@ -23,18 +28,31 @@ const MusicPlayerScreen = (props) => {
 
     const [isReady, setReady] = useState(false);
     const [value, setValue] = useState(0.1);
-    const [isplaying, setPlaying] = useState(false)
+    const [isplaying, setPlaying] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false)
+    const [showIntro, setShowIntro] = useState(true);
 
-    const [track, setTrack] = useState({
-        id: "1",
-        title: "undefined",
-        artist: "undefined",
-        url: "",
-        duration: 60,
-        artwork: require("../../../assets/somadome.png")
-    })
+    const [track, setTrack] = useState([
+        {
+            id: 1,
+            title: "Introductino",
+            artist: "Introduction",
+            url: "",
+            duration: 60,
+            artwork: require("../../../assets/somadome.png")
+        },
+        {
+            id: 2,
+            title: "undefined",
+            artist: "undefined",
+            url: "",
+            duration: 60,
+            artwork: require("../../../assets/somadome.png")
+        }
+    ])
 
-    const { position} = useTrackPlayerProgress();
+    const { position,duration } = useTrackPlayerProgress();
 
     // useEffect(() => {
     //     if(position){
@@ -42,8 +60,8 @@ const MusicPlayerScreen = (props) => {
     //     }
     // },[position])
 
-    useTrackPlayerEvents([PLAYBACK_STATE], (event) => {
-        if (event.type === PLAYBACK_STATE) {
+    useTrackPlayerEvents(events, (event) => {
+        if (event.type === TrackPlayerEvents.PLAYBACK_STATE) {
             if (event.state === STATE_PLAYING) {
                 setPlaying(true)
             } else if (event.state === STATE_PAUSED) {
@@ -84,52 +102,79 @@ const MusicPlayerScreen = (props) => {
     }, [])
 
     useEffect(() => {
-        const fetchMusicUrl = async () => {
-            try{
-                const resData = await axios.get(`https://somadome.herokuapp.com/music/?musictype=${musicName}`);
+        const fetchTracks = async () => {
+            setLoading(true)
+            var tempTracks = track;
+            try {
+                const resData = await axios.get(`https://somadome.herokuapp.com/music/?musictype=_Intro`);
                 console.log("In music screen", resData)
-                if(resData){
-                    setTrack((prevState) => ({
-                        ...prevState,
-                        title : musicName,
-                        artist : musicName,
-                        url : resData.data.url,
-                        duration : resData.data.play_time_in_milliseconds ? parseInt(resData.data.play_time_in_milliseconds/1000) : 60
-                    }))
+                if (resData) {
+                    tempTracks[0] = {
+                        id : 1,
+                        title: "Introduction",
+                        artist: "Introduction",
+                        url: resData.data.url,
+                        duration: resData.data.play_time_in_milliseconds ? parseInt(resData.data.play_time_in_milliseconds / 1000) : 60
+                    }
                 }
-            }catch(err){
+            } catch (err) {
+                Alert.alert("The track is not available");
+                setError(true)
                 console.log("error", err)
             }
+            try {
+                const resData = await axios.get(`https://somadome.herokuapp.com/music/?musictype=${musicName}`);
+                console.log("In music screen", resData)
+                if (resData) {
+                    tempTracks[1] = {
+                        id : 2,
+                        title: musicName,
+                        artist: musicName,
+                        url: resData.data.url,
+                        duration: resData.data.play_time_in_milliseconds ? parseInt(resData.data.play_time_in_milliseconds / 1000) : 60
+                    }
+                }
+            } catch (err) {
+                Alert.alert("The track is not available");
+                setError(true);
+                console.log("error", err)
+            }
+            setTrack(tempTracks);
+            setLoading(false);
         }
-        fetchMusicUrl();
-    },[musicName,isReady])
+       fetchTracks();
+    }, [musicName, isReady])
 
     const handlePlayClick = async () => {
-        await TrackPlayer.add([track]);
-        const state = await TrackPlayer.getState();
-        if(track.url!== "" && isReady){
-            if (!isplaying) {
-                TrackPlayer.play();
-                setPlaying(true)
-            } else if (isplaying) {
-                TrackPlayer.pause();
-                setPlaying(false)
-            }
+        if(error){
+            Alert.alert("The song cannot be played. Please select another track.")
         }else{
-            Alert.alert("Sorry, the selected track is not available")
+            await TrackPlayer.add(track);
+            const state = await TrackPlayer.getState();
+            if (isReady) {
+                if (!isplaying) {
+                    TrackPlayer.play();
+                    setPlaying(true)
+                } else if (isplaying) {
+                    TrackPlayer.pause();
+                    setPlaying(false)
+                }
+            } else {
+                Alert.alert("Sorry, the selected track is not available")
+            }   
         }
         // if(state === State.Playing){
         //     console.log("The Player is playing")
         // }
-     
+
     }
 
     const msToTime = (duration) => {
         var milliseconds = parseInt((duration % 1000) / 100),
-          seconds = Math.floor((duration / 1000) % 60),
-          minutes = Math.floor((duration / (1000 * 60)) % 60),
-          hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-      
+            seconds = Math.floor((duration / 1000) % 60),
+            minutes = Math.floor((duration / (1000 * 60)) % 60),
+            hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
         hours = (hours < 10) ? "0" + hours : hours;
         minutes = (minutes < 10) ? "0" + minutes : minutes;
         seconds = (seconds < 10) ? "0" + seconds : seconds;
@@ -137,11 +182,23 @@ const MusicPlayerScreen = (props) => {
         return minutes + ":" + seconds;
     }
 
+    const handleSkipClick = async () => {
+        try {
+            await TrackPlayer.skipToNext();
+        }catch(err){
+            Alert.alert("Error while skipping to next track")
+        }
+    }
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require("../../../assets/wave.jpg")}
                 resizeMode="cover"
                 style={{ height: hp("100%"), width: wp("100%") }}>
+                {loading && <View style={styles.spinner} pointerEvents={'none'}>
+                    <ActivityIndicator />
+                </View>
+                }
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image style={styles.backIcon}
                         source={require("../../../assets/images/back.png")} />
@@ -149,16 +206,16 @@ const MusicPlayerScreen = (props) => {
                 <Text style={styles.musicText}>{title ? title : "CLARITY"}</Text>
                 <View style={styles.slider}>
                     <View style={styles.sliderTimeContainer}>
-                        <Text style={styles.timeStyles}>{msToTime(position*1000)}</Text>
-                        <Text style={styles.timeStyles}>{msToTime(track.duration*1000)}</Text>
+                        <Text style={styles.timeStyles}>{msToTime(position * 1000)}</Text>
+                        <Text style={styles.timeStyles}>{msToTime(duration * 1000)}</Text>
                     </View>
                     <Slider minimumValue={0}
-                        maximumValue={track.duration}
+                        maximumValue={duration}
                         minimumTrackTintColor="#4da6ff"
                         maximumTrackTintColor="#e1e1ea"
                         value={position}
-                        onValueChange={(value) => setValue(value)} 
-                        disabled={true}  />
+                        onValueChange={(value) => setValue(value)}
+                        disabled={true} />
                 </View>
                 <View style={styles.buttonContainer}>
                     <Icon name="banckward" size={20} color="white" />
@@ -168,6 +225,10 @@ const MusicPlayerScreen = (props) => {
                         {isplaying && <Icon name="pause" size={28} color="white" />}
                     </TouchableOpacity>
                     <Icon name="forward" size={20} color="white" />
+                    {duration===58 && <TouchableOpacity style={styles.skipContainer}
+                     onPress={handleSkipClick}>
+                        <Text style={styles.skip}>Skip Intro</Text>
+                    </TouchableOpacity>}
                 </View>
             </ImageBackground>
         </View>
@@ -202,7 +263,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: hp("2%")
+        marginTop: hp("2%"),
+        position : "relative"
     },
     musicIconContainer: {
         display: 'flex',
@@ -215,17 +277,42 @@ const styles = StyleSheet.create({
         marginLeft: wp("10%"),
         marginRight: wp("10%")
     },
-    timeStyles : {
+    timeStyles: {
         color: "white",
-        fontSize : 12
+        fontSize: 12
     },
-    sliderTimeContainer : {
-        display : "flex",
-        flexDirection : "row",
-        justifyContent : "space-between",
-        alignItems : "center",
-        marginLeft : 10,
+    sliderTimeContainer: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginLeft: 10,
         marginRight: 10
+    },
+    spinner: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        // backgroundColor: '#f3f3f3'
+    },
+    skipContainer : {
+        height : 30,
+        width : 80,
+        borderWidth : 1,
+        borderColor : "gray",
+        borderRadius : 10,
+        position : "absolute",
+        right : wp("2%"),
+        justifyContent  : 'center'
+    },
+    skip : {
+        fontFamily : "Khula-Regular",
+        fontSize : 14,
+        color : "white",
+        textAlign  : 'center'
     }
 })
 
