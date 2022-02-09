@@ -19,9 +19,16 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Geolocation from '@react-native-community/geolocation';
+import {useDispatch} from 'react-redux';
 
 import SearchableDropdown from '../Common/SearchableDropdown';
-import locationList from '../../../assets/locationList.json';
+// import locationList from '../../../assets/locationList.json';
+import {
+  locationListFailure,
+  locationListRequest,
+  locationListServiceApi,
+  locationListSuccess,
+} from '../../services/locationListService';
 
 var FONT_BACK_LABEL = 20;
 var FONT_HEADING = 25;
@@ -56,16 +63,39 @@ const FindDome = ({navigation}) => {
   // const [website,setWebsite] = useState("www.modernsanctury.com");
   // const [phoneNumber,setPhoneNumber] = useState("(212) 675-9355");
   const [location, setLocation] = useState(initialLocation);
+  const [locationList, setLocationList] = useState('');
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(locationListRequest());
+    getLocationValues();
+  }, []);
 
   useEffect(() => {
     Geolocation.getCurrentPosition(pos => {
       const crd = pos.coords;
       setLocation(crd);
-      console.log('currentLocation', crd);
+      // console.log('currentLocation', crd);
     }).catch(err => {
       console.log(err);
     });
   }, []);
+
+  const getLocationValues = async () => {
+    await locationListServiceApi()
+      .then(response => {
+        // console.log('response-->', response.data);
+        // await AsyncStorage.setItem('key', value)
+        dispatch(locationListSuccess(response.data));
+        setLocationList(response.data);
+      })
+      .catch(error => {
+        console.log('Error', error);
+        // Alert.alert('Error while logging in');
+        dispatch(locationListFailure(error.response.data));
+      });
+  };
   return (
     // <SafeAreaView style={{ justifyContent:'center',alignItems:'center' ,flex:1}}>
     //   <Text style={{ fontSize:30,fontWeight:'bold' }}>Find Dome Screen</Text>
@@ -137,6 +167,8 @@ const FindDome = ({navigation}) => {
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
+          showsUserLocation={true}
+          // followsUserLocation={true}
           initialRegion={{
             latitude: location.latitude || 37.785834,
             longitude: location.longitude || -122.406417,
@@ -149,26 +181,27 @@ const FindDome = ({navigation}) => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}>
-          {locationList.map((marker, index) => (
-            <Marker
-              key={index}
-              coordinate={{
-                latitude: marker.latitude || 40.744516,
-                longitude: marker.longitude || -73.98932,
-              }}
-              tracksViewChanges={false}
-              icon={isAndroid ? markerImage : null}
-              // image={markerImage}
-              onPress={() => setLocation(marker)}
-              description={'DOME'}>
-              {isAndroid ? null : (
-                <Image
-                  source={markerImage}
-                  style={{height: 35, width: 35, overflow: 'visible'}}
-                />
-              )}
-            </Marker>
-          ))}
+          {Array.isArray(locationList) &&
+            locationList?.map((marker, index) => (
+              <Marker
+                key={index}
+                coordinate={{
+                  latitude: marker.latitude || 40.744516,
+                  longitude: marker.longitude || -73.98932,
+                }}
+                tracksViewChanges={false}
+                icon={isAndroid ? markerImage : null}
+                // image={markerImage}
+                onPress={() => setLocation(marker)}
+                description={'DOME'}>
+                {isAndroid ? null : (
+                  <Image
+                    source={markerImage}
+                    style={{height: 35, width: 35, overflow: 'visible'}}
+                  />
+                )}
+              </Marker>
+            ))}
         </MapView>
       </View>
 
@@ -208,7 +241,9 @@ const FindDome = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}
-          onPress={() => Linking.openURL(location.website)}>
+          onPress={() =>
+            Linking.openURL(location.website || 'https://somadome.com/')
+          }>
           <Text
             style={{
               fontSize: 17,
